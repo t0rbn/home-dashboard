@@ -1,0 +1,10 @@
+[Unit]
+Description=home dashboard
+
+[Service]
+WorkingDirectory=/home/pi/home-dashboard/local
+ExecStart=/usr/bin/node /home/pi/home-dashboard/local/src/Server.js
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target

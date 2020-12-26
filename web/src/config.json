@@ -1,0 +1,9 @@
+{
+  "localApiBaseUrl": "http://192.168.0.103:8001",
+  "lights": {
+    "apiEndpoint": "/lights"
+  },
+  "climate": {
+    "apiEndpoint": "/climate"
+  }
+}

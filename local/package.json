@@ -1,0 +1,19 @@
+{
+  "name": "home-dashboard-local",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/Server.js",
+  "scripts": {
+    "start": "node src/Server.js",
+    "deploy": "ssh pi@192.168.0.103 \"cd home-dashboard && git pull origin master && sudo systemctl restart home-dashboard-local.service\""
+  },
+  "author": "t0rbn",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "latest",
+    "cors": "latest",
+    "express": "latest",
+    "ikea-tradfri": "latest",
+    "node-dht-sensor": "latest"
+  }
+}

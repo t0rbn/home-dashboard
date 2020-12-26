@@ -1,0 +1,25 @@
+{
+  "name": "Home Dashboard",
+  "short_name": "Home Dashboard",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color" : "#000000",
+  "theme_color": "#000000",
+  "description": "Dashboardify my home.",
+   "icons": [{
+     "src": "icons/icon.svg",
+     "type": "image/svg"
+    },{
+      "src": "icons/icon_64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    }, {
+      "src": "icons/icon_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }],
+  "related_applications": [{
+    "platform": "Web",
+    "url": "https://github.com/t0rbn/home-dashboard"
+  }]
+}

@@ -1,0 +1,43 @@
+{
+  "name": "home-dashboard-frontend",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "deploy": "npm run build && scp -r dist/* pi@192.168.0.103:~/home-dashboard-nginx"
+  },
+  "dependencies": {
+    "core-js": "latest",
+    "vue": "latest"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "latest",
+    "@vue/cli-plugin-eslint": "latest",
+    "@vue/cli-service": "latest",
+    "babel-eslint": "latest",
+    "eslint": "<7",
+    "eslint-plugin-vue": "latest",
+    "vue-template-compiler": "latest"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

@@ -1,0 +1,33 @@
+html {
+    height: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--color-background);
+    box-sizing: border-box;
+    color: var(--color-highlight);
+    font-family: os, sans-serif;
+    font-size: var(--size-medium);
+    height: 100%;
+    line-height: var(--size-medium);
+    margin: 0;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: var(--size-big);
+    line-height: var(--size-big);
+    font-weight: normal;
+    margin: 0 0 var(--size-medium);
+}
+
+strong {
+    font-size: var(--size-big);
+    line-height: var(--size-big);
+    font-weight: normal;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
