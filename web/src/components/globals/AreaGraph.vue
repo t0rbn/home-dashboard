@@ -61,7 +61,7 @@ export default {
 
 .value-bar {
   flex-grow: 1;
-  background-image: linear-gradient(to bottom, hsla(0, 0%, 0%, 0.5), hsla(0, 0%, 0%, 0.25) var(--size-big));
+  background-color: hsla(0, 0%, 0%, 0.33);
   transform-origin: bottom center;
 }
 </style>
