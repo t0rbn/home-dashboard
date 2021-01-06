@@ -6,7 +6,7 @@ const Climate = require('./Climate')
 
 const config = require('./config.json')
 const Lights = require('./Lights')
-const TurnOff = require('./TurnOff')
+const TurnOff = require('./PowerOff')
 
 const app = express()
 app.use(bodyParser.text())

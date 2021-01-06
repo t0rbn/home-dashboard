@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" @click="$emit('click')">
     <strong><i :class="['fas', icon]"></i>{{ title }}</strong>
     <slot></slot>
   </div>

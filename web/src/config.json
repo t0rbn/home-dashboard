@@ -5,5 +5,8 @@
   },
   "climate": {
     "apiEndpoint": "/climate"
+  },
+  "powerOff": {
+    "apiEndpoint": "/powerOff"
   }
 }
