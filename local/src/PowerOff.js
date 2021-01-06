@@ -3,8 +3,15 @@ const config = require('./config.json')
 const LightS = require('./Lights')
 
 module.exports = class PowerOff {
+
+    static lights;
+
+    constructor(lights) {
+        PowerOff.lights = lights
+    }
+
     registerEndpoints(app) {
-        app.post(`${config.PowerOff.apiEndpoint}`, async (req, res) => {
+        app.post(`${config.powerOff.apiEndpoint}`, async (req, res) => {
             await this.trigger()
             res.sendStatus(200)
         })
@@ -12,6 +19,6 @@ module.exports = class PowerOff {
 
     async trigger() {
         logger.turnOff('triggered')
-        await (new LightS()).turnLightsOff();
+        PowerOff.lights && await PowerOff.lights.turnLightsOff()
     }
 }

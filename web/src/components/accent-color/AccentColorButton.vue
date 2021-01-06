@@ -15,8 +15,8 @@ export default {
 <style scoped>
 button {
   border-radius: 50%;
-  width: 5rem;
-  height: 5rem;  box-shadow: var(--shadow-default);
+  width: 2rem;
+  height: 2rem;  box-shadow: var(--shadow-default);
 }
 </style>
 

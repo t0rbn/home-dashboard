@@ -17,7 +17,7 @@
     "temperatureOffset": -3,
     "humidityOffset": 0
   },
-  "PowerOff": {
+  "powerOff": {
     "apiEndpoint": "/powerOff"
   }
 }

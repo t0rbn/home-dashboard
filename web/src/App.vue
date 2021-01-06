@@ -33,4 +33,12 @@ export default {
   grid-template-areas: 'scenes scenes temperature' 'scenes scenes humidity' 'poweroff color humidity';
   padding: var(--size-medium);
 }
+
+@media (orientation: portrait) {
+  .app-container {
+    grid-template-rows: 1fr 3fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 'temperature temperature humidity humidity' 'scenes scenes scenes scenes' 'poweroff color color color';
+  }
+}
 </style>
