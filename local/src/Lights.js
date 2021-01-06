@@ -46,11 +46,6 @@ module.exports = class Lights {
             res.send(await this.getAllLights())
         })
 
-        app.post(`${config.lights.apiEndpoint}/off`, async (req, res) => {
-            await this.setScene(Lights.globalOffKey)
-            res.sendStatus(200)
-        })
-
         app.get(config.lights.apiEndpoint + '/scenes', async (req, res) => {
             res.send(this.getGlobalScenes())
         })
@@ -106,5 +101,9 @@ module.exports = class Lights {
             .map(d => {
                 return {name: d.name, brightness: d.isOn ? d.brightness : 0}
             })
+    }
+
+    async turnLightsOff() {
+        await this.setScene(Lights.globalOffKey);
     }
 }

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import LightService from '@/components/scenes/LightService'
+import LightService from '@/components/LightService'
 import Card from '@/components/globals/Card'
 import ProgressBar from '@/components/globals/ProgressBar'
 

@@ -1,4 +1,4 @@
-import config from '../../config.json'
+import config from '../config.json'
 
 export default class LightService {
 
@@ -11,11 +11,15 @@ export default class LightService {
 
     static async getScenes() {
         const response = await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/scenes`)
-        return (await response.json()).map(scene => scene === 'ALLOFF' ? 'All off' : scene)
+        return (await response.json())
+    }
+
+    static async getAccentColors() {
+        const response = await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/accents`)
+        return (await response.json())
     }
 
     static async selectScene(scene) {
-        scene = scene === 'All off' ? 'ALLOFF' : scene
         await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/scenes`, {
             method: 'post',
             headers: {'Content-Type': 'text/plain;charset=UTF-8'},
@@ -24,6 +28,27 @@ export default class LightService {
         await new Promise(r => setTimeout(r, 500))
         LightService.callLightChangeWatchers()
     }
+
+    static async selectAccentColor(name) {
+        await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/accents`, {
+            method: 'post',
+            headers: {'Content-Type': 'text/plain;charset=UTF-8'},
+            body: name
+        })
+        await new Promise(r => setTimeout(r, 500))
+        LightService.callLightChangeWatchers()
+    }
+
+    static async turnOffHome() {
+        await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/off`, {
+            method: 'post',
+            headers: {'Content-Type': 'text/plain;charset=UTF-8'}
+        })
+        await new Promise(r => setTimeout(r, 500))
+        LightService.callLightChangeWatchers()
+    }
+
+
 
     static callLightChangeWatchers() {
         LightService.lightChangeWatchers.forEach(e => e())

@@ -3,6 +3,7 @@
       <Temperature style="grid-area: temperature"></Temperature>
       <Humidity style="grid-area: humidity"></Humidity>
       <Scenes style="grid-area: scenes"></Scenes>
+      <AccentColor style="grid-area: color"></AccentColor>
     </main>
 </template>
 
@@ -10,9 +11,10 @@
 import Scenes from '@/components/scenes/Scenes'
 import Temperature from '@/components/status/Temperature'
 import Humidity from '@/components/status/Humidity'
+import AccentColor from '@/components/accent-color/Accentcolor'
 
 export default {
-  components: {Humidity, Temperature, Scenes}
+  components: {AccentColor, Humidity, Temperature, Scenes}
 }
 </script>
 
@@ -24,17 +26,9 @@ export default {
   min-height: 100%;
   display: grid;
   grid-gap: var(--size-medium);
-  grid-template-rows: 1fr 3fr;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: 'temperature humidity' 'scenes scenes';
+  grid-template-rows: 2fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas: 'scenes scenes temperature' 'scenes scenes humidity' 'color color humidity';
   padding: var(--size-medium);
-}
-
-@media (orientation: landscape) {
-  .app-container {
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 2fr 1fr;
-    grid-template-areas: 'scenes temperature' 'scenes humidity';
-  }
 }
 </style>

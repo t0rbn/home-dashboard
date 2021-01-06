@@ -1,18 +1,18 @@
 <template>
-  <Card class="card" title="Scenes" icon="fa-lightbulb">
-    <section class="buttons">
-      <SceneButton
-          v-for="scene in scenes"
-          :key="scene"
-          :scene="scene"
-          @click="triggerScene(scene)"
-      ></SceneButton>
-    </section>
-  </Card>
+    <Card class="card" title="Scenes" icon="fa-lightbulb">
+      <section class="buttons">
+        <SceneButton
+            v-for="scene in scenes"
+            :key="scene"
+            :scene="scene"
+            @click="triggerScene(scene)"
+        ></SceneButton>
+      </section>
+    </Card>
 </template>
 
 <script>
-import LightService from '@/components/scenes/LightService'
+import LightService from '@/components/LightService'
 import SceneButton from '@/components/scenes/SceneButton'
 import Card from '@/components/globals/Card'
 
@@ -21,7 +21,7 @@ export default {
   components: {SceneButton, Card},
   data() {
     return {
-      scenes: []
+      scenes: [],
     }
   },
   async created() {

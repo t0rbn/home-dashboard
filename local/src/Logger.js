@@ -1,5 +1,3 @@
-const config = require('./config.json')
-
 module.exports = class Logger {
 
     static tradfri(text) {
@@ -12,6 +10,10 @@ module.exports = class Logger {
 
     static climate(text) {
         Logger.print('Climate', text)
+    }
+
+    static turnOff(text) {
+        Logger.print('TurnOff', text)
     }
 
     static print(moduleName, text) {
