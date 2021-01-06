@@ -9,6 +9,10 @@ module.exports = class Lights {
     scenes = []
     lastScenesLoadTimestamp = 0
 
+    static superGroupName = 'SuperGroup'
+    static accentColorModifier = 'Accent'
+    static globalOffKey = 'ALLOFF'
+
     constructor() {
         logger.tradfri('connecting to gateway')
         let credsFile
@@ -42,18 +46,32 @@ module.exports = class Lights {
             res.send(await this.getAllLights())
         })
 
+        app.post(`${config.lights.apiEndpoint}/off`, async (req, res) => {
+            await this.setScene(Lights.globalOffKey)
+            res.sendStatus(200)
+        })
+
         app.get(config.lights.apiEndpoint + '/scenes', async (req, res) => {
-            res.send(this.getAllScenes())
+            res.send(this.getGlobalScenes())
         })
 
         app.post(`${config.lights.apiEndpoint}/scenes`, async (req, res) => {
             await this.setScene(req.body)
             res.sendStatus(200)
         })
+
+        app.get(config.lights.apiEndpoint + '/accents', async (req, res) => {
+            res.send(this.getColorScenes())
+        })
+
+        app.post(`${config.lights.apiEndpoint}/accents`, async (req, res) => {
+            await this.setScene(req.body, Lights.accentColorModifier)
+            res.sendStatus(200)
+        })
     }
 
     getSceneSuperGroup() {
-        return this.connection.group('SuperGroup')
+        return this.connection.group(Lights.superGroupName)
     }
 
     getAllScenes() {
@@ -63,12 +81,22 @@ module.exports = class Lights {
             this.lastScenesLoadTimestamp = Date.now()
             logger.tradfri(`retrieved new scenes: ${this.scenes}`)
         }
-        return this.scenes
+        return this.scenes.filter(s => s !== Lights.globalOffKey)
     }
 
-    async setScene(scene) {
+    getGlobalScenes() {
+        return this.getAllScenes().filter(s => !s.includes('@'))
+    }
+
+    getColorScenes() {
+        return this.getAllScenes()
+            .filter(s => s.endsWith(('@' + Lights.accentColorModifier)))
+            .map(s => s.split('@')[0]);
+    }
+
+    async setScene(scene, modifyer) {
         logger.tradfri('applying scene ' + scene)
-        await this.getSceneSuperGroup().setScene(scene)
+        await this.getSceneSuperGroup().setScene(scene + (modifyer ? ('@' + modifyer): ''))
     }
 
     getAllLights() {
