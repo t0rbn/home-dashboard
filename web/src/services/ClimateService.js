@@ -1,4 +1,4 @@
-import config from '../../config.json'
+import config from '../config.json'
 // import MockedClimateResponse from './MockedClimateResponse.json'
 
 export default class ClimateService {

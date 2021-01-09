@@ -1,6 +1,5 @@
 <template>
-  <div class="card" @click="$emit('click')">
-    <strong><i :class="['fas', icon]"></i>{{ title }}</strong>
+  <div class="card">
     <slot></slot>
   </div>
 </template>
@@ -8,7 +7,6 @@
 <script>
 export default {
   name: 'Card',
-  props: ['title', 'icon']
 }
 </script>
 
@@ -18,15 +16,7 @@ export default {
   background-image: vaR(--gradient-elevation-action);
   border-radius: vaR(--border-radius-default);
   box-shadow: vaR(--shadow-default);
-  padding: vaR(--size-big);
+  padding: vaR(--size-medium);
   color: vaR(--color-highlight);
-}
-
-strong {
-  display: block;
-}
-
-strong i {
-  margin: 0 var(--size-small) var(--size-small) 0;
 }
 </style>

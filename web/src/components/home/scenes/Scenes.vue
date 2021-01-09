@@ -1,5 +1,4 @@
 <template>
-    <Card class="card" title="Scenes" icon="fa-lightbulb">
       <section class="buttons">
         <SceneButton
             v-for="scene in scenes"
@@ -8,17 +7,15 @@
             @click="triggerScene(scene)"
         ></SceneButton>
       </section>
-    </Card>
 </template>
 
 <script>
-import LightService from '@/components/LightService'
-import SceneButton from '@/components/scenes/SceneButton'
-import Card from '@/components/globals/Card'
+import LightService from '@/services/LightService'
+import SceneButton from '@/components/home/scenes/SceneButton'
 
 export default {
   name: 'Scenes',
-  components: {SceneButton, Card},
+  components: {SceneButton},
   data() {
     return {
       scenes: [],
@@ -36,17 +33,17 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  overflow: hidden;
-}
-
 .buttons {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-auto-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: min-content;
   grid-gap: var(--size-medium);
-  margin-top: var(--size-medium);
+}
+
+@media (orientation: landscape) {
+  .buttons {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 </style>

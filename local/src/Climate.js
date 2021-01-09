@@ -28,7 +28,7 @@ module.exports = class IndoorClimate {
                 humidity: (res.humidity + config.climate.humidityOffset) / 100
             }
         } catch (e) {
-            logger.climate('Failed to update status: ' + e)
+            logger.climate('Failed to update climate: ' + e)
         }
     }
 

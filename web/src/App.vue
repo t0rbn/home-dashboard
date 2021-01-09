@@ -1,22 +1,32 @@
 <template>
     <main class="app-container">
-      <Temperature style="grid-area: temperature"></Temperature>
-      <Humidity style="grid-area: humidity"></Humidity>
-      <Scenes style="grid-area: scenes"></Scenes>
-      <AccentColor style="grid-area: color"></AccentColor>
-      <PowerOff style="grid-area: poweroff"></PowerOff>
+      <div class="app-content">
+        <Home v-show="selectedPage === 'home'"></Home>
+        <Lights v-show="selectedPage === 'lights'"></Lights>
+        <Climate v-show="selectedPage === 'climate'"></Climate>
+      </div>
+      <NavigationRail class="navigation-rail" @select="selectPage" :selected="selectedPage"></NavigationRail>
     </main>
 </template>
 
 <script>
-import Scenes from '@/components/scenes/Scenes'
-import Temperature from '@/components/status/Temperature'
-import Humidity from '@/components/status/Humidity'
-import AccentColor from '@/components/accent-color/Accentcolor'
-import PowerOff from '@/components/power-off/PowerOff'
+import Home from '@/components/home/Home'
+import NavigationRail from '@/components/globals/NavigationRail'
+import Climate from '@/components/climate/Climate'
+import Lights from '@/components/lights/Lights'
 
 export default {
-  components: {PowerOff, AccentColor, Humidity, Temperature, Scenes}
+  components: {Lights, Climate, NavigationRail, Home},
+  data() {
+    return {
+      selectedPage: 'home'
+    }
+  },
+  methods: {
+    selectPage(page) {
+      this.selectedPage = page;
+    }
+  }
 }
 </script>
 
@@ -27,18 +37,24 @@ export default {
   max-height: 100%;
   min-height: 100%;
   display: grid;
-  grid-gap: var(--size-medium);
-  grid-template-rows: 3fr 2fr 1fr;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-areas: 'scenes scenes temperature' 'scenes scenes humidity' 'poweroff color humidity';
-  padding: var(--size-medium);
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 1fr;
+  grid-template-areas: 'content' 'navigation'
 }
 
-@media (orientation: portrait) {
+.app-content {
+  grid-area: content;
+}
+
+.navigation-rail {
+  grid-area: navigation;
+}
+
+@media (orientation: landscape) {
   .app-container {
-    grid-template-rows: 1fr 3fr 1fr;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: 'temperature temperature humidity humidity' 'scenes scenes scenes scenes' 'poweroff color color color';
+    grid-template-rows: 1fr;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 'navigation content';
   }
 }
 </style>

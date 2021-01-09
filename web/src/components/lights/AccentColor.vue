@@ -1,24 +1,26 @@
 <template>
-      <Card class="card" title="Accent colors" icon="fa-palette">
+      <div>
+        <h1>Accent Color</h1>
         <section class="buttons">
-          <AccentColorButton
+          <CardButton
+              class="color-button"
+              :style="{backgroundColor: getColorForName(colorName)}"
               v-for="colorName in accentColors"
               :key="colorName"
               :color="getColorForName(colorName)"
               @click="triggerAccentColor(colorName)"
-          ></AccentColorButton>
+          ></CardButton>
         </section>
-      </Card>
+      </div>
   </template>
 
   <script>
-    import LightService from '@/components/LightService'
-    import Card from '@/components/globals/Card'
-    import AccentColorButton from '@/components/accent-color/AccentColorButton'
+  import LightService from '@/services/LightService'
+  import CardButton from '@/components/globals/CardButton'
 
-    export default {
+  export default {
       name: 'AccentColor',
-      components: {AccentColorButton, Card},
+      components: {CardButton},
       data() {
         return {
           accentColors: []
@@ -47,9 +49,20 @@
   <style scoped>
     .buttons {
       display: grid;
-      justify-items: center;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      grid-gap: var(--size-big);
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: var(--size-medium);
+    }
+
+    .color-button:hover {
+      background-image: none;
+    }
+
+    @media (orientation: landscape) {
+      .buttons {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-auto-columns: 1fr;
+        grid-auto-flow: column;
+      }
     }
   </style>

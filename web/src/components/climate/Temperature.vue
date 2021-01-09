@@ -1,5 +1,6 @@
 <template>
-  <Card class="status-humidity" :title="`${current}%`" icon="fa-tint">
+  <Card class="status-temperature">
+    <IconHeading icon="fa-thermometer-three-quarters" :text="`${current}°C`"></IconHeading>
     <div>
       <DataTable :data="stats"></DataTable>
     </div>
@@ -8,14 +9,15 @@
 </template>
 
 <script>
-import ClimateService from '@/components/status/ClimateService'
+import ClimateService from '@/services/ClimateService'
 import AreaGraph from '@/components/globals/AreaGraph'
 import DataTable from '@/components/globals/DataTable'
 import Card from '@/components/globals/Card'
+import IconHeading from '@/components/globals/IconHeading'
 
 export default {
-  name: 'Humidity',
-  components: {Card, DataTable, AreaGraph},
+  name: 'Temperature',
+  components: {IconHeading, Card, DataTable, AreaGraph},
   data() {
     return {
       current: {},
@@ -26,21 +28,21 @@ export default {
     }
   },
   async created() {
-    this.current = Math.round(100 * (await ClimateService.getCurrent()).humidity)
-    this.history = (await ClimateService.getHistory()).map(v => Math.round(100 * v.humidity))
+    this.current = (await ClimateService.getCurrent()).temp
+    this.history = (await ClimateService.getHistory()).map(v => v.temp)
 
     this.stats = {
-      Maximum: `${Math.max(...this.history)}%`,
-      Minimum: `${Math.min(...this.history)}%`,
-      Average: `${Math.round((this.history).reduce((a, b) => a + b) / this.history.length)}%`
+      Maximum: `${Math.max(...this.history)}°`,
+      Minimum: `${Math.min(...this.history)}°`,
+      Average: `${Math.round((this.history).reduce((a, b) => a + b) / this.history.length)}°`
     }
   }
 }
 </script>
 
 <style scoped>
-.status-humidity {
-  background-image: var(--gradient-yellow-blue);
+.status-temperature {
+  background-image: var(--gradient-red-yellow);
   color: var(--color-elevation);
   display: flex;
   flex-direction: column;

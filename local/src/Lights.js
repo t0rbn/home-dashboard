@@ -97,9 +97,10 @@ module.exports = class Lights {
     getAllLights() {
         return this.connection.devices
             .filter(d => d.type === 'Bulb')
-            .filter(d => d.alive)
             .map(d => {
-                return {name: d.name, brightness: d.isOn ? d.brightness : 0}
+                return {
+                    name: d.name,
+                    brightness: (d. alive && d.isOn) ? d.brightness : 0}
             })
     }
 
