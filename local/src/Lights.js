@@ -100,7 +100,7 @@ module.exports = class Lights {
             .map(d => {
                 return {
                     name: d.name,
-                    brightness: (d. alive && d.isOn) ? d.brightness : 0}
+                    brightness: (d.alive && d.isOn) ? d.brightness : 0}
             })
     }
 
