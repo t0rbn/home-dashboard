@@ -1,15 +1,15 @@
 <template>
- <div>
-   <h1>Lights</h1>
-    <div class="lights-grid">
-      <template v-for="light in currentlyOn">
-        <div  class="light" :class="{active: light.brightness > 0}" :key="light.name">
-          <i class="fas fa-lightbulb"></i>
-          {{ light.name }}<span v-show="light.brightness > 0"> ({{Math.round(light.brightness)}}%)</span>
-        </div>
-      </template>
-    </div>
- </div>
+  <div>
+    <h1>Lights</h1>
+    <template v-for="(light, index) in currentlyOn">
+      <div class="light flyin-up" :class="{active: light.brightness > 0}" :key="light.name" :style="{animationDelay: `${25 * index}ms`}">
+        <i class="fas fa-lightbulb"></i>
+        <p>{{ light.name }}</p>
+        <span class="brightness-value" v-if="light.brightness > 0">{{ Math.round(light.brightness) }}%</span>
+        <span class="brightness-value" v-if="light.brightness === 0">off</span>
+      </div>
+    </template>
+  </div>
 </template>
 
 <script>
@@ -28,40 +28,57 @@ export default {
   },
   methods: {
     async update() {
-      this.currentlyOn = (await LightService.getLights()).filter(l => l.brightness > 0)
-    },
-    getTableData() {
-      const returnMe = {}
-      this.currentlyOn.forEach(l => returnMe[l.name] = Math.round(l.brightness) + '%')
-      return returnMe
+      this.currentlyOn = (await LightService.getLights())
     }
   }
 }
 </script>
 
 <style scoped>
-.lights-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: auto;
-}
-
 .light {
-  border: var(--size-tiny) solid var(--color-elevation);
-  border-radius: var(--shadow-default);
-  padding: var(--size-medium);
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--size-small) 0;
+  transition: var(--transition-all-default);
 }
 
 .light i {
-  font-size: var(--size-big);
-  line-height: var(--size-big);
-  margin-bottom: var(--size-small);
+  width: calc(3 * var(--size-medium));
+  padding: var(--size-medium) 0;
+  background-color: var(--color-elevation);
+  box-shadow: var(--shadow-default);
+  text-align: center;
+  border-radius: 50%;
+  margin-right: var(--size-small);
+}
+
+.light p {
+  flex-grow: 1;
+}
+
+.light .brightness-value {
   display: block;
+  color: var(--color-elevation)
 }
 
 .light.active {
   color: var(--color-accent-yellow);
-  box-shadow: var(--shadow-glow-yellow);
 }
+
+.light.active i {
+  background-image: var(--gradient-yellow-blue);
+  box-shadow: var(--shadow-glow-yellow);
+  color: var(--color-background);
+}
+
+.light.active .brightness-value {
+  color: var(--color-highlight);
+}
+
+/*@media (orientation: landscape) {*/
+/*  .lights-grid {*/
+/*    grid-template-columns: repeat(4, 1fr);*/
+/*  }*/
+/*}*/
 </style>

@@ -19,7 +19,7 @@ h1 {
     font-size: var(--size-big);
     line-height: var(--size-big);
     font-weight: normal;
-    margin: 0 0 var(--size-medium);
+    margin: var(--size-big) 0 var(--size-medium);
 }
 
 strong {
@@ -30,4 +30,50 @@ strong {
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+
+.flyin-left {
+    animation: 250ms both flyin-left;
+}
+
+.flyin-right {
+    animation: 250ms both flyin-right;
+}
+
+.flyin-up {
+    animation: 250ms both flyin-up;
+}
+
+@keyframes flyin-left {
+    from {
+        transform: translateX(calc(-1 * var(--size-big)));
+        opacity: 0
+    }
+    to {
+        transform: none;
+        opacity: unset;
+    }
+}
+
+@keyframes flyin-right {
+    from {
+        transform: translateX(var(--size-big));
+        opacity: 0
+    }
+    to {
+        transform: none;
+        opacity: unset;
+    }
+}
+
+@keyframes flyin-up {
+    from {
+        transform: translateY(var(--size-big));
+        opacity: 0
+    }
+    to {
+        transform: none;
+        opacity: unset;
+    }
 }

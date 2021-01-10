@@ -17,8 +17,9 @@ export default {
 <style scoped>
 nav {
   display: flex;
-  background-color: var(--color-elevation);
-  color: var(--color-highlight);
+  /*background-color: var(--color-elevation);*/
+  border-top: 1px solid var(--color-elevation);
+  color: var(--color-elevation);
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
@@ -31,14 +32,11 @@ nav a {
   cursor: pointer;
 }
 
-nav a.selected {
-  color: var(--color-accent-yellow)
+nav a:hover {
+  color: vaR(--color-highlight);
 }
 
-@media (orientation: landscape) {
-  nav {
-    flex-direction: column;
-    justify-content: flex-start;
-  }
+nav a.selected {
+  color: var(--color-accent-yellow)
 }
 </style>

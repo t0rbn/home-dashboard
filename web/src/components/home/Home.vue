@@ -37,6 +37,8 @@ export default {
 
 @media (orientation: landscape) {
   .turn-off-button {
+    padding-left: var(--size-big);
+    padding-right:  var(--size-big);
     justify-self: flex-end;
   }
 }

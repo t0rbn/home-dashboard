@@ -3,9 +3,9 @@
         <h1>Accent Color</h1>
         <section class="buttons">
           <CardButton
-              class="color-button"
-              :style="{backgroundColor: getColorForName(colorName)}"
-              v-for="colorName in accentColors"
+              class="color-button flyin-right"
+              :style="{backgroundColor: getColorForName(colorName), animationDelay: `${25 * index}ms`}"
+              v-for="(colorName, index) in accentColors"
               :key="colorName"
               :color="getColorForName(colorName)"
               @click="triggerAccentColor(colorName)"
@@ -17,6 +17,7 @@
   <script>
   import LightService from '@/services/LightService'
   import CardButton from '@/components/globals/CardButton'
+  import config from '@/config.json'
 
   export default {
       name: 'AccentColor',
@@ -34,13 +35,7 @@
           LightService.selectAccentColor(color)
         },
         getColorForName(name) {
-          return {
-            Purple: '#a51acd',
-            Blue: '#3e3ee5',
-            Amber: '#e28132',
-            Green: '#2fdb2f',
-            White: '#ffffff',
-          }[name] || '#123456'
+          return config.lights.colorNameMap[name] || ''
         }
       }
     }
@@ -53,14 +48,20 @@
       grid-gap: var(--size-medium);
     }
 
+    .color-button {
+      box-sizing: border-box;
+      height: calc(4 * var(--size-big));
+    }
+
     .color-button:hover {
       background-image: none;
+      box-shadow: none;
+      filter: brightness(125%);
     }
 
     @media (orientation: landscape) {
       .buttons {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
         grid-auto-columns: 1fr;
         grid-auto-flow: column;
       }

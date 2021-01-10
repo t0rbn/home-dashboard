@@ -5,7 +5,7 @@
         <Lights v-show="selectedPage === 'lights'"></Lights>
         <Climate v-show="selectedPage === 'climate'"></Climate>
       </div>
-      <NavigationRail class="navigation-rail" @select="selectPage" :selected="selectedPage"></NavigationRail>
+      <NavigationRail @select="selectPage" :selected="selectedPage"></NavigationRail>
     </main>
 </template>
 
@@ -38,23 +38,9 @@ export default {
   min-height: 100%;
   display: grid;
   grid-template-rows: 1fr auto;
-  grid-template-columns: 1fr;
-  grid-template-areas: 'content' 'navigation'
 }
 
 .app-content {
-  grid-area: content;
-}
-
-.navigation-rail {
-  grid-area: navigation;
-}
-
-@media (orientation: landscape) {
-  .app-container {
-    grid-template-rows: 1fr;
-    grid-template-columns: auto 1fr;
-    grid-template-areas: 'navigation content';
-  }
+  overflow: hidden;
 }
 </style>

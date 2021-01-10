@@ -1,4 +1,5 @@
 import config from '@/config.json'
+import LightService from '@/services/LightService'
 
 export default class PowerOffService {
 
@@ -8,5 +9,6 @@ export default class PowerOffService {
             headers: {'Content-Type': 'text/plain;charset=UTF-8'},
         })
         await new Promise(r => setTimeout(r, 500))
+        await LightService.callLightChangeWatchers();
     }
 }

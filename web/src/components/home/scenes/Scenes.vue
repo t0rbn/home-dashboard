@@ -1,10 +1,12 @@
 <template>
       <section class="buttons">
         <SceneButton
-            v-for="scene in scenes"
+            class="flyin-up"
+            v-for="(scene, index) in scenes"
             :key="scene"
             :scene="scene"
             @click="triggerScene(scene)"
+            :style="{animationDelay: `${25 * index}ms`}"
         ></SceneButton>
       </section>
 </template>
@@ -35,14 +37,14 @@ export default {
 <style scoped>
 .buttons {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-rows: min-content;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: auto;
   grid-gap: var(--size-medium);
 }
 
 @media (orientation: landscape) {
   .buttons {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
