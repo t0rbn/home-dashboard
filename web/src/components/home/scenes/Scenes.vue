@@ -44,7 +44,7 @@ export default {
 
 @media (orientation: landscape) {
   .buttons {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
