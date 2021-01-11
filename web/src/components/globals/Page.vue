@@ -1,13 +1,13 @@
 <template>
-<main>
-  <header :style="{backgroundImage: backGroundImage()}">
-    <h1>{{ name }}</h1>
-    <div class="content-overflow"></div>
-  </header>
-  <section class="slot">
-    <slot></slot>
-  </section>
-</main>
+  <main>
+    <header :style="{backgroundImage: backGroundImage()}">
+      <h1>{{ name }}</h1>
+      <div class="content-overflow"></div>
+    </header>
+    <section class="slot">
+      <slot></slot>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -55,7 +55,7 @@ header {
 }
 
 .content-overflow {
- height: var(--size-big);
+  height: var(--size-big);
   background-color: var(--color-background);
   border-top-left-radius: var(--size-big);
   border-top-right-radius: vaR(--size-big);
@@ -67,7 +67,7 @@ header {
   margin: 0 auto;
   box-sizing: border-box;
   overflow: scroll;
-  max-width: 60rem;
+  max-width: 80rem;
   width: 100%;
 }
 </style>

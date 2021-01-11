@@ -35,11 +35,13 @@ export default {
 }
 
 .scene-button label {
-  color: var(--color-background);
-  background-color: hsla(0, 0%, 100%, 0.66);
+  overflow: hidden;
+  color: var(--color-highlight);
+  background-color: hsla(0, 0%, 0%, 0.5);
   backdrop-filter: blur(var(--size-small));
   padding: var(--size-small) var(--size-medium);
   /*border-radius: calc(var(--size-small) + (0.5 * var(--size-medium)));*/
+  transform: translateY(1px);
 }
 
 .scene-button:hover {
