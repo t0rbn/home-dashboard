@@ -17,7 +17,15 @@
     "apiEndpoint": "/powerOff"
   },
   "assets": {
-    "sceneBasePath": "./scenes/",
-    "pageHeaderBasePath": "./page-headers/"
+    "pageHeaderBasePath": "./page-headers/",
+    "sceneIcons": {
+      "Chill": "fa-couch",
+      "Dinner": "fa-pizza-slice",
+      "Nightshift": "fa-gamepad",
+      "Productivity": "fa-laptop-code",
+      "Cleaning": "fa-hand-sparkles",
+      "Shower": "fa-shower",
+      "Bedtime": "fa-bed"
+    }
   }
 }

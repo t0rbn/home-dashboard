@@ -1,22 +1,18 @@
 <template>
-  <Page name="Home">
     <div class="home">
       <Scenes></Scenes>
       <CardButton class="turn-off-button" icon="fa-power-off" label="Turn Off" @click="turnOff" warn="true"></CardButton>
     </div>
-
-  </Page>
 </template>
 
 <script>
-import Page from '@/components/globals/Page'
 import Scenes from '@/components/home/scenes/Scenes'
 import CardButton from '@/components/globals/CardButton'
 import PowerOffService from '@/services/PowerOffService'
 
 export default {
   name: 'Home',
-  components: {CardButton, Scenes, Page},
+  components: {CardButton, Scenes},
   methods: {
     turnOff() {
       console.log("fopp")

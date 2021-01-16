@@ -32,7 +32,8 @@ export default {
 }
 
 .card-button.warn {
-  color: var(--color-accent-red);
+  color: var(--color-background);
+  background-image: var(--gradient-red-yellow);
 }
 
 .card-button.warn:hover {

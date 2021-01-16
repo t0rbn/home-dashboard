@@ -1,21 +1,17 @@
 <template>
-  <Page name="Climate">
-    <div class="climate">
-      <Temperature class="flyin-right"></Temperature>
-      <Humidity class="flyin-left"></Humidity>
-    </div>
-  </Page>
-
+  <div class="climate">
+    <Temperature class="flyin-right"></Temperature>
+    <Humidity class="flyin-left"></Humidity>
+  </div>
 </template>
 
 <script>
 import Temperature from '@/components/climate/Temperature'
 import Humidity from '@/components/climate/Humidity'
-import Page from '@/components/globals/Page'
 
 export default {
   name: 'Climate',
-  components: {Page, Humidity, Temperature}
+  components: {Humidity, Temperature}
 }
 </script>
 
@@ -26,5 +22,12 @@ export default {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: vaR(--size-medium);
+}
+
+@media (orientation: landscape) {
+  .climate {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
 }
 </style>

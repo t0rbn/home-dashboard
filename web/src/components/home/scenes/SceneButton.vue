@@ -1,5 +1,6 @@
 <template>
-  <Card @click.native="$emit('click')" class="scene-button" :style="{backgroundImage: backgroundPathForScene()}">
+  <Card @click.native="$emit('click')" class="scene-button">
+    <i :class="['fas', getIcon()]"></i>
     <label>{{ scene }}</label>
   </Card>
 </template>
@@ -13,8 +14,8 @@ export default {
   components: {Card},
   props: ['scene'],
   methods: {
-    backgroundPathForScene() {
-      return AssetService.getSceneBackgroundPath(this.scene);
+    getIcon() {
+      return AssetService.getSceneIcon(this.scene);
     }
   }
 }
@@ -22,29 +23,31 @@ export default {
 
 <style scoped>
 .scene-button {
-  background-position: center center;
-  box-sizing: border-box;
-  background-size: cover;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-end;
-  padding: 0;
-  overflow: hidden;
-}
-
-.scene-button label {
-  overflow: hidden;
-  color: var(--color-highlight);
-  background-color: hsla(0, 0%, 0%, 0.5);
-  backdrop-filter: blur(var(--size-small));
-  padding: var(--size-small) var(--size-medium);
-  /*border-radius: calc(var(--size-small) + (0.5 * var(--size-medium)));*/
-  transform: translateY(1px);
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-all-default);
+  cursor: pointer;
 }
 
 .scene-button:hover {
-  filter: brightness(125%);
+  color: var(--color-elevation);
+  background-image: vaR(--gradient-yellow-blue);
+  box-shadow: var(--shadow-glow-yellow);
+}
+
+i {
+  font-size: var(--size-huge);
+  line-height: var(--size-huge);
+  display: block;
+  margin-bottom: var(--size-small);
+}
+
+.scene-button label {
+
+}
+
+.scene-button:hover {
 }
 </style>

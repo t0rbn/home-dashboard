@@ -1,20 +1,17 @@
 <template>
-  <Page name="Lights">
     <div class="lights">
       <AccentColor></AccentColor>
       <LightBulbs></LightBulbs>
     </div>
-  </Page>
 </template>
 
 <script>
-import Page from '@/components/globals/Page'
 import LightBulbs from '@/components/lights/Lightbulbs'
 import AccentColor from '@/components/lights/AccentColor'
 
 export default {
 name: "Lights",
-  components: {AccentColor, LightBulbs, Page}
+  components: {AccentColor, LightBulbs}
 }
 </script>
 

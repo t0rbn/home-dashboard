@@ -1,22 +1,27 @@
 <template>
   <div>
     <h1>Lights</h1>
-    <template v-for="(light, index) in currentlyOn">
-      <div class="light flyin-up" :class="{active: light.brightness > 0}" :key="light.name" :style="{animationDelay: `${25 * index}ms`}">
-        <i class="fas fa-lightbulb"></i>
-        <p>{{ light.name }}</p>
-        <span class="brightness-value" v-if="light.brightness > 0">{{ Math.round(light.brightness) }}%</span>
-        <span class="brightness-value" v-if="light.brightness === 0">off</span>
-      </div>
-    </template>
+    <Card>
+      <template v-for="(light, index) in currentlyOn">
+        <div class="light flyin-up" :class="{active: light.brightness > 0}" :key="light.name"
+             :style="{animationDelay: `${50 * index}ms`}">
+          <i class="fas fa-lightbulb"></i>
+          <p>{{ light.name }}</p>
+          <span class="brightness-value" v-if="light.brightness > 0">{{ Math.round(light.brightness) }}%</span>
+          <span class="brightness-value" v-if="light.brightness === 0">off</span>
+        </div>
+      </template>
+    </Card>
   </div>
 </template>
 
 <script>
 import LightService from '@/services/LightService'
+import Card from '@/components/globals/Card'
 
 export default {
   name: 'LightBulbs',
+  components: {Card},
   data() {
     return {
       currentlyOn: []
@@ -46,7 +51,7 @@ export default {
 .light i {
   width: calc(3 * var(--size-medium));
   padding: var(--size-medium) 0;
-  background-color: var(--color-elevation);
+  background-color: var(--color-semihighlight);
   box-shadow: var(--shadow-default);
   text-align: center;
   border-radius: 50%;

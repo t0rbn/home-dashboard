@@ -4,7 +4,7 @@
         <section class="buttons">
           <CardButton
               class="color-button flyin-right"
-              :style="{backgroundColor: getColorForName(colorName), animationDelay: `${25 * index}ms`}"
+              :style="{backgroundColor: getColorForName(colorName), animationDelay: `${50 * index}ms`}"
               v-for="(colorName, index) in accentColors"
               :key="colorName"
               :color="getColorForName(colorName)"
@@ -44,13 +44,15 @@
   <style scoped>
     .buttons {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       grid-gap: var(--size-medium);
     }
 
     .color-button {
+      background-image: linear-gradient(10deg, hsla(0, 0%, 0%, 0.5), transparent);
       box-sizing: border-box;
-      height: calc(4 * var(--size-big));
+      transition: var(--transition-all-default);
+      height: var(--size-huge);
     }
 
     .color-button:hover {

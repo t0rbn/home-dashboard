@@ -34,15 +34,15 @@ strong {
 
 
 .flyin-left {
-    animation: 250ms both flyin-left;
+    animation: 500ms both flyin-left;
 }
 
 .flyin-right {
-    animation: 250ms both flyin-right;
+    animation: 500ms both flyin-right;
 }
 
 .flyin-up {
-    animation: 250ms both flyin-up;
+    animation: 500ms both flyin-up;
 }
 
 @keyframes flyin-left {

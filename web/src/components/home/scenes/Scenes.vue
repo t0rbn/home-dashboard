@@ -6,7 +6,7 @@
             :key="scene"
             :scene="scene"
             @click="triggerScene(scene)"
-            :style="{animationDelay: `${25 * index}ms`}"
+            :style="{animationDelay: `${50 * index}ms`}"
         ></SceneButton>
       </section>
 </template>
