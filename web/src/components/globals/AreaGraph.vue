@@ -16,7 +16,6 @@ export default {
       if (!values || !values.length) {
         return []
       }
-
       const min = Math.min(...values)
       const max = Math.max(...values)
       return values.map(v => (v - min) / (max - min))
@@ -24,19 +23,15 @@ export default {
     valueToPercentString(val) {
       return `${10 + (val * 90)}%`
     },
-    smooth(values, groupSize) {
+    smooth(values) {
         let newValues = []
-        for (let i = groupSize; i < values.length - (groupSize + 1); i++) {
-          newValues.push(
-              values
-                  .filter((v, j) => j >= i - groupSize && j <= i + groupSize)
-                  .reduce((a, b) => a + b)
-              / ((2 * groupSize) + 1))
+        for (let i = 1; i < values.length - 1; i++) {
+          newValues.push((values[i - 1] + values[i] + values[i + 1]) / 3);
         }
         return newValues
     },
     getPreparedValues() {
-      return this.normalizeValues(this.smooth(this.values, 3))
+      return this.normalizeValues(this.smooth(this.values))
     }
   }
 }

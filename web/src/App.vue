@@ -44,7 +44,7 @@ export default {
 }
 
 .app-content {
-  padding: var(--size-medium);
+  padding: 0 var(--size-medium) var(--size-medium) var(--size-medium);
   overflow: scroll;
 }
 

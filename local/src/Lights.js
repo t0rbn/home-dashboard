@@ -42,8 +42,13 @@ module.exports = class Lights {
     }
 
     registerEndpoints(app) {
-        app.get(config.lights.apiEndpoint, async (req, res) => {
+        app.get(config.lights.apiEndpoint + '/bulbs', async (req, res) => {
             res.send(await this.getAllLights())
+        })
+
+        app.post(`${config.lights.apiEndpoint}/bulbs/:bulb`, async (req, res) => {
+            await this.setBulbBrightness(req.params.bulb, req.body)
+            res.sendStatus(200)
         })
 
         app.get(config.lights.apiEndpoint + '/scenes', async (req, res) => {
@@ -97,11 +102,18 @@ module.exports = class Lights {
     getAllLights() {
         return this.connection.devices
             .filter(d => d.type === 'Bulb')
+            .filter(d => d.alive)
             .map(d => {
                 return {
                     name: d.name,
-                    brightness: (d.alive && d.isOn) ? d.brightness : 0}
+                    brightness: d.isOn ? (d.brightness / 100) : 0}
             })
+    }
+
+    async setBulbBrightness(bulb, brightness) {
+        logger.tradfri('setting bulb ' + bulb + ' to ' + brightness)
+        const brightnessConverted = Math.max(0, Math.min(100, Math.round(100 * brightness)))
+        await this.connection.device(bulb).setBrightness(brightnessConverted)
     }
 
     async turnLightsOff() {

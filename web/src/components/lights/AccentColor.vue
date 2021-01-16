@@ -52,7 +52,7 @@
       background-image: linear-gradient(10deg, hsla(0, 0%, 0%, 0.5), transparent);
       box-sizing: border-box;
       transition: var(--transition-all-default);
-      height: var(--size-huge);
+      padding-top: var(--size-huge);
     }
 
     .color-button:hover {
@@ -63,9 +63,7 @@
 
     @media (orientation: landscape) {
       .buttons {
-        grid-template-columns: 1fr;
-        grid-auto-columns: 1fr;
-        grid-auto-flow: column;
+        grid-template-columns: repeat(4, 1fr);
       }
     }
   </style>

@@ -2,11 +2,24 @@ import config from '../config.json'
 
 export default class LightService {
 
+    static ACTION_REFRESH_TIMEOUT_MS = 2000;
     static lightChangeWatchers = []
+    static currentLightBulbs = []
 
-    static async getLights() {
-        const response = await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}`)
-        return await response.json()
+    static async updateLights() {
+        const response = await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/bulbs`)
+        this.currentLightBulbs = await response.json()
+        LightService.callLightChangeWatchers()
+    }
+
+    static async setlightBrightness(bulb, brightness) {
+        await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/bulbs/${bulb}`, {
+            method: 'post',
+            headers: {'Content-Type': 'text/plain;charset=UTF-8'},
+            body: brightness
+        })
+        await new Promise(r => setTimeout(r, this.ACTION_REFRESH_TIMEOUT_MS))
+        await this.updateLights();
     }
 
     static async getScenes() {
@@ -25,8 +38,8 @@ export default class LightService {
             headers: {'Content-Type': 'text/plain;charset=UTF-8'},
             body: scene
         })
-        await new Promise(r => setTimeout(r, 500))
-        LightService.callLightChangeWatchers()
+        await new Promise(r => setTimeout(r, this.ACTION_REFRESH_TIMEOUT_MS))
+        await this.updateLights();
     }
 
     static async selectAccentColor(name) {
@@ -36,19 +49,8 @@ export default class LightService {
             body: name
         })
         await new Promise(r => setTimeout(r, 500))
-        LightService.callLightChangeWatchers()
+        await this.updateLights();
     }
-
-    static async turnOffHome() {
-        await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/off`, {
-            method: 'post',
-            headers: {'Content-Type': 'text/plain;charset=UTF-8'}
-        })
-        await new Promise(r => setTimeout(r, 500))
-        LightService.callLightChangeWatchers()
-    }
-
-
 
     static callLightChangeWatchers() {
         LightService.lightChangeWatchers.forEach(e => e())
