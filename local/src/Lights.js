@@ -12,7 +12,7 @@ module.exports = class Lights {
     static superGroupName = 'SuperGroup'
     static accentColorModifier = 'Accent'
     static globalOffKey = 'ALLOFF'
-    static operationBlockingTimeoutMs: 2000;
+    static operationBlockingTimeoutMs = 2000;
 
     constructor() {
         logger.tradfri('connecting to gateway')
