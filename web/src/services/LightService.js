@@ -13,7 +13,7 @@ export default class LightService {
     }
 
     static async setlightBrightness(bulb, brightness) {
-        await NotificationService.show('setting brightness', 'fa-lightbulb')
+        await NotificationService.show('setting brightness...', 'fa-lightbulb')
         await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/bulbs/${bulb}`, {
             method: 'post',
             headers: {'Content-Type': 'text/plain;charset=UTF-8'},
@@ -34,7 +34,7 @@ export default class LightService {
     }
 
     static async selectScene(scene) {
-        await NotificationService.show('applying scene', 'fa-robot')
+        await NotificationService.show('applying scene...', 'fa-robot')
         await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/scenes`, {
             method: 'post',
             headers: {'Content-Type': 'text/plain;charset=UTF-8'},
@@ -45,7 +45,7 @@ export default class LightService {
     }
 
     static async selectAccentColor(name) {
-        await NotificationService.show('setting color', 'fa-palette')
+        await NotificationService.show('setting color...', 'fa-palette')
         await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/accents`, {
             method: 'post',
             headers: {'Content-Type': 'text/plain;charset=UTF-8'},

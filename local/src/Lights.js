@@ -126,6 +126,7 @@ module.exports = class Lights {
 
     async turnLightsOff() {
         await this.setScene(Lights.globalOffKey)
+        await this.waitForOperation()
     }
 
 }

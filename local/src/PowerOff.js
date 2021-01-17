@@ -19,6 +19,8 @@ module.exports = class PowerOff {
 
     async trigger() {
         logger.turnOff('triggered')
-        PowerOff.lights && await PowerOff.lights.turnLightsOff()
+        if (PowerOff.lights) {
+            await PowerOff.lights.turnLightsOff()
+        }
     }
 }
