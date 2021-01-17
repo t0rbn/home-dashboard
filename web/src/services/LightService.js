@@ -1,8 +1,8 @@
 import config from '../config.json'
+import NotificationService from '@/services/NotificationService'
 
 export default class LightService {
 
-    static ACTION_REFRESH_TIMEOUT_MS = 2000;
     static lightChangeWatchers = []
     static currentLightBulbs = []
 
@@ -13,13 +13,14 @@ export default class LightService {
     }
 
     static async setlightBrightness(bulb, brightness) {
+        await NotificationService.show('setting brightness', 'fa-lightbulb')
         await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/bulbs/${bulb}`, {
             method: 'post',
             headers: {'Content-Type': 'text/plain;charset=UTF-8'},
             body: brightness
         })
-        await new Promise(r => setTimeout(r, this.ACTION_REFRESH_TIMEOUT_MS))
-        await this.updateLights();
+        await this.updateLights()
+        await NotificationService.clear()
     }
 
     static async getScenes() {
@@ -33,23 +34,25 @@ export default class LightService {
     }
 
     static async selectScene(scene) {
+        await NotificationService.show('applying scene', 'fa-robot')
         await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/scenes`, {
             method: 'post',
             headers: {'Content-Type': 'text/plain;charset=UTF-8'},
             body: scene
         })
-        await new Promise(r => setTimeout(r, this.ACTION_REFRESH_TIMEOUT_MS))
-        await this.updateLights();
+        await this.updateLights()
+        await NotificationService.clear()
     }
 
     static async selectAccentColor(name) {
+        await NotificationService.show('setting color', 'fa-palette')
         await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/accents`, {
             method: 'post',
             headers: {'Content-Type': 'text/plain;charset=UTF-8'},
             body: name
         })
-        await new Promise(r => setTimeout(r, 500))
-        await this.updateLights();
+        await this.updateLights()
+        await NotificationService.clear()
     }
 
     static callLightChangeWatchers() {

@@ -53,7 +53,7 @@ export default {
 
 input[type=range] {
   appearance: none;
-  background: var(--color-highlight);
+  background: var(--color-semihighlight);
   height: var(--size-tiny);
   margin: calc((var(--size-medium) - var(--size-tiny)) / 2) 0;
   outline: none;
@@ -69,10 +69,6 @@ input[type=range]::-webkit-slider-thumb {
   height: var(--size-medium);
   width: var(--size-medium);
   -webkit-appearance: none;
-}
-
-.light.active input[type=range] {
-  background: var(--color-elevation);
 }
 
 .light.active input[type=range]::-webkit-slider-thumb {

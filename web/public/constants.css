@@ -5,7 +5,7 @@
 
 html {
     --color-app-background: var(--color-highlight);
-    --color-background:     hsl(0, 0%, 7.5%);
+    --color-background:     hsl(0, 0%, 10%);
     --color-elevation:      hsl(0, 0%, 15%);
 
     --color-semihighlight:  hsl(0, 0%, 40%);

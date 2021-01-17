@@ -1,8 +1,8 @@
 <template>
   <table class="data-table">
     <tr v-for="key in Object.keys(data)" :key="key">
-      <td :key="key">{{ key }}:</td>
-      <td :key="key" class="value">{{ data[key] }}</td>
+      <td>{{ key }}:</td>
+      <td class="value">{{ data[key] }}</td>
     </tr>
   </table>
 </template>

@@ -12,6 +12,7 @@ module.exports = class Lights {
     static superGroupName = 'SuperGroup'
     static accentColorModifier = 'Accent'
     static globalOffKey = 'ALLOFF'
+    static operationBlockingTimeoutMs: 2000;
 
     constructor() {
         logger.tradfri('connecting to gateway')
@@ -48,6 +49,7 @@ module.exports = class Lights {
 
         app.post(`${config.lights.apiEndpoint}/bulbs/:bulb`, async (req, res) => {
             await this.setBulbBrightness(req.params.bulb, req.body)
+            await this.waitForOperation();
             res.sendStatus(200)
         })
 
@@ -57,6 +59,7 @@ module.exports = class Lights {
 
         app.post(`${config.lights.apiEndpoint}/scenes`, async (req, res) => {
             await this.setScene(req.body)
+            await this.waitForOperation();
             res.sendStatus(200)
         })
 
@@ -66,12 +69,34 @@ module.exports = class Lights {
 
         app.post(`${config.lights.apiEndpoint}/accents`, async (req, res) => {
             await this.setScene(req.body, Lights.accentColorModifier)
+            await this.waitForOperation()
             res.sendStatus(200)
         })
     }
 
     getSceneSuperGroup() {
         return this.connection.group(Lights.superGroupName)
+    }
+
+    async waitForOperation() {
+        await new Promise(r => setTimeout(r, Lights.operationBlockingTimeoutMs))
+    }
+
+    getAllLights() {
+        return this.connection.devices
+            .filter(d => d.type === 'Bulb')
+            .filter(d => d.alive)
+            .map(d => {
+                return {
+                    name: d.name,
+                    brightness: d.isOn ? (d.brightness / 100) : 0}
+            })
+    }
+
+    async setBulbBrightness(bulb, brightness) {
+        logger.tradfri('setting bulb ' + bulb + ' to ' + brightness)
+        const brightnessConverted = Math.max(0, Math.min(100, Math.round(100 * brightness)))
+        await this.connection.device(bulb).setBrightness(brightnessConverted)
     }
 
     getAllScenes() {
@@ -94,29 +119,13 @@ module.exports = class Lights {
             .map(s => s.split('@')[0]);
     }
 
-    async setScene(scene, modifyer) {
+    async setScene(scene, modifier) {
         logger.tradfri('applying scene ' + scene)
-        await this.getSceneSuperGroup().setScene(scene + (modifyer ? ('@' + modifyer): ''))
-    }
-
-    getAllLights() {
-        return this.connection.devices
-            .filter(d => d.type === 'Bulb')
-            .filter(d => d.alive)
-            .map(d => {
-                return {
-                    name: d.name,
-                    brightness: d.isOn ? (d.brightness / 100) : 0}
-            })
-    }
-
-    async setBulbBrightness(bulb, brightness) {
-        logger.tradfri('setting bulb ' + bulb + ' to ' + brightness)
-        const brightnessConverted = Math.max(0, Math.min(100, Math.round(100 * brightness)))
-        await this.connection.device(bulb).setBrightness(brightnessConverted)
+        await this.getSceneSuperGroup().setScene(scene + (modifier ? ('@' + modifier): ''))
     }
 
     async turnLightsOff() {
-        await this.setScene(Lights.globalOffKey);
+        await this.setScene(Lights.globalOffKey)
     }
+
 }

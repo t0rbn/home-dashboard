@@ -6,6 +6,7 @@
       <Climate v-show="selectedPage === 'Climate'"></Climate>
     </div>
     <NavigationRail style="grid-area: navigation" @select="selectPage" :selected="selectedPage"></NavigationRail>
+    <Notification></Notification>
   </main>
 </template>
 
@@ -14,12 +15,13 @@ import Home from '@/components/home/Home'
 import NavigationRail from '@/components/globals/NavigationRail'
 import Climate from '@/components/climate/Climate'
 import Lights from '@/components/lights/Lights'
+import Notification from '@/components/globals/Notification'
 
 export default {
-  components: {Lights, Climate, NavigationRail, Home},
+  components: {Notification, Lights, Climate, NavigationRail, Home},
   data() {
     return {
-      selectedPage: 'Home'
+      selectedPage: 'Home',
     }
   },
   methods: {

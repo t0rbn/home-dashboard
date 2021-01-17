@@ -1,5 +1,5 @@
 <template>
-  <Card @click.native="$emit('click')" class="scene-button">
+  <Card @click.native="handleClick()" class="scene-button">
     <i :class="['fas', getIcon()]"></i>
     <label>{{ scene }}</label>
   </Card>
@@ -15,7 +15,10 @@ export default {
   props: ['scene'],
   methods: {
     getIcon() {
-      return AssetService.getSceneIcon(this.scene);
+      return AssetService.getSceneIcon(this.scene)
+    },
+    handleClick() {
+      this.$emit('click')
     }
   }
 }
@@ -42,12 +45,5 @@ i {
   line-height: var(--size-huge);
   display: block;
   margin-bottom: var(--size-small);
-}
-
-.scene-button label {
-
-}
-
-.scene-button:hover {
 }
 </style>

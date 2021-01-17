@@ -25,7 +25,7 @@ export default {
 <style scoped>
 nav {
   align-items: center;
-  border-top: 1px solid var(--color-elevation);
+  background-color: vaR(--color-elevation);
   color: var(--color-semihighlight);
   display: flex;
   flex-direction: row;
@@ -56,7 +56,6 @@ nav a.selected {
 
 @media (orientation: landscape) {
   nav {
-    border-right: 1px solid var(--color-elevation);
     border-top: none;
     flex-direction: column;
     justify-content: flex-start;
