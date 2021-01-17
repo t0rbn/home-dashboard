@@ -1,5 +1,5 @@
 <template>
-      <div>
+      <div class="accent-color">
         <h1>Accent Color</h1>
         <section class="buttons">
           <CardButton
@@ -9,6 +9,7 @@
               :key="colorName"
               :color="getColorForName(colorName)"
               @click="triggerAccentColor(colorName)"
+              :label="colorName"
           ></CardButton>
         </section>
       </div>
@@ -42,7 +43,13 @@
   </script>
 
   <style scoped>
+    .accent-color {
+      display: flex;
+      flex-direction: column;
+    }
+
     .buttons {
+      flex-grow: 1;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-gap: var(--size-medium);
@@ -52,7 +59,6 @@
       background-image: linear-gradient(10deg, hsla(0, 0%, 0%, 0.5), transparent);
       box-sizing: border-box;
       transition: var(--transition-all-default);
-      padding-top: var(--size-huge);
     }
 
     .color-button:hover {
@@ -63,7 +69,7 @@
 
     @media (orientation: landscape) {
       .buttons {
-        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 1fr;
       }
     }
   </style>

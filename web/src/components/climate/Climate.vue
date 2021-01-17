@@ -1,8 +1,8 @@
 <template>
-  <div class="climate">
+  <section class="climate">
     <Temperature class="flyin-right"></Temperature>
     <Humidity class="flyin-left"></Humidity>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -17,11 +17,11 @@ export default {
 
 <style scoped>
 .climate {
-  height: 100%;
   display: grid;
+  grid-gap: vaR(--size-medium);
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-gap: vaR(--size-medium);
+  height: 100%;
 }
 
 @media (orientation: landscape) {

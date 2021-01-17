@@ -16,7 +16,7 @@ export default {
   background-image: vaR(--gradient-elevation-action);
   border-radius: vaR(--border-radius-default);
   box-shadow: vaR(--shadow-default);
-  padding: vaR(--size-medium);
   color: vaR(--color-highlight);
+  padding: vaR(--size-medium);
 }
 </style>

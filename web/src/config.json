@@ -7,7 +7,7 @@
       "Blue": "#3e3ee5",
       "Amber": "#e28132",
       "Green": "#2fdb2f",
-      "White": "#ffffff"
+      "White": "#dddddd"
     }
   },
   "climate": {
@@ -17,7 +17,6 @@
     "apiEndpoint": "/powerOff"
   },
   "assets": {
-    "pageHeaderBasePath": "./page-headers/",
     "sceneIcons": {
       "Chill": "fa-couch",
       "Dinner": "fa-pizza-slice",

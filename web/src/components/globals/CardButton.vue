@@ -1,11 +1,12 @@
 <template>
-<Card @click.native="$emit('click')" class="card-button" :class="{warn: warn}">
-  <i :class="['fas', icon]" v-if="icon"></i>{{label}}
-</Card>
+  <Card @click.native="$emit('click')" class="card-button" :class="{warn: warn}">
+    <i :class="['fas', icon]" v-if="icon"></i>{{ label }}
+  </Card>
 </template>
 
 <script>
 import Card from '@/components/globals/Card'
+
 export default {
   name: 'CardButton',
   components: {Card},
@@ -15,9 +16,9 @@ export default {
 
 <style scoped>
 .card-button {
-  text-align: center;
-  padding: var(--size-big) var(--size-big);
   cursor: pointer;
+  padding: var(--size-big) var(--size-huge);
+  text-align: center;
 }
 
 .card-button i {
@@ -26,14 +27,14 @@ export default {
 
 .card-button:hover {
   background-image: var(--gradient-yellow-blue);
-  color: var(--color-background);
   box-shadow: var(--shadow-glow-yellow);
+  color: var(--color-background);
 
 }
 
 .card-button.warn {
-  color: var(--color-background);
   background-image: var(--gradient-red-yellow);
+  color: var(--color-background);
 }
 
 .card-button.warn:hover {
@@ -41,6 +42,4 @@ export default {
   box-shadow: var(--shadow-glow-red);
   color: var(--color-background);
 }
-
-
 </style>

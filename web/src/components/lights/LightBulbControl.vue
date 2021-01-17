@@ -40,38 +40,39 @@ export default {
 
 <style scoped>
 .light {
+  padding: var(--size-big);
   display: grid;
   grid-template-columns: auto 1fr 1fr;
   grid-gap: var(--size-small);
 }
 
 .light.active {
-  color: vaR(--color-elevation);
   background-image: var(--gradient-yellow-blue);
+  color: vaR(--color-elevation);
 }
 
 input[type=range] {
-  width: 100%;
-  -webkit-appearance: none; /* Override default CSS styles */
   appearance: none;
+  background: var(--color-highlight);
+  height: var(--size-tiny);
   margin: calc((var(--size-medium) - var(--size-tiny)) / 2) 0;
-  height: var(--size-tiny); /* Specified height */
-  background: var(--color-highlight); /* Grey background */
-  outline: none; /* Remove outline */
+  outline: none;
+  width: 100%;
+  -webkit-appearance: none;
 }
 
 input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
   appearance: none;
-  width: var(--size-medium); /* Set a specific slider handle width */
-  height: var(--size-medium); /* Slider handle height */
-  background: var(--color-accent-yellow); /* Green background */
+  background: var(--color-accent-yellow);
   border-radius: calc(var(--size-medium) / 2);
-  cursor: pointer; /* Cursor on hover */
+  cursor: pointer;
+  height: var(--size-medium);
+  width: var(--size-medium);
+  -webkit-appearance: none;
 }
 
 .light.active input[type=range] {
-  background: var(--color-elevation); /* Grey background */
+  background: var(--color-elevation);
 }
 
 .light.active input[type=range]::-webkit-slider-thumb {

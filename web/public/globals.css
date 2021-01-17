@@ -19,7 +19,7 @@ h1 {
     font-size: var(--size-big);
     line-height: var(--size-big);
     font-weight: normal;
-    margin: var(--size-big) 0 var(--size-medium);
+    margin: var(--size-medium) 0;
 }
 
 strong {

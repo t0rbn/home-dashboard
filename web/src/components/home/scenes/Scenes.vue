@@ -1,5 +1,5 @@
 <template>
-      <section class="buttons">
+      <section class="scene-buttons">
         <SceneButton
             class="flyin-up"
             v-for="(scene, index) in scenes"
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style scoped>
-.buttons {
+.scene-buttons {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: auto;
@@ -43,7 +43,7 @@ export default {
 }
 
 @media (orientation: landscape) {
-  .buttons {
+  .scene-buttons {
     grid-template-columns: repeat(4, 1fr);
   }
 }
