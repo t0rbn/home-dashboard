@@ -14,7 +14,6 @@ html {
     --color-accent-yellow:  hsl( 45, 70%, 70%);
     --color-accent-red:     hsl(342, 70%, 70%);
 
-    --gradient-highlight:   linear-gradient(20deg, var(--color-semihighlight), var(--color-background));
     --gradient-yellow-blue: linear-gradient(20deg, var(--color-accent-blue), var(--color-accent-yellow));
     --gradient-red-yellow:  linear-gradient(20deg, var(--color-accent-red), var(--color-accent-yellow));
 

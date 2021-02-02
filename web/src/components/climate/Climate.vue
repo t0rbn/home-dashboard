@@ -18,14 +18,9 @@ export default {
 <style scoped>
 .climate {
   display: grid;
-  grid-gap: vaR(--size-huge);
+  grid-gap: var(--size-medium);
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
   height: 100%;
 }
-
-/*.climate > * {*/
-/*  border-left: var(--size-tiny) solid var(--color-highlight);*/
-/*  border-bottom: var(--size-tiny) solid var(--color-highlight);*/
-/*}*/
 </style>
