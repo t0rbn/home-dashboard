@@ -31,8 +31,8 @@ header h1 {
   background-size: cover;
   border-radius: 50%;
   box-shadow: var(--shadow-default);
-  height: calc(2 * var(--size-huge));
-  width: calc(2 * var(--size-huge));
+  height: calc(3 * var(--size-huge));
+  width: calc(3 * var(--size-huge));
   margin-right: vaR(--size-medium);
 }
 
