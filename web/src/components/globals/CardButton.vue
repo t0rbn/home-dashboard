@@ -16,6 +16,7 @@ export default {
 
 <style scoped>
 .card-button {
+  background-image: linear-gradient(10deg, var(--color-background), vaR(--color-elevation));
   cursor: pointer;
   padding: var(--size-big) var(--size-huge);
   text-align: center;
@@ -26,20 +27,22 @@ export default {
 }
 
 .card-button:hover {
-  background-image: var(--gradient-yellow-blue);
+  background-color: var(--color-accent-yellow);
   box-shadow: var(--shadow-glow-yellow);
   color: var(--color-background);
-
 }
 
 .card-button.warn {
   background-image: var(--gradient-red-yellow);
   color: var(--color-background);
+
 }
 
 .card-button.warn:hover {
-  background-image: var(--gradient-red-yellow);
-  box-shadow: var(--shadow-glow-red);
-  color: var(--color-background);
+  background-image: inherit;
+  background-color: inherit;
+  box-shadow: vaR(--shadow-glow-red);
+  color: var(--color-accent-red);
+
 }
 </style>

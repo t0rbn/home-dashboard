@@ -30,7 +30,4 @@ export default {
 </script>
 
 <style scoped>
-.light {
-  margin-bottom: var(--size-medium);
-}
 </style>

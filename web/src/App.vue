@@ -5,6 +5,7 @@
       <Lights v-show="selectedPage === 'Lights'"></Lights>
       <Climate v-show="selectedPage === 'Climate'"></Climate>
     </div>
+    <WelcomeHeader style="grid-area: header"></WelcomeHeader>
     <NavigationRail style="grid-area: navigation" @select="selectPage" :selected="selectedPage"></NavigationRail>
     <Notification></Notification>
   </main>
@@ -16,12 +17,13 @@ import NavigationRail from '@/components/globals/NavigationRail'
 import Climate from '@/components/climate/Climate'
 import Lights from '@/components/lights/Lights'
 import Notification from '@/components/globals/Notification'
+import WelcomeHeader from '@/components/home/WelcomeHeader'
 
 export default {
-  components: {Notification, Lights, Climate, NavigationRail, Home},
+  components: {WelcomeHeader, Notification, Lights, Climate, NavigationRail, Home},
   data() {
     return {
-      selectedPage: 'Home',
+      selectedPage: 'Home'
     }
   },
   methods: {
@@ -34,25 +36,32 @@ export default {
 
 <style scoped>
 .app-container {
+  background-color: vaR(--color-app-background);
   box-sizing: border-box;
   margin: 0 auto;
   max-height: 100%;
   min-height: 100%;
   display: grid;
-  grid-template-rows: 1fr auto;
-  grid-template-areas: 'content' 'navigation';
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas: 'header' 'navigation' 'content';
 }
 
 .app-content {
-  padding: var(--size-medium);
+  background-color: var(--color-background);
+  padding: var(--size-big);
   overflow: scroll;
 }
 
 @media (orientation: landscape) {
+  .app-content {
+    border-radius: var(--border-radius-default);
+    margin: var(--size-medium) var(--size-medium) var(--size-medium) 0;
+  }
+
   .app-container {
-    grid-template-rows: 1fr;
+    grid-template-rows: auto 1fr;
     grid-template-columns: auto 1fr;
-    grid-template-areas: 'navigation content';
+    grid-template-areas: 'header content' 'navigation content';
   }
 }
 </style>

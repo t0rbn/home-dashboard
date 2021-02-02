@@ -25,11 +25,6 @@ name: "Lights",
 }
 
 @media (orientation: landscape) {
-  .lights {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 1fr;
-  }
-
   .lightbulbs {
     overflow: scroll;
   }

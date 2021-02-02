@@ -18,16 +18,14 @@ export default {
 <style scoped>
 .climate {
   display: grid;
-  grid-gap: vaR(--size-medium);
+  grid-gap: vaR(--size-huge);
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
   height: 100%;
 }
 
-@media (orientation: landscape) {
-  .climate {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-  }
+.climate > * {
+  border-left: 1px solid var(--color-semihighlight);
+  border-bottom: 1px solid var(--color-semihighlight);
 }
 </style>

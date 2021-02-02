@@ -69,7 +69,8 @@
 
     @media (orientation: landscape) {
       .buttons {
-        grid-auto-rows: 1fr;
+        grid-auto-columns: 1fr;
+        grid-auto-flow: column;
       }
     }
   </style>

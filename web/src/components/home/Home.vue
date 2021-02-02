@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <HomeHeader></HomeHeader>
     <Scenes></Scenes>
     <CardButton class="turn-off-button" icon="fa-power-off" label="Turn Off" @click="turnOff" warn="true"></CardButton>
   </div>
@@ -10,11 +9,10 @@
 import Scenes from '@/components/home/scenes/Scenes'
 import CardButton from '@/components/globals/CardButton'
 import PowerOffService from '@/services/PowerOffService'
-import HomeHeader from '@/components/home/HomeHeader'
 
 export default {
   name: 'Home',
-  components: {HomeHeader, CardButton, Scenes},
+  components: {CardButton, Scenes},
   methods: {
     turnOff() {
       console.log('fopp')
@@ -30,7 +28,7 @@ export default {
   display: grid;
   grid-gap: var(--size-medium);
   grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 1fr auto;
 }
 
 @media (orientation: landscape) {

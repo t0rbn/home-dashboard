@@ -1,19 +1,17 @@
 <template>
-  <Card class="light" :class="{active: modelValue > 0}">
+  <div class="light" :class="{active: modelValue > 0}">
     <i class="fas fa-lightbulb"></i>
     <label for="brightnessRange">{{ name }}</label>
     <input type="range" min="0" max="100" v-model="modelValue" class="slider" id="brightnessRange"
            @change="setBrightness()">
-  </Card>
+  </div>
 </template>
 
 <script>
 import LightService from '@/services/LightService'
-import Card from '@/components/globals/Card'
 
 export default {
   name: 'LightBulbControl',
-  components: {Card},
   props: ['name'],
   data() {
     return {
@@ -46,9 +44,12 @@ export default {
   grid-gap: var(--size-small);
 }
 
+.light:not(:last-child) {
+  border-bottom: 1px solid var(--color-semihighlight);
+}
+
 .light.active {
-  background-image: var(--gradient-yellow-blue);
-  color: vaR(--color-elevation);
+  color: var(--color-accent-yellow);
 }
 
 input[type=range] {
@@ -69,9 +70,5 @@ input[type=range]::-webkit-slider-thumb {
   height: var(--size-medium);
   width: var(--size-medium);
   -webkit-appearance: none;
-}
-
-.light.active input[type=range]::-webkit-slider-thumb {
-  background: var(--color-background);
 }
 </style>

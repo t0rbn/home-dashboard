@@ -29,10 +29,10 @@ export default {
   background-color: hsla(0, 0%, 0%, 0.75);
   backdrop-filter: blur(var(--size-small));
   position: absolute;
-  top: var(--size-medium);
-  left: var(--size-medium);
-  right: var(--size-medium);
-  bottom: var(--size-medium);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;

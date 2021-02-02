@@ -7,7 +7,7 @@
 
 <script>
 export default {
-name: "HomeHeader"
+  name: 'WelcomeHeader'
 }
 </script>
 
@@ -15,13 +15,13 @@ name: "HomeHeader"
 header {
   align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: var(--size-huge) var(--size-medium);
 }
 
 header h1 {
-  font-size: var(--size-huge);
-  line-height: var(--size-huge);
+  font-size: var(--size-big);
+  line-height: var(--size-big);
   margin: 0;
 }
 
@@ -31,17 +31,19 @@ header h1 {
   background-size: cover;
   border-radius: 50%;
   box-shadow: var(--shadow-default);
-  height: calc(3 * var(--size-huge));
-  width: calc(3 * var(--size-huge));
+  height: calc(2 * var(--size-huge));
+  width: calc(2 * var(--size-huge));
+  margin-right: vaR(--size-medium);
 }
 
 
 @media (orientation: landscape) {
   header {
-    flex-direction: row;
+    flex-direction: column;
   }
-  header h1 {
-    margin-left: var(--size-small);
+
+  header .hero-image {
+    margin: 0 0 var(--size-medium) 0;
   }
 }
 </style>

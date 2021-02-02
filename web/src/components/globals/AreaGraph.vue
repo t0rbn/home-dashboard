@@ -25,7 +25,7 @@ export default {
       return values.map(v => (v - min) / (max - min))
     },
     valueToPercentString(val) {
-      return `${10 + (val * 90)}%`
+      return `${100 - (10 + (val * 90))}%`
     },
     smooth(values) {
       let newValues = []
@@ -48,7 +48,7 @@ export default {
 }
 
 .values-container {
-  align-items: flex-end;
+  /*align-items: flex-end;*/
   position: absolute;
   bottom: 0;
   display: flex;
@@ -59,7 +59,7 @@ export default {
 }
 
 .value-bar {
-  background-color: hsla(0, 0%, 0%, 0.33);
+  background-color: var(--color-background);
   flex-grow: 1;
   transform-origin: bottom center;
 }

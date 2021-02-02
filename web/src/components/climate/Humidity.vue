@@ -1,23 +1,22 @@
 <template>
-  <Card class="status-humidity">
-    <IconHeading icon="fa-tint" :text="`${current}%`"></IconHeading>
+  <div class="status-humidity">
+    <IconHeading class="data" icon="fa-tint" :text="`${current}%`"></IconHeading>
     <div>
-      <DataTable :data="stats"></DataTable>
+      <DataTable class="data" :data="stats"></DataTable>
     </div>
     <AreaGraph class="graph" :values="history"></AreaGraph>
-  </Card>
+  </div>
 </template>
 
 <script>
 import ClimateService from '@/services/ClimateService'
 import AreaGraph from '@/components/globals/AreaGraph'
 import DataTable from '@/components/globals/DataTable'
-import Card from '@/components/globals/Card'
 import IconHeading from '@/components/globals/IconHeading'
 
 export default {
   name: 'Humidity',
-  components: {IconHeading, Card, DataTable, AreaGraph},
+  components: {IconHeading, DataTable, AreaGraph},
   data() {
     return {
       current: {},
@@ -42,15 +41,20 @@ export default {
 
 <style scoped>
 .status-humidity {
-  background-image: var(--gradient-yellow-blue);
-  color: var(--color-elevation);
+  color: var(--color-accent-blue);
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
+.status-humidity .data {
+  margin-left: var(--size-medium);
+}
+
 .graph {
+  background-image: var(--gradient-yellow-blue);
   flex-grow: 1;
   margin: var(--size-big) calc(-1 * var(--size-big)) calc(-1 * var(--size-big));
 }
+
 </style>
