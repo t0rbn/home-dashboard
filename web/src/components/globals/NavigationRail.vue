@@ -26,7 +26,7 @@ export default {
 nav {
   align-items: center;
   /*background-color: vaR(--color-elevation);*/
-  color: var(--color-semihighlight);
+  color: var(--color-background);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -45,10 +45,6 @@ nav a {
 nav a i {
   font-size: var(--size-big);
   line-height: var(--size-big);
-}
-
-nav a:hover {
-  color: vaR(--color-highlight);
 }
 
 nav a.selected {

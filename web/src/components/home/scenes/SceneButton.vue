@@ -26,7 +26,7 @@ export default {
 
 <style scoped>
 .scene-button {
-  background-image: linear-gradient(10deg, var(--color-background), var(--color-elevation));
+  background-color: var(--color-elevation);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,7 +36,7 @@ export default {
 }
 
 .scene-button:hover {
-  color: var(--color-elevation);
+  color: var(--color-background);
   background-image: vaR(--gradient-yellow-blue);
   box-shadow: var(--shadow-glow-yellow);
 }

@@ -13,10 +13,11 @@ export default {
 
 <style scoped>
 header {
+  color: vaR(--color-background);
   align-items: center;
   display: flex;
   flex-direction: row;
-  margin: var(--size-huge) var(--size-medium);
+  margin: var(--size-huge);
 }
 
 header h1 {

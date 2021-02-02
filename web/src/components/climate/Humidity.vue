@@ -1,11 +1,11 @@
 <template>
-  <div class="status-humidity">
+  <Card class="status-humidity">
     <IconHeading class="data" icon="fa-tint" :text="`${current}%`"></IconHeading>
     <div>
       <DataTable class="data" :data="stats"></DataTable>
     </div>
     <AreaGraph class="graph" :values="history"></AreaGraph>
-  </div>
+  </Card>
 </template>
 
 <script>
@@ -13,10 +13,11 @@ import ClimateService from '@/services/ClimateService'
 import AreaGraph from '@/components/globals/AreaGraph'
 import DataTable from '@/components/globals/DataTable'
 import IconHeading from '@/components/globals/IconHeading'
+import Card from '@/components/globals/Card'
 
 export default {
   name: 'Humidity',
-  components: {IconHeading, DataTable, AreaGraph},
+  components: {Card, IconHeading, DataTable, AreaGraph},
   data() {
     return {
       current: {},
@@ -52,9 +53,12 @@ export default {
 }
 
 .graph {
-  background-image: var(--gradient-yellow-blue);
   flex-grow: 1;
   margin: var(--size-big) calc(-1 * var(--size-big)) calc(-1 * var(--size-big));
+}
+
+.graph::v-deep .value-bar {
+  background-color: var(--color-accent-blue);
 }
 
 </style>

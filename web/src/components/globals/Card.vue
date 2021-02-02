@@ -12,8 +12,7 @@ export default {
 
 <style scoped>
 .card {
-  background-color: var(--color-elevation);
-  background-image: vaR(--gradient-elevation-action);
+  background-color: vaR(--color-elevation);
   border-radius: vaR(--border-radius-default);
   box-shadow: vaR(--shadow-default);
   color: vaR(--color-highlight);

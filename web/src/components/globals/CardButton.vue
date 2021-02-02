@@ -16,7 +16,6 @@ export default {
 
 <style scoped>
 .card-button {
-  background-image: linear-gradient(10deg, var(--color-background), vaR(--color-elevation));
   cursor: pointer;
   padding: var(--size-big) var(--size-huge);
   text-align: center;

@@ -44,17 +44,13 @@ export default {
   grid-gap: var(--size-small);
 }
 
-.light:not(:last-child) {
-  border-bottom: 1px solid var(--color-semihighlight);
-}
-
 .light.active {
   color: var(--color-accent-yellow);
 }
 
 input[type=range] {
   appearance: none;
-  background: var(--color-semihighlight);
+  background: var(--color-elevation);
   height: var(--size-tiny);
   margin: calc((var(--size-medium) - var(--size-tiny)) / 2) 0;
   outline: none;

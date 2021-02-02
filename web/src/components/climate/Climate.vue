@@ -24,8 +24,8 @@ export default {
   height: 100%;
 }
 
-.climate > * {
-  border-left: 1px solid var(--color-semihighlight);
-  border-bottom: 1px solid var(--color-semihighlight);
-}
+/*.climate > * {*/
+/*  border-left: var(--size-tiny) solid var(--color-highlight);*/
+/*  border-bottom: var(--size-tiny) solid var(--color-highlight);*/
+/*}*/
 </style>

@@ -36,7 +36,7 @@ export default {
 
 <style scoped>
 .app-container {
-  background-color: vaR(--color-app-background);
+  background-image: linear-gradient(to right, var(--color-accent-blue), var(--color-accent-yellow));
   box-sizing: border-box;
   margin: 0 auto;
   max-height: 100%;
@@ -47,18 +47,18 @@ export default {
 }
 
 .app-content {
-  background-color: var(--color-background);
+  background-image: linear-gradient(to bottom, var(--color-background), vaR(--color-background-secondary));
   padding: var(--size-big);
   overflow: scroll;
 }
 
 @media (orientation: landscape) {
   .app-content {
-    border-radius: var(--border-radius-default);
-    margin: var(--size-medium) var(--size-medium) var(--size-medium) 0;
+    background-image: linear-gradient(to right, var(--color-background), vaR(--color-background-secondary));
   }
 
   .app-container {
+    background-image: linear-gradient(to top, var(--color-accent-blue), var(--color-accent-yellow));
     grid-template-rows: auto 1fr;
     grid-template-columns: auto 1fr;
     grid-template-areas: 'header content' 'navigation content';
