@@ -1,5 +1,5 @@
 <template>
-  <Card @click.native="$emit('click')" class="card-button" :class="{warn: warn}">
+  <Card @click.native="$emit('click')" class="card-button" :class="{huge: huge}">
     <i :class="['fas', icon]" v-if="icon"></i>{{ label }}
   </Card>
 </template>
@@ -10,38 +10,38 @@ import Card from '@/components/globals/Card'
 export default {
   name: 'CardButton',
   components: {Card},
-  props: ['icon', 'label', 'warn']
+  props: ['icon', 'label', 'huge']
 }
 </script>
 
 <style scoped>
 .card-button {
+  align-items: center;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   padding: var(--size-big) var(--size-huge);
-  text-align: center;
 }
 
 .card-button i {
+  display: block;
   margin-right: var(--size-small);
 }
 
 .card-button:hover {
-  background-color: var(--color-accent-yellow);
-  box-shadow: var(--shadow-glow-yellow);
-  color: var(--color-background);
+  box-shadow: var(--shadow-glow-blue);
+  color: var(--color-accent-primary);
 }
 
-.card-button.warn {
-  background-image: var(--gradient-red-yellow);
-  color: var(--color-background);
-
+.card-button.huge {
+  flex-direction: column;
 }
 
-.card-button.warn:hover {
-  background-image: inherit;
-  background-color: inherit;
-  box-shadow: vaR(--shadow-glow-red);
-  color: var(--color-accent-red);
-
+.card-button.huge i {
+  font-size: var(--size-huge);
+  line-height: var(--size-huge);
+  margin: 0 0 var(--size-small) 0;
 }
+
 </style>

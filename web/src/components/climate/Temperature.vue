@@ -42,7 +42,7 @@ export default {
 
 <style scoped>
 .status-temperature {
-  color: var(--color-accent-red);
+  color: var(--color-accent-secondary);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -58,6 +58,6 @@ export default {
 }
 
 .graph::v-deep .value-bar {
-  background-color: var(--color-accent-red);
+  border-color: var(--color-accent-secondary);
 }
 </style>

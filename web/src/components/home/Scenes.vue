@@ -1,23 +1,26 @@
 <template>
       <section class="scene-buttons">
-        <SceneButton
+        <CardButton
+            huge="true"
             class="flyin-up"
             v-for="(scene, index) in scenes"
             :key="scene"
-            :scene="scene"
+            :label="scene"
+            :icon="iconForScene(scene)"
             @click="triggerScene(scene)"
             :style="{animationDelay: `${50 * index}ms`}"
-        ></SceneButton>
+        ></CardButton>
       </section>
 </template>
 
 <script>
 import LightService from '@/services/LightService'
-import SceneButton from '@/components/home/scenes/SceneButton'
+import CardButton from '@/components/globals/CardButton'
+import AssetService from '@/services/AssetService'
 
 export default {
   name: 'Scenes',
-  components: {SceneButton},
+  components: {CardButton},
   data() {
     return {
       scenes: [],
@@ -29,6 +32,9 @@ export default {
   methods: {
     triggerScene(scene) {
       LightService.selectScene(scene)
+    },
+    iconForScene(scene) {
+      return AssetService.getSceneIcon(scene)
     }
   }
 }

@@ -4,29 +4,24 @@
 }
 
 html {
-    --color-background-secondary: hsl(0, 0%, 0%);
-    --color-background:           hsl(0, 0%, 10%);
-    --color-elevation:            hsl(0, 0%, 12.5%);;
+    --color-background-secondary: hsl(0, 0%,   5%);
+    --color-background:           hsl(0, 0%,  10%);
+    --color-elevation:           hsla(0, 0%, 100%, 0.05);
+    --color-highlight:            hsl(0, 0%, 80%);
 
-    --color-highlight:      hsl(0, 0%, 90%);
-
-    --color-accent-blue:    hsl(221, 70%, 70%);
-    --color-accent-yellow:  hsl( 45, 70%, 70%);
-    --color-accent-red:     hsl(342, 70%, 70%);
-
-    --gradient-yellow-blue: linear-gradient(20deg, var(--color-accent-blue), var(--color-accent-yellow));
-    --gradient-red-yellow:  linear-gradient(20deg, var(--color-accent-red), var(--color-accent-yellow));
+    --color-accent-primary:   #5895C4;
+    --color-accent-secondary: #59BD9B;
+    --gradient-accents: linear-gradient(20deg, var(--color-accent-primary), var(--color-accent-secondary));
 
     /* Default sizes */
     --size-medium: 0.9rem;
-    --size-huge:   calc(var(--size-medium) *   3);
+    --size-huge:   calc(var(--size-medium) * 3);
     --size-big:    calc(var(--size-medium) * 1.5); /* header, key info                  */
     --size-small:  calc(var(--size-medium) * 0.5); /* inner spacing                     */
     --size-tiny:   calc(var(--size-medium) * 0.125); /* blueprint room outlines          */
 
-    --shadow-default:     var(--size-tiny) var(--size-tiny) var(--size-tiny)   hsl(0, 0%, 7.5%);
-    --shadow-glow-yellow: 0                0                var(--size-medium) var(--color-accent-yellow);
-    --shadow-glow-red:    0                0                var(--size-medium) var(--color-accent-red);
+    --shadow-default:   var(--size-tiny) var(--size-tiny)   var(--size-tiny)            hsl(0, 0%, 7.5%);
+    --shadow-glow-blue:                0                0 var(--size-medium) var(--color-accent-primary);
 
     --transition-all-default: all 125ms;
     --border-radius-default: var(--size-medium)

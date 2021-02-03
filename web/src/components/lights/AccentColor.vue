@@ -49,8 +49,8 @@
     }
 
     .buttons {
-      flex-grow: 1;
       display: grid;
+      flex-grow: 1;
       grid-template-columns: repeat(2, 1fr);
       grid-gap: var(--size-medium);
     }
@@ -58,12 +58,14 @@
     .color-button {
       background-image: linear-gradient(10deg, hsla(0, 0%, 0%, 0.5), transparent);
       box-sizing: border-box;
-      transition: var(--transition-all-default);
+      color: var(--color-background);
+
     }
 
     .color-button:hover {
       background-image: none;
       box-shadow: none;
+      color: var(--color-background);
       filter: brightness(125%);
     }
 

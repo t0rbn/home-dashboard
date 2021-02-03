@@ -25,7 +25,6 @@ export default {
 <style scoped>
 nav {
   align-items: center;
-  /*background-color: vaR(--color-elevation);*/
   color: var(--color-background);
   display: flex;
   flex-direction: row;
@@ -48,23 +47,24 @@ nav a i {
 }
 
 nav a.selected {
-  color: var(--color-accent-yellow);
   background-color: var(--color-background);
   border-top-left-radius: var(--border-radius-default);
   border-top-right-radius: var(--border-radius-default);
+  color: var(--color-accent-secondary);
 }
 
 @media (orientation: landscape) {
   nav {
+    align-items: stretch;
     border-top: none;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: stretch;
   }
+
   nav a {
+    align-items: center;
     flex-grow: 0;
     flex-direction: row;
-    align-items: center;
     margin-left: vaR(--size-small);
     margin-bottom: 0;
     padding: var(--size-big);

@@ -38,14 +38,14 @@ export default {
 
 <style scoped>
 .light {
-  padding: var(--size-big);
   display: grid;
   grid-template-columns: auto 1fr 1fr;
   grid-gap: var(--size-small);
+  padding: var(--size-big);
 }
 
 .light.active {
-  color: var(--color-accent-yellow);
+  color: var(--color-accent-primary);
 }
 
 input[type=range] {
@@ -60,7 +60,7 @@ input[type=range] {
 
 input[type=range]::-webkit-slider-thumb {
   appearance: none;
-  background: var(--color-accent-yellow);
+  background: var(--color-accent-primary);
   border-radius: calc(var(--size-medium) / 2);
   cursor: pointer;
   height: var(--size-medium);

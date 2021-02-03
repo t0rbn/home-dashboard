@@ -36,7 +36,7 @@ export default {
 
 <style scoped>
 .app-container {
-  background-image: linear-gradient(to right, var(--color-accent-blue), var(--color-accent-yellow));
+  background-image: linear-gradient(to left, var(--color-accent-primary), var(--color-accent-secondary));
   box-sizing: border-box;
   margin: 0 auto;
   max-height: 100%;
@@ -58,7 +58,7 @@ export default {
   }
 
   .app-container {
-    background-image: linear-gradient(to top, var(--color-accent-blue), var(--color-accent-yellow));
+    background-image: linear-gradient(to bottom, var(--color-accent-primary), var(--color-accent-secondary));
     grid-template-rows: auto 1fr;
     grid-template-columns: auto 1fr;
     grid-template-areas: 'header content' 'navigation content';
