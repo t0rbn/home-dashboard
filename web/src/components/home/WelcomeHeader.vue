@@ -17,7 +17,7 @@ header {
   align-items: center;
   display: flex;
   flex-direction: row;
-  margin: var(--size-huge);
+  margin: calc(2 * var(--size-huge));
 }
 
 header h1 {

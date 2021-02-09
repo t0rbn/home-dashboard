@@ -50,7 +50,7 @@ export default {
 
 input[type=range] {
   appearance: none;
-  background: var(--color-elevation);
+  background: var(--color-highlight);
   height: var(--size-tiny);
   margin: calc((var(--size-medium) - var(--size-tiny)) / 2) 0;
   outline: none;

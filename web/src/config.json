@@ -3,11 +3,11 @@
   "lights": {
     "apiEndpoint": "/lights",
     "colorNameMap": {
-      "Purple": "#a51acd",
-      "Blue": "#3e3ee5",
-      "Amber": "#e28132",
-      "Green": "#2fdb2f",
-      "White": "#dddddd"
+      "Purple": "#E367F5",
+      "Blue": "#526BDE",
+      "Amber": "#DE6E52",
+      "Green": "#5EFFDD",
+      "White": "#FAFAFA"
     }
   },
   "climate": {

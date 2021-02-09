@@ -4,18 +4,20 @@
 }
 
 html {
-    --color-background-secondary: hsl(0, 0%,   5%);
-    --color-background:           hsl(0, 0%,  10%);
-    --color-elevation:           hsla(0, 0%, 100%, 0.05);
+    --color-background:           hsla(0, 0%,   0%, 0.85);
+    --color-elevation:            hsla(0, 0%, 100%, 0.05);
     --color-highlight:            hsl(0, 0%, 80%);
 
-    --color-accent-primary:   #5895C4;
-    --color-accent-secondary: #59BD9B;
-    --gradient-accents: linear-gradient(20deg, var(--color-accent-primary), var(--color-accent-secondary));
+    --color-accent-secondary: #FFE2B0;
+    --color-accent-primary: #80ABD9;
+   --gradient-accents: linear-gradient(5deg, var(--color-accent-primary), var(--color-accent-secondary)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+    /*--gradient-accents: linear-gradient(5deg, var(--color-accent-primary), var(--color-accent-secondary));*/
 
     /* Default sizes */
     --size-medium: 0.9rem;
-    --size-huge:   calc(var(--size-medium) * 3);
+    --size-huge:   calc(var(--size-medium) * 2  );
     --size-big:    calc(var(--size-medium) * 1.5); /* header, key info                  */
     --size-small:  calc(var(--size-medium) * 0.5); /* inner spacing                     */
     --size-tiny:   calc(var(--size-medium) * 0.125); /* blueprint room outlines          */
