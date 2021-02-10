@@ -13,6 +13,7 @@
 <script>
 import LightService from '@/services/LightService'
 import LightBulbControl from '@/components/lights/LightBulbControl'
+import config from '@/config.json'
 
 export default {
   name: 'LightBulbs',
@@ -22,9 +23,15 @@ export default {
       allLights: []
     }
   },
+  methods: {
+    init() {
+      LightService.registerLightChangeWatcher(() => this.allLights = LightService.currentLightBulbs)
+      LightService.updateLights()
+    }
+  },
   created() {
-    LightService.registerLightChangeWatcher(() => this.allLights = LightService.currentLightBulbs)
-    LightService.updateLights()
+    this.init()
+    setInterval(() => this.init(), config.lights.refreshIntervalSeconds * 1000)
   }
 }
 </script>

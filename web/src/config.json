@@ -2,6 +2,7 @@
   "localApiBaseUrl": "http://192.168.0.103:8001",
   "lights": {
     "apiEndpoint": "/lights",
+    "refreshIntervalSeconds":  "10",
     "colorNameMap": {
       "Purple": "#E367F5",
       "Blue": "#526BDE",
@@ -11,6 +12,7 @@
     }
   },
   "climate": {
+    "refreshIntervalSeconds":  "10",
     "apiEndpoint": "/climate"
   },
   "powerOff": {

@@ -14,6 +14,7 @@ import AreaGraph from '@/components/globals/AreaGraph'
 import DataTable from '@/components/globals/DataTable'
 import IconHeading from '@/components/globals/IconHeading'
 import Card from '@/components/globals/Card'
+import config from '@/config.json'
 
 export default {
   name: 'Humidity',
@@ -27,15 +28,21 @@ export default {
       lastUpdateTimeStamp: 0
     }
   },
-  async created() {
-    this.current = Math.round(100 * (await ClimateService.getCurrent()).humidity)
-    this.history = (await ClimateService.getHistory()).map(v => Math.round(100 * v.humidity))
+  methods: {
+    async init() {
+      this.current = Math.round(100 * (await ClimateService.getCurrent()).humidity)
+      this.history = (await ClimateService.getHistory()).map(v => Math.round(100 * v.humidity))
 
-    this.stats = {
-      Maximum: `${Math.max(...this.history)}%`,
-      Minimum: `${Math.min(...this.history)}%`,
-      Average: `${Math.round((this.history).reduce((a, b) => a + b) / this.history.length)}%`
+      this.stats = {
+        Maximum: `${Math.max(...this.history)}%`,
+        Minimum: `${Math.min(...this.history)}%`,
+        Average: `${Math.round((this.history).reduce((a, b) => a + b) / this.history.length)}%`
+      }
     }
+  },
+  async created() {
+    await this.init()
+    setInterval(async () => this.init(), config.climate.refreshIntervalSeconds * 1000)
   }
 }
 </script>

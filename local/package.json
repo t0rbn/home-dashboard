@@ -5,7 +5,7 @@
   "main": "src/Server.js",
   "scripts": {
     "start": "node src/Server.js",
-    "deploy": "ssh pi@192.168.0.103 \"cd home-dashboard && git pull origin master && sudo systemctl restart home-dashboard-local.service\""
+    "deploy": "ssh pi@192.168.0.103 \"cd home-dashboard && git pull origin master && npm install && sudo systemctl restart home-dashboard-local.service\""
   },
   "author": "t0rbn",
   "license": "MIT",
