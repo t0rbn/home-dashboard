@@ -1,7 +1,7 @@
 <template>
   <Card class="status-temperature">
-    <IconHeading class="data" icon="fa-thermometer-three-quarters" :text="`${current}°C`"></IconHeading>
     <div class="data" >
+      <IconHeading icon="fa-thermometer-three-quarters" :text="`${current}°C`"></IconHeading>
       <DataTable :data="stats"></DataTable>
     </div>
     <AreaGraph class="graph" :values="history"></AreaGraph>
@@ -55,8 +55,10 @@ export default {
   overflow: hidden;
 }
 
-.status-temperature .data {
-  margin-left: var(--size-medium);
+.data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .graph {

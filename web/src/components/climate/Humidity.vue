@@ -1,8 +1,8 @@
 <template>
   <Card class="status-humidity">
-    <IconHeading class="data" icon="fa-tint" :text="`${current}%`"></IconHeading>
-    <div>
-      <DataTable class="data" :data="stats"></DataTable>
+    <div class="data">
+      <IconHeading icon="fa-tint" :text="`${current}%`"></IconHeading>
+      <DataTable :data="stats"></DataTable>
     </div>
     <AreaGraph class="graph" :values="history"></AreaGraph>
   </Card>
@@ -55,8 +55,10 @@ export default {
   overflow: hidden;
 }
 
-.status-humidity .data {
-  margin-left: var(--size-medium);
+.data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .graph {
