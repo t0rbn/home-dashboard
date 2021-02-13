@@ -24,8 +24,8 @@ export default {
 
 <style scoped>
 nav {
+  color: vaR(--color-background);
   align-items: center;
-  color: var(--color-background);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -50,7 +50,7 @@ nav a.selected {
   background-color: var(--color-background);
   border-top-left-radius: var(--border-radius-default);
   border-top-right-radius: var(--border-radius-default);
-  color: var(--color-accent-secondary);
+  color: var(--color-accent);
 }
 
 @media (orientation: landscape) {

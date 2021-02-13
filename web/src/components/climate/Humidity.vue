@@ -49,7 +49,7 @@ export default {
 
 <style scoped>
 .status-humidity {
-  color: var(--color-accent-primary);
+  color: var(--color-accent);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -58,7 +58,6 @@ export default {
 .data {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .graph {
@@ -67,7 +66,6 @@ export default {
 }
 
 .graph::v-deep .value-bar {
-  border-color: var(--color-accent-primary);
+  border-color: var(--color-accent);
 }
-
 </style>

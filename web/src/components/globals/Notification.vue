@@ -37,7 +37,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: var(--color-accent-primary);
+  color: var(--color-accent);
   font-size: var(--size-big);
   line-height: var(--size-big);
 }
@@ -49,7 +49,7 @@ i {
   width: calc(3 * var(--size-huge));
   text-align: center;
   color: var(--color-background);
-  background-color: var(--color-accent-primary);
+  background-color: var(--color-accent);
   margin-bottom: var(--size-small);
   border-radius: 50%;
 }

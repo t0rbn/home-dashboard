@@ -31,7 +31,7 @@ export default {
 
 .card-button:hover {
   box-shadow: var(--shadow-glow-blue);
-  color: var(--color-accent-primary);
+  color: var(--color-accent);
 }
 
 .card-button.huge {

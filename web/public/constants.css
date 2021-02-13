@@ -4,26 +4,23 @@
 }
 
 html {
-    --color-background:           hsla(0, 0%,   0%, 0.85);
-    --color-elevation:            hsla(0, 0%, 100%, 0.05);
-    --color-highlight:            hsl(0, 0%, 80%);
+    --color-background: hsl(0, 0%,12%);
+    --color-elevation: hsl(0, 0%, 17%);
+    --color-highlight: hsl(0, 0%, 80%);
 
-    --color-accent-secondary: #FFE2B0;
-    --color-accent-primary: #80ABD9;
-   --gradient-accents: linear-gradient(5deg, var(--color-accent-primary), var(--color-accent-secondary)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --color-accent: hsl(214, 75%, 75%);
+    --color-accent-secondary: hsl(20, 75%, 75%);
 
-
-    /*--gradient-accents: linear-gradient(5deg, var(--color-accent-primary), var(--color-accent-secondary));*/
 
     /* Default sizes */
     --size-medium: 0.9rem;
-    --size-huge:   calc(var(--size-medium) * 2  );
-    --size-big:    calc(var(--size-medium) * 1.5); /* header, key info                  */
-    --size-small:  calc(var(--size-medium) * 0.5); /* inner spacing                     */
-    --size-tiny:   calc(var(--size-medium) * 0.125); /* blueprint room outlines          */
+    --size-huge: calc(var(--size-medium) * 2);
+    --size-big: calc(var(--size-medium) * 1.5); /* header, key info                  */
+    --size-small: calc(var(--size-medium) * 0.5); /* inner spacing                     */
+    --size-tiny: calc(var(--size-medium) * 0.125); /* blueprint room outlines          */
 
-    --shadow-default:   var(--size-tiny) var(--size-tiny)   var(--size-tiny)            hsl(0, 0%, 7.5%);
-    --shadow-glow-blue:                0                0 var(--size-medium) var(--color-accent-primary);
+    --shadow-default: var(--size-tiny) var(--size-tiny) var(--size-tiny) hsl(0, 0%, 6%);
+    --shadow-glow-blue: 0 0 var(--size-medium) var(--color-accent);
 
     --transition-all-default: all 125ms;
     --border-radius-default: var(--size-medium)

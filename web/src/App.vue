@@ -18,12 +18,13 @@ import Climate from '@/components/climate/Climate'
 import Lights from '@/components/lights/Lights'
 import Notification from '@/components/globals/Notification'
 import WelcomeHeader from '@/components/home/WelcomeHeader'
+import StorageService from '@/services/StorageService'
 
 export default {
   components: {WelcomeHeader, Notification, Lights, Climate, NavigationRail, Home},
   data() {
     return {
-      selectedPage: 'Home'
+      selectedPage: StorageService.get(StorageService.CURRENT_VIEW_KEY) || 'Home'
     }
   },
   methods: {
@@ -36,7 +37,7 @@ export default {
 
 <style scoped>
 .app-container {
-  background-image: var(--gradient-accents);
+  background-image: linear-gradient(to right, var(--color-accent), var(--color-accent-secondary));
   box-sizing: border-box;
   margin: 0 auto;
   max-height: 100%;
@@ -53,11 +54,8 @@ export default {
 }
 
 @media (orientation: landscape) {
-  /*.app-content {*/
-  /*  background-image: linear-gradient(to right, var(--color-background), vaR(--color-background-secondary));*/
-  /*}*/
-
   .app-container {
+    background-image: linear-gradient(to top, var(--color-accent), var(--color-accent-secondary));
     grid-template-rows: auto 1fr;
     grid-template-columns: auto 1fr;
     grid-template-areas: 'header content' 'navigation content';

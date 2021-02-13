@@ -45,7 +45,7 @@ export default {
 }
 
 .light.active {
-  color: var(--color-accent-primary);
+  color: var(--color-accent);
 }
 
 input[type=range] {
@@ -60,7 +60,7 @@ input[type=range] {
 
 input[type=range]::-webkit-slider-thumb {
   appearance: none;
-  background: var(--color-accent-primary);
+  background: var(--color-accent);
   border-radius: calc(var(--size-medium) / 2);
   cursor: pointer;
   height: var(--size-medium);
