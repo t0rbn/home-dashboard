@@ -1,5 +1,5 @@
 <template>
-  <Card @click.native="$emit('click')" class="card-button" :class="{huge: huge}">
+  <Card @click.native="$emit('click')" class="card-button">
     <i :class="['fas', icon]" v-if="icon"></i>{{ label }}
   </Card>
 </template>
@@ -19,29 +19,20 @@ export default {
   align-items: center;
   cursor: pointer;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  padding: var(--size-big) var(--size-huge);
+  padding: var(--size-big);
 }
 
 .card-button i {
+  font-size: var(--size-big);
+  line-height: var(--size-big);
   display: block;
-  margin-right: var(--size-small);
+  margin-bottom: var(--size-small);
 }
 
 .card-button:hover {
-  box-shadow: var(--shadow-glow-blue);
+  background-color: var(--color-elevation-double);
   color: var(--color-accent);
 }
-
-.card-button.huge {
-  flex-direction: column;
-}
-
-.card-button.huge i {
-  font-size: var(--size-huge);
-  line-height: var(--size-huge);
-  margin: 0 0 var(--size-small) 0;
-}
-
 </style>

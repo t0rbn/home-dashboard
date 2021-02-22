@@ -60,7 +60,7 @@ export default {
 
 .value-bar {
   border-top: var(--size-tiny) solid vaR(--color-highlight);
-  background-color: var(--color-elevation);
+  /*background-color: var(--color-elevation);*/
   flex-grow: 1;
   transform-origin: bottom center;
 }

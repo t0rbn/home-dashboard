@@ -23,4 +23,11 @@ export default {
   grid-template-rows: 1fr 1fr;
   height: 100%;
 }
+
+@media (orientation: landscape) {
+  .climate {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+}
 </style>

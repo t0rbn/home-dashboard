@@ -1,24 +1,19 @@
 <template>
   <div class="home">
+    <section class="welcome">
+      <div class="hero"></div>
+      <h1>Welcome Home</h1>
+    </section>
     <Scenes></Scenes>
-    <CardButton class="turn-off-button" icon="fa-power-off" label="Turn Off" @click="turnOff"></CardButton>
   </div>
 </template>
 
 <script>
 import Scenes from '@/components/home/Scenes'
-import CardButton from '@/components/globals/CardButton'
-import PowerOffService from '@/services/PowerOffService'
 
 export default {
   name: 'Home',
-  components: {CardButton, Scenes},
-  methods: {
-    turnOff() {
-      console.log('fopp')
-      PowerOffService.trigger()
-    }
-  }
+  components: {Scenes}
 }
 </script>
 
@@ -26,14 +21,28 @@ export default {
 .home {
   display: grid;
   height: 100%;
-  grid-gap: var(--size-medium);
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: 1fr auto auto;
 }
 
-@media (orientation: landscape) {
-  .turn-off-button {
-    justify-self: flex-end;
-  }
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome h1 {
+  font-size: vaR(--size-huge);
+  line-height: var(--size-huge);
+}
+
+.welcome .hero {
+  width: min(25vw, 25vh);
+  height: min(25vw, 25vh);
+  border-radius: 50%;
+  background-position: center center;
+  background-size: contain;
+  background-image: url('/page-headers/Home.jpg');
 }
 </style>

@@ -26,7 +26,8 @@
       "Productivity": "fa-laptop-code",
       "Cleaning": "fa-hand-sparkles",
       "Shower": "fa-shower",
-      "Bedtime": "fa-bed"
+      "Bedtime": "fa-bed",
+      "ALLOFF": "fa-power-off"
     }
   }
 }

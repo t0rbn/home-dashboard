@@ -37,4 +37,7 @@ export default {
 </script>
 
 <style scoped>
+.light {
+  margin-bottom: vaR(--size-medium);
+}
 </style>

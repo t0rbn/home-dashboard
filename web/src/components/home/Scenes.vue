@@ -1,11 +1,10 @@
 <template>
       <section class="scene-buttons">
         <CardButton
-            huge="true"
             class="flyin-up"
             v-for="(scene, index) in scenes"
             :key="scene"
-            :label="scene"
+            :label="scene !== 'ALLOFF' ? scene : 'Off'"
             :icon="iconForScene(scene)"
             @click="triggerScene(scene)"
             :style="{animationDelay: `${50 * index}ms`}"
@@ -43,14 +42,14 @@ export default {
 <style scoped>
 .scene-buttons {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: auto;
   grid-gap: var(--size-medium);
 }
 
 @media (orientation: landscape) {
   .scene-buttons {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 

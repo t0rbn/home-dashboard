@@ -51,28 +51,26 @@
     .buttons {
       display: grid;
       flex-grow: 1;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       grid-gap: var(--size-medium);
     }
 
     .color-button {
       background-image: linear-gradient(10deg, hsla(0, 0%, 0%, 0.5), transparent);
       box-sizing: border-box;
-      color: var(--color-background);
-
+      color: var(--color-background-2);
     }
 
     .color-button:hover {
       background-image: none;
       box-shadow: none;
-      color: var(--color-background);
+      color: var(--color-background-1);
       filter: brightness(125%);
     }
 
     @media (orientation: landscape) {
       .buttons {
-        grid-auto-columns: 1fr;
-        grid-auto-flow: column;
+        grid-template-columns: repeat(5, 1fr);
       }
     }
   </style>
