@@ -4,11 +4,11 @@
     "apiEndpoint": "/lights",
     "refreshIntervalSeconds":  "10",
     "colorNameMap": {
-      "Purple": "#E367F5",
-      "Blue": "#526BDE",
-      "Amber": "#DE6E52",
-      "Green": "#5EFFDD",
-      "White": "#FAFAFA"
+      "Purple": "#DA57F0",
+      "Blue": "#4D5BF0",
+      "Red": "#F06A56",
+      "Green": "#69F0B1",
+      "White": "#F0E1AD"
     }
   },
   "climate": {
