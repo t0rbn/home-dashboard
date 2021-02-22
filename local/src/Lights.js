@@ -11,7 +11,6 @@ module.exports = class Lights {
 
     static superGroupName = 'SuperGroup'
     static accentColorModifier = 'Accent'
-    static globalOffKey = 'ALLOFF'
     static operationBlockingTimeoutMs = 2000;
 
     constructor() {
@@ -106,7 +105,7 @@ module.exports = class Lights {
             this.lastScenesLoadTimestamp = Date.now()
             logger.tradfri(`retrieved new scenes: ${this.scenes}`)
         }
-        return this.scenes.filter(s => s !== Lights.globalOffKey)
+        return this.scenes;
     }
 
     getGlobalScenes() {
@@ -123,10 +122,4 @@ module.exports = class Lights {
         logger.tradfri('applying scene ' + scene)
         await this.getSceneSuperGroup().setScene(scene + (modifier ? ('@' + modifier): ''))
     }
-
-    async turnLightsOff() {
-        await this.setScene(Lights.globalOffKey)
-        await this.waitForOperation()
-    }
-
 }
