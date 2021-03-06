@@ -1,14 +1,7 @@
 <template>
-  <div class="climate-graph-container">
-    <div class="values-container">
-      <div
-          class="value-bar"
-          v-for="(value, index) in getPreparedValues()"
-          :key="index"
-          :style="{height: valueToPercentString(value)}"
-      ></div>
-    </div>
-  </div>
+    <svg viewBox="0 0 1 1" preserveAspectRatio="none">
+      <polyline :points="getSvgPath()"></polyline>
+    </svg>
 </template>
 
 <script>
@@ -16,16 +9,17 @@ export default {
   name: 'AreaGraph',
   props: ['values'],
   methods: {
-    normalizeValues(values) {
-      if (!values || !values.length) {
+    getNormalizedValues() {
+      if (!this.values || !this.values.length) {
         return []
       }
-      const min = Math.min(...values)
-      const max = Math.max(...values)
-      return values.map(v => (v - min) / (max - min))
-    },
-    valueToPercentString(val) {
-      return `${10 + (val * 90)}%`
+      const min = Math.min(...this.values)
+      const max = Math.max(...this.values)
+
+      if (min === max) {
+        return [0.5, 0.5]
+      }
+      return this.values.map(v => (v - min) / (max - min))
     },
     smooth(values) {
       let newValues = []
@@ -34,34 +28,24 @@ export default {
       }
       return newValues
     },
-    getPreparedValues() {
-      return this.normalizeValues(this.smooth(this.values))
+    getSvgPath() {
+      const values = this.smooth(this.getNormalizedValues())
+      return values.map((v, i) => (i / values.length) + ',' + (1 - v)).join(' ')
     }
   }
 }
 </script>
 
 <style scoped>
-.climate-graph-container {
+svg {
   box-sizing: border-box;
+  height: 10px;
   position: relative;
 }
 
-.values-container {
-  align-items: flex-end;
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  flex-direction: row;
-  left: 0;
-  right: 0;
-  top: 0;
-}
-
-.value-bar {
-  border-top: var(--size-tiny) solid vaR(--color-highlight);
-  /*background-color: var(--color-elevation);*/
-  flex-grow: 1;
-  transform-origin: bottom center;
+svg polyline {
+  fill: none;
+  stroke: var(--color-highlight);
+  stroke-width: 0.001;
 }
 </style>

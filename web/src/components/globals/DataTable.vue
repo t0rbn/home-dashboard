@@ -1,10 +1,10 @@
 <template>
-  <table class="data-table">
-    <tr v-for="key in Object.keys(data)" :key="key">
-      <td>{{ key }}:</td>
-      <td class="value">{{ data[key] }}</td>
-    </tr>
-  </table>
+  <div class="data-table">
+    <template v-for="key in Object.keys(data)">
+      <div :key="key">{{ key }}:</div>
+      <div :key="key">{{ data[key] }}</div>
+    </template>
+  </div>
 </template>
 
 <script>
@@ -15,7 +15,10 @@ export default {
 </script>
 
 <style scoped>
-.value {
-  margin-left: var(--size-small);
+.data-table {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: auto 1fr;
+  grid-gap: var(--size-small);
 }
 </style>

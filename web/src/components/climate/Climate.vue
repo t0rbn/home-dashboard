@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import Temperature from '@/components/climate/Temperature'
 import Humidity from '@/components/climate/Humidity'
+import Temperature from '@/components/climate/Temperature'
 
 export default {
   name: 'Climate',
-  components: {Humidity, Temperature}
+  components: {Temperature, Humidity}
 }
 </script>
 
@@ -22,12 +22,5 @@ export default {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
   height: 100%;
-}
-
-@media (orientation: landscape) {
-  .climate {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-  }
 }
 </style>

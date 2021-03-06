@@ -1,9 +1,7 @@
 <template>
   <Card class="status-temperature">
-    <div class="data" >
       <IconHeading icon="fa-thermometer-three-quarters" :text="`${current}°C`"></IconHeading>
       <DataTable :data="stats"></DataTable>
-    </div>
     <AreaGraph class="graph" :values="history"></AreaGraph>
   </Card>
 </template>
@@ -49,24 +47,17 @@ export default {
 
 <style scoped>
 .status-temperature {
-  color: vaR(--color-accent-secondary);
+  color: var(--color-accent-secondary);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-}
-
-.data {
-  display: flex;
-  justify-content: space-between;
 }
 
 .graph {
+  margin-top: var(--size-big);
   flex-grow: 1;
-  margin: var(--size-big) calc(-1 * var(--size-big)) calc(-1 * var(--size-big));
 }
 
-.graph::v-deep .value-bar {
-  border-color: var(--color-accent-secondary);
+.graph::v-deep polyline {
+  stroke: var(--color-accent-secondary)
 }
-
 </style>
