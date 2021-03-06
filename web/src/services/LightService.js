@@ -12,24 +12,8 @@ export default class LightService {
         LightService.callLightChangeWatchers()
     }
 
-    static async setlightBrightness(bulb, brightness) {
-        await NotificationService.show('setting brightness...', 'fa-lightbulb')
-        await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/bulbs/${bulb}`, {
-            method: 'post',
-            headers: {'Content-Type': 'text/plain;charset=UTF-8'},
-            body: brightness
-        })
-        await this.updateLights()
-        await NotificationService.clear()
-    }
-
     static async getScenes() {
         const response = await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/scenes`)
-        return (await response.json())
-    }
-
-    static async getAccentColors() {
-        const response = await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/accents`)
         return (await response.json())
     }
 
@@ -39,17 +23,6 @@ export default class LightService {
             method: 'post',
             headers: {'Content-Type': 'text/plain;charset=UTF-8'},
             body: scene
-        })
-        await this.updateLights()
-        await NotificationService.clear()
-    }
-
-    static async selectAccentColor(name) {
-        await NotificationService.show('setting color...', 'fa-palette')
-        await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/accents`, {
-            method: 'post',
-            headers: {'Content-Type': 'text/plain;charset=UTF-8'},
-            body: name
         })
         await this.updateLights()
         await NotificationService.clear()

@@ -9,8 +9,6 @@ module.exports = class Lights {
     scenes = []
     lastScenesLoadTimestamp = 0
 
-    static superGroupName = 'SuperGroup'
-    static accentColorModifier = 'Accent'
     static operationBlockingTimeoutMs = 2000;
 
     constructor() {
@@ -46,14 +44,14 @@ module.exports = class Lights {
             res.send(await this.getAllLights())
         })
 
-        app.post(`${config.lights.apiEndpoint}/bulbs/:bulb`, async (req, res) => {
+        app.post(`${config.lights.apiEndpoint}/bulbs/:bulb/brightness`, async (req, res) => {
             await this.setBulbBrightness(req.params.bulb, req.body)
             await this.waitForOperation();
             res.sendStatus(200)
         })
 
         app.get(config.lights.apiEndpoint + '/scenes', async (req, res) => {
-            res.send(this.getGlobalScenes())
+            res.send(this.getAllScenes())
         })
 
         app.post(`${config.lights.apiEndpoint}/scenes`, async (req, res) => {
@@ -61,20 +59,6 @@ module.exports = class Lights {
             await this.waitForOperation();
             res.sendStatus(200)
         })
-
-        app.get(config.lights.apiEndpoint + '/accents', async (req, res) => {
-            res.send(this.getColorScenes())
-        })
-
-        app.post(`${config.lights.apiEndpoint}/accents`, async (req, res) => {
-            await this.setScene(req.body, Lights.accentColorModifier)
-            await this.waitForOperation()
-            res.sendStatus(200)
-        })
-    }
-
-    getSceneSuperGroup() {
-        return this.connection.group(Lights.superGroupName)
     }
 
     async waitForOperation() {
@@ -88,38 +72,37 @@ module.exports = class Lights {
             .map(d => {
                 return {
                     name: d.name,
-                    brightness: d.isOn ? (d.brightness / 100) : 0}
+                    brightness: d.isOn ? (d.brightness / 100) : 0,
+                    color: `#${d.hexcolour}`
+                }
             })
     }
 
     async setBulbBrightness(bulb, brightness) {
-        logger.tradfri('setting bulb ' + bulb + ' to ' + brightness)
+        logger.tradfri('setting bulb ' + bulb + ' brightness to ' + brightness)
         const brightnessConverted = Math.max(0, Math.min(100, Math.round(100 * brightness)))
-        await this.connection.device(bulb).setBrightness(brightnessConverted)
+        await this.connection.device(bulb).setBrightness(brightnessConverted).catch(() => {})
     }
+
+    // async setBulbColor(bulb, hexColor) {
+    //     logger.tradfri('setting bulb ' + bulb + ' color to ' + hexColor)
+    //     // const color = hexColor.replace('#', '')
+    //     this.connection.device(bulb).color = hexColor
+    // }
 
     getAllScenes() {
         if (!this.scenes || this.lastScenesLoadTimestamp < Date.now() - config.lights.refreshThresholdMins * 60000) {
             logger.tradfri('fetching scenes from gateway')
-            this.scenes = this.getSceneSuperGroup().scenes
+            this.scenes = this.connection.scenes
             this.lastScenesLoadTimestamp = Date.now()
             logger.tradfri(`retrieved new scenes: ${this.scenes}`)
         }
         return this.scenes;
     }
 
-    getGlobalScenes() {
-        return this.getAllScenes().filter(s => !s.includes('@'))
-    }
-
-    getColorScenes() {
-        return this.getAllScenes()
-            .filter(s => s.endsWith(('@' + Lights.accentColorModifier)))
-            .map(s => s.split('@')[0]);
-    }
 
     async setScene(scene, modifier) {
         logger.tradfri('applying scene ' + scene)
-        await this.getSceneSuperGroup().setScene(scene + (modifier ? ('@' + modifier): ''))
+        this.connection.scene = scene
     }
 }

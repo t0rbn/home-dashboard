@@ -46,6 +46,6 @@ svg {
 svg polyline {
   fill: none;
   stroke: var(--color-highlight);
-  stroke-width: 0.001;
+  stroke-width: 0.005;
 }
 </style>

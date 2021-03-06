@@ -1,35 +1,23 @@
 <template>
   <main class="app-container">
-    <div class="app-content" style="grid-area: content">
-      <Home v-show="selectedPage === 'Home'"></Home>
-      <Lights v-show="selectedPage === 'Lights'"></Lights>
-      <Climate v-show="selectedPage === 'Climate'"></Climate>
-    </div>
-    <NavigationRail style="grid-area: navigation" @select="selectPage" :selected="selectedPage"></NavigationRail>
-    <Notification></Notification>
+    <Home style="grid-area: header"></Home>
+    <Scenes style="grid-area: scenes"></Scenes>
+    <Temperature style="grid-area: temperature"></Temperature>
+    <Humidity style="grid-area: humidity"></Humidity>
+    <LightBulbs style="background-color: green; grid-area: lights"></LightBulbs>
+
   </main>
 </template>
 
 <script>
-import Home from '@/components/home/Home'
-import NavigationRail from '@/components/globals/NavigationRail'
-import Climate from '@/components/climate/Climate'
-import Lights from '@/components/lights/Lights'
-import Notification from '@/components/globals/Notification'
-import StorageService from '@/services/StorageService'
+
+import Scenes from '@/components/lights/Scenes'
+import Temperature from '@/components/climate/Temperature'
+import Humidity from '@/components/climate/Humidity'
+import LightBulbs from '@/components/lights/LightBulbs'
 
 export default {
-  components: {Notification, Lights, Climate, NavigationRail, Home},
-  data() {
-    return {
-      selectedPage: StorageService.get(StorageService.CURRENT_VIEW_KEY) || 'Home'
-    }
-  },
-  methods: {
-    selectPage(page) {
-      this.selectedPage = page
-    }
-  }
+  components: {LightBulbs, Humidity, Temperature, Scenes}
 }
 </script>
 
@@ -37,24 +25,24 @@ export default {
 .app-container {
   background-image: var(--gradient-background);
   box-sizing: border-box;
-  margin: 0 auto;
-  max-height: 100%;
-  min-height: 100%;
-  display: grid;
-  grid-template-rows:  1fr auto;
-  grid-template-areas: 'content' 'navigation';
-}
-
-.app-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   padding: var(--size-medium);
-  overflow: scroll;
+  display: grid;
+  grid-gap: var(--size-medium);
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: 'header temperature' 'header humidity' 'scenes lights';
 }
 
-@media (orientation: landscape) {
-  .app-container {
-    grid-template-rows: 1fr;
-    grid-template-columns: auto 1fr;
-    grid-template-areas: 'navigation content';
-  }
-}
+/*@media (orientation: landscape) {*/
+/*  .app-container {*/
+/*    grid-template-rows: 1fr;*/
+/*    grid-template-columns: auto 1fr;*/
+/*    grid-template-areas: 'navigation content';*/
+/*  }*/
+/*}*/
 </style>
