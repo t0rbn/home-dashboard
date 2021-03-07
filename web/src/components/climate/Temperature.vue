@@ -28,8 +28,8 @@ export default {
   },
   methods: {
     async init() {
-      this.current = (await ClimateService.getCurrent()).temp
-      this.history = (await ClimateService.getHistory()).map(v => v.temp)
+      this.history = (await ClimateService.getTemperatures())
+      this.current = this.history[0];
 
       this.stats = {
         Maximum: `${Math.max(...this.history)}°`,

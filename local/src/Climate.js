@@ -1,5 +1,5 @@
 import config from './Config.js'
-import * as sensor from 'node-dht-sensor'
+import sensor from 'node-dht-sensor'
 import Logger from './Logger.js'
 
 export default class Climate {

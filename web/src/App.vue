@@ -4,7 +4,7 @@
     <Scenes style="grid-area: scenes"></Scenes>
     <Temperature style="grid-area: temperature"></Temperature>
     <Humidity style="grid-area: humidity"></Humidity>
-    <LightBulbs style="background-color: green; grid-area: lights"></LightBulbs>
+    <div style="background-color: green; grid-area: lights"></div>
 
   </main>
 </template>
@@ -14,10 +14,10 @@
 import Scenes from '@/components/lights/Scenes'
 import Temperature from '@/components/climate/Temperature'
 import Humidity from '@/components/climate/Humidity'
-import LightBulbs from '@/components/lights/LightBulbs'
+import Home from '@/components/globals/Home'
 
 export default {
-  components: {LightBulbs, Humidity, Temperature, Scenes}
+  components: {Home, Humidity, Temperature, Scenes}
 }
 </script>
 

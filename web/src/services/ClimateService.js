@@ -13,14 +13,15 @@ export default class ClimateService {
         }
     }
 
-    static async getCurrent() {
+    static async getTemperatures() {
         await this.updateClimate()
-        return this.climateData.current
+        return this.climateData.map(d => d.temp)
     }
 
-    static async getHistory() {
+    static async getHumidities() {
         await this.updateClimate()
-        return this.climateData.history
+        return this.climateData.map(d => d.humidity)
     }
+
 
 }

@@ -26,7 +26,7 @@ export default {
     }
   },
   async created() {
-    this.scenes = await LightService.getScenes()
+    this.scenes = await LightService.getSceneNames()
   },
   methods: {
     triggerScene(scene) {
