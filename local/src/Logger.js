@@ -1,23 +1,21 @@
-module.exports = class Logger {
+export default class Logger {
 
-    static tradfri(text) {
-        Logger.print('Tradfri', text)
+    static maxUnitNameLength = 0;
+
+    constructor(unitName = '') {
+        this.unitName = unitName
+        Logger.maxUnitNameLength = Math.max(Logger.maxUnitNameLength, unitName.length)
     }
 
-    static server(text) {
-        Logger.print('Server', text)
+    printString(symbol, text) {
+        console.log(`${symbol} | ${new Date().toLocaleTimeString()} | ${this.unitName.padEnd(Logger.maxUnitNameLength, ' ')} | ${text}`)
     }
 
-    static climate(text) {
-        Logger.print('Climate', text)
+    log(text) {
+        this.printString(' ', text)
     }
 
-    static turnOff(text) {
-        Logger.print('TurnOff', text)
-    }
-
-    static print(moduleName, text) {
-        const formatted = `[${new Date().toLocaleString()}] ${moduleName}:${'.'.repeat(20 - moduleName.length)} ${text}`
-        console.log(formatted)
+    alert(text) {
+        this.printString('!', text)
     }
 }

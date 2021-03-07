@@ -1,61 +1,38 @@
-const sensor = require('node-dht-sensor')
-const config = require('./config.json')
-const logger = require('./Logger')
+import config from './Config.js'
+import * as sensor from 'node-dht-sensor'
+import Logger from './Logger.js'
 
+export default class Climate {
 
-module.exports = class IndoorClimate {
-
-    currentData = {history: []}
+    data = []
 
     constructor() {
-        setInterval(() => this.updateCurrent(), config.climate.updateReadingIntervalMins * 60000)
-        setInterval(() => this.updateHistory(), config.climate.updateHistoryIntervalMins * 60000)
+        this.logger = new Logger('climate')
+        this.read().catch()
+        setInterval(() => this.read(), config.climate.updateReadingIntervalMins * 60000)
     }
 
     registerEndpoints(app) {
         app.get(config.climate.apiEndpoint, async (req, res) => {
-            res.send(await this.get())
+            res.send(this.data)
         })
     }
 
     async read() {
         try {
-            logger.climate('Updating sensor data')
+            this.logger.log('reading sensor data')
             const res = await sensor.read(11, config.climate.dht11gpioPin)
-            return {
+            this.logger.log('got new sensor data: ' + res.temperature + 'C' + ' | ' + res.humidity + '%')
+            this.data.push({
                 timeStamp: Date.now(),
                 temp: res.temperature + config.climate.temperatureOffset,
                 humidity: (res.humidity + config.climate.humidityOffset) / 100
+            })
+            if (this.data.length > config.climate.historyLength) {
+                this.data.pop()
             }
         } catch (e) {
-            logger.climate('Failed to update climate: ' + e)
-        }
-    }
-
-
-    async get() {
-        if (!this.currentData.current) {
-            await this.updateCurrent()
-        }
-        return this.currentData
-    }
-
-    async updateCurrent() {
-        const newValues = await this.read()
-        if (!newValues) {
-            return
-        }
-        this.currentData.current = newValues
-    }
-
-    async updateHistory() {
-        const newValues = await this.read()
-        if (!newValues) {
-            return
-        }
-        this.currentData.history.push(newValues)
-        if (this.currentData.history.length > config.climate.historyLength) {
-            this.currentData.history = this.currentData.history.slice(1)
+            this.logger.alert('Unable to read climate sensor data')
         }
     }
 }
