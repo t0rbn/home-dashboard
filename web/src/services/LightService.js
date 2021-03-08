@@ -1,17 +1,10 @@
 import config from '../config.json'
-import NotificationService from '@/services/NotificationService'
 
 export default class LightService {
 
     static lightChangeWatchers = []
-    static currentLightBulbs = []
+    static availableLightBulbs = []
     static availableScenes = []
-
-    static async updateLights() {
-        const response = await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/bulbs`)
-        this.currentLightBulbs = await response.json()
-        LightService.callLightChangeWatchers()
-    }
 
     static async getSceneNames() {
         if (!this.availableScenes.length) {
@@ -21,20 +14,54 @@ export default class LightService {
         return this.availableScenes.map(s => s.name)
     }
 
+    static async getLightBulbs() {
+        if (!this.availableLightBulbs.length) {
+            const response = await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/bulbs`)
+            this.availableLightBulbs = await response.json()
+            LightService.callLightChangeWatchers()
+        }
+        return this.availableLightBulbs
+    }
+
     static async selectScene(sceneName) {
         const scene = this.availableScenes.filter(s => s.name === sceneName)[0]
         if (!scene) {
             return
         }
 
-        await NotificationService.show('applying scene...', 'fa-robot')
         await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/scenes`, {
             method: 'post',
             headers: {'Content-Type': 'text/plain;charset=UTF-8'},
             body: scene.id
         })
-        await this.updateLights()
-        await NotificationService.clear()
+        setTimeout(() => LightService.callLightChangeWatchers(), 1000)
+    }
+
+    static async selectColorTemperature(bulbid, percent) {
+        await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/bulbs/${bulbid}/temperature`, {
+            method: 'post',
+            headers: {'Content-Type': 'text/plain;charset=UTF-8'},
+            body: percent
+        })
+        setTimeout(() => LightService.callLightChangeWatchers(), 1000)
+    }
+
+    static async selectBrightness(bulbid, percent) {
+        await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/bulbs/${bulbid}/brightness`, {
+            method: 'post',
+            headers: {'Content-Type': 'text/plain;charset=UTF-8'},
+            body: percent
+        })
+        setTimeout(() => LightService.callLightChangeWatchers(), 1000)
+    }
+
+    static async selectRgbColor(bulbid, color) {
+        await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/bulbs/${bulbid}/color`, {
+            method: 'post',
+            headers: {'Content-Type': 'text/plain;charset=UTF-8'},
+            body: color
+        })
+        setTimeout(() => LightService.callLightChangeWatchers(), 1000)
     }
 
     static callLightChangeWatchers() {

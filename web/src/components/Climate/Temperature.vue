@@ -1,7 +1,7 @@
 <template>
   <Card class="status-temperature">
-      <IconHeading icon="fa-thermometer-three-quarters" :text="`${current}°C`"></IconHeading>
-      <DataTable :data="stats"></DataTable>
+    <IconHeading icon="fa-thermometer-three-quarters" :text="`${current}°C`"></IconHeading>
+    <DataTable :data="stats"></DataTable>
     <AreaGraph class="graph" :values="history"></AreaGraph>
   </Card>
 </template>
@@ -9,28 +9,25 @@
 <script>
 import ClimateService from '@/services/ClimateService'
 import AreaGraph from '@/components/globals/AreaGraph'
-import DataTable from '@/components/globals/DataTable'
 import IconHeading from '@/components/globals/IconHeading'
 import Card from '@/components/globals/Card'
 import config from '@/config.json'
+import DataTable from '@/components/globals/DataTable'
 
 export default {
   name: 'Temperature',
-  components: {Card, IconHeading, DataTable, AreaGraph},
+  components: {DataTable, Card, IconHeading, AreaGraph},
   data() {
     return {
-      current: {},
-      stats: {},
-      history: {},
-      firstTimeStamp: 0,
-      lastUpdateTimeStamp: 0
+      current: '',
+      history: [],
+      stats: {}
     }
   },
   methods: {
     async init() {
       this.history = (await ClimateService.getTemperatures())
-      this.current = this.history[0];
-
+      this.current = this.history.length ? this.history[this.history.length - 1] : -1
       this.stats = {
         Maximum: `${Math.max(...this.history)}°`,
         Minimum: `${Math.min(...this.history)}°`,
@@ -39,7 +36,7 @@ export default {
     }
   },
   async created() {
-   await this.init()
+    await this.init()
     setInterval(async () => this.init(), config.climate.refreshIntervalSeconds * 1000)
   }
 }
@@ -48,13 +45,15 @@ export default {
 <style scoped>
 .status-temperature {
   color: var(--color-accent-secondary);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content min-content 1fr;
 }
 
 .graph {
-  margin-top: var(--size-big);
-  flex-grow: 1;
+  min-width: 0;
+  min-height: 0;
+  margin-top: var(--size-medium);
 }
 
 .graph::v-deep polyline {

@@ -32,7 +32,7 @@ export default class Climate {
                 this.data.pop()
             }
         } catch (e) {
-            this.logger.alert('Unable to read climate sensor data')
+            this.logger.alert('Unable to read Climate sensor data')
         }
     }
 }

@@ -5,26 +5,25 @@
 
 html {
 
-    --color-background-1: hsl(0, 0%, 6%);
-    --color-background-2: hsl(0, 0%, 12%);
-    --gradient-background: linear-gradient(12deg, vaR(--color-background-1), vaR(--color-background-2));
+    --color-background: hsl(0, 0%, 5%);
+    --gradient-background: linear-gradient(12deg, transparent, var(--color-elevation));
 
     --color-elevation: hsla(0, 0%, 100%, 0.05);
-    --color-elevation-double: hsla(0, 0%, 100%, 0.1);
 
-    --color-highlight: hsl(0, 0%, 76%);
+    --color-highlight: hsl(0, 0%, 90%);
     --color-accent: hsl(214, 75%, 75%);
     --color-accent-secondary: hsl(20, 75%, 75%);
 
 
     /* Default sizes */
-    --size-medium: 0.9rem;
-    --size-huge: calc(var(--size-medium) * 2);
+    --size-medium: 0.8rem;
+    --size-huge: calc(var(--size-medium) * 5);
     --size-big: calc(var(--size-medium) * 1.5); /* header, key info                  */
     --size-small: calc(var(--size-medium) * 0.5); /* inner spacing                     */
     --size-tiny: calc(var(--size-medium) * 0.125); /* blueprint room outlines          */
 
-    --shadow-default: var(--size-tiny) var(--size-tiny) var(--size-tiny) hsl(0, 0%, 6%);
+    --size-card-side: max(8rem, min(15vw, 15vh));
+    --size-double-card-side: calc((var(--size-card-side) * 2) + var(--size-medium));
 
     --transition-all-default: all 125ms;
     --border-radius-default: var(--size-big);

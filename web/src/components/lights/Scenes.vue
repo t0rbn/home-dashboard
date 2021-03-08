@@ -1,7 +1,10 @@
 <template>
-      <section class="scene-buttons">
+  <section>
+    <h1>Scenes</h1>
+    <div class="scenes-wrapper">
+      <div class="scenes">
         <CardButton
-            class="flyin-up"
+            class="scene"
             v-for="(scene, index) in scenes"
             :key="scene"
             :label="scene !== 'ALLOFF' ? scene : 'Off'"
@@ -9,7 +12,9 @@
             @click="triggerScene(scene)"
             :style="{animationDelay: `${50 * index}ms`}"
         ></CardButton>
-      </section>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -22,7 +27,7 @@ export default {
   components: {CardButton},
   data() {
     return {
-      scenes: [],
+      scenes: []
     }
   },
   async created() {
@@ -40,17 +45,33 @@ export default {
 </script>
 
 <style scoped>
-.scene-buttons {
+section {
+  min-width: 0;
+  min-height: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: auto;
+  grid-auto-rows: auto 1fr;
+}
+
+.scenes-wrapper {
+  overflow: scroll;
+  min-width: 0;
+  min-height: 0;
+  margin: 0 calc(-1 * var(--size-medium));
+  padding: 0 var(--size-medium);
+}
+
+.scenes {
+  min-height: 100%;
+  display: grid;
   grid-gap: var(--size-medium);
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
 }
 
-@media (orientation: landscape) {
-  .scene-buttons {
-    grid-template-columns: repeat(5, 1fr);
-  }
+.scene {
+  min-height: var(--size-double-card-side);
+  min-width: var(--size-double-card-side);
 }
-
 </style>

@@ -1,6 +1,5 @@
 <template>
     <section class="welcome">
-      <div class="hero"></div>
       <h1>Welcome Home</h1>
     </section>
 </template>
@@ -17,11 +16,12 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: green;
 }
 
 .welcome h1 {
-  font-size: vaR(--size-huge);
-  line-height: var(--size-huge);
+  /*font-size: vaR(--size-huge);*/
+  /*line-height: var(--size-huge);*/
 }
 
 .welcome .hero {

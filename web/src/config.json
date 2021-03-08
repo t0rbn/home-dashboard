@@ -2,21 +2,24 @@
   "localApiBaseUrl": "http://192.168.0.103:8001",
   "lights": {
     "apiEndpoint": "/lights",
-    "refreshIntervalSeconds":  "10",
-    "colorNameMap": {
-      "Purple": "#DA57F0",
-      "Blue": "#4D5BF0",
-      "Red": "#F06A56",
-      "Green": "#69F0B1",
-      "White": "#F0E1AD"
-    }
+    "whiteColors": [
+      "#f5faf6",
+      "#f1e0b5",
+      "#efd275"
+    ],
+    "rgbColors": [
+      "#ff0000",
+      "#ffff00",
+      "#00ff00",
+      "#00ffff",
+      "#0000ff",
+      "#ff00ff",
+      "#ffffff"
+    ]
   },
   "climate": {
     "refreshIntervalSeconds":  "10",
     "apiEndpoint": "/climate"
-  },
-  "powerOff": {
-    "apiEndpoint": "/powerOff"
   },
   "assets": {
     "sceneIcons": {

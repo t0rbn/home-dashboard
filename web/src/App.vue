@@ -1,28 +1,29 @@
 <template>
-  <main class="app-container">
-    <Home style="grid-area: header"></Home>
-    <Scenes style="grid-area: scenes"></Scenes>
-    <Temperature style="grid-area: temperature"></Temperature>
-    <Humidity style="grid-area: humidity"></Humidity>
-    <div style="background-color: green; grid-area: lights"></div>
-
-  </main>
+  <div class="app-container">
+    <Home></Home>
+    <main>
+      <Scenes></Scenes>
+      <LightBulbs></LightBulbs>
+      <Climate></Climate>
+    </main>
+  </div>
 </template>
 
 <script>
 
-import Scenes from '@/components/lights/Scenes'
-import Temperature from '@/components/climate/Temperature'
-import Humidity from '@/components/climate/Humidity'
 import Home from '@/components/globals/Home'
+import Climate from '@/components/Climate/Climate'
+import LightBulbs from '@/components/lights/LightBulbs'
+import Scenes from '@/components/lights/Scenes'
 
 export default {
-  components: {Home, Humidity, Temperature, Scenes}
+  components: {Scenes, Climate, LightBulbs, Home}
 }
 </script>
 
 <style scoped>
 .app-container {
+  background-color: var(--color-background);
   background-image: var(--gradient-background);
   box-sizing: border-box;
   position: absolute;
@@ -30,19 +31,24 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: var(--size-medium);
   display: grid;
-  grid-gap: var(--size-medium);
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-areas: 'header temperature' 'header humidity' 'scenes lights';
+  grid-template-rows: auto 1fr;
 }
 
-/*@media (orientation: landscape) {*/
-/*  .app-container {*/
-/*    grid-template-rows: 1fr;*/
-/*    grid-template-columns: auto 1fr;*/
-/*    grid-template-areas: 'navigation content';*/
-/*  }*/
-/*}*/
+main {
+  overflow: scroll;
+  padding: var(--size-medium);
+  display: grid;
+  grid-auto-rows: min-content;
+}
+
+main > * {
+  margin-top: var(--size-big);
+}
+
+@media (orientation: landscape) {
+  main {
+    grid-template-rows: minmax(min-content, 1fr);
+  }
+}
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <div class="data-table">
+  <div v-if="data" class="data-table">
     <template v-for="key in Object.keys(data)">
-      <div :key="key">{{ key }}:</div>
-      <div :key="key">{{ data[key] }}</div>
+      <div :key="`${key}-key`">{{ key }}:</div>
+      <div :key="`${key}-value`">{{ data[key] }}</div>
     </template>
   </div>
 </template>
@@ -10,7 +10,7 @@
 <script>
 export default {
   name: 'DataTable',
-  props: ['data']
+  props: ['data'],
 }
 </script>
 

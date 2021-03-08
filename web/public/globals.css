@@ -4,7 +4,6 @@ html {
 }
 
 body {
-    background-color: var(--color-background);
     box-sizing: border-box;
     color: var(--color-highlight);
     font-family: os, sans-serif;
@@ -19,7 +18,7 @@ h1 {
     font-size: var(--size-big);
     line-height: var(--size-big);
     font-weight: normal;
-    margin: var(--size-medium) 0;
+    margin: vaR(--size-medium) 0;
 }
 
 strong {
@@ -33,47 +32,15 @@ strong {
 }
 
 
-.flyin-left {
-    animation: 500ms both flyin-left;
-}
-
-.flyin-right {
-    animation: 500ms both flyin-right;
-}
-
 .flyin-up {
     animation: 500ms both flyin-up;
 }
 
-@keyframes flyin-left {
-    from {
-        transform: translateX(calc(-1 * var(--size-big)));
-        opacity: 0
-    }
-    to {
-        transform: none;
-        opacity: unset;
-    }
-}
-
-@keyframes flyin-right {
-    from {
-        transform: translateX(var(--size-big));
-        opacity: 0
-    }
-    to {
-        transform: none;
-        opacity: unset;
-    }
-}
-
 @keyframes flyin-up {
     from {
-        transform: translateY(var(--size-big));
-        opacity: 0
+        transform: translateY(100%);
     }
     to {
         transform: none;
-        opacity: unset;
     }
 }

@@ -21,7 +21,6 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--size-big);
 }
 
 .card-button i {
@@ -32,7 +31,7 @@ export default {
 }
 
 .card-button:hover {
-  background-color: var(--color-elevation-double);
+  filter: brightness(1.25);
   color: var(--color-accent);
 }
 </style>

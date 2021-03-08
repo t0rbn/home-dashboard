@@ -12,11 +12,14 @@ export default {
 
 <style scoped>
 .card {
-  /*border: 1px solid var(--color-elevation-double);*/
   background-color: vaR(--color-elevation);
+  background-image: var(--gradient-elevation);
   border-radius: vaR(--border-radius-default);
-  box-shadow: vaR(--shadow-default);
+  box-sizing: border-box;
   color: vaR(--color-highlight);
   padding: vaR(--size-medium);
+  min-height: calc(var(--size-card-side));
+  min-width: calc(var(--size-card-side));
+  backdrop-filter: blur(var(--size-big));
 }
 </style>
