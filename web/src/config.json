@@ -2,6 +2,7 @@
   "localApiBaseUrl": "http://192.168.0.103:8001",
   "lights": {
     "apiEndpoint": "/lights",
+    "changeUpdateDelayMs": 500,
     "whiteColors": [
       "#f5faf6",
       "#f1e0b5",
@@ -20,17 +21,5 @@
   "climate": {
     "refreshIntervalSeconds":  "10",
     "apiEndpoint": "/climate"
-  },
-  "assets": {
-    "sceneIcons": {
-      "Chill": "fa-couch",
-      "Dinner": "fa-pizza-slice",
-      "Nightshift": "fa-gamepad",
-      "Productivity": "fa-laptop-code",
-      "Cleaning": "fa-hand-sparkles",
-      "Shower": "fa-shower",
-      "Bedtime": "fa-bed",
-      "ALLOFF": "fa-power-off"
-    }
   }
 }

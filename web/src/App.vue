@@ -1,9 +1,14 @@
 <template>
   <div class="app-container">
-    <Home></Home>
+    <Header></Header>
     <main>
+      <h1>Scenes</h1>
       <Scenes></Scenes>
+
+      <h1>Lights</h1>
       <LightBulbs></LightBulbs>
+
+      <h1>Climate</h1>
       <Climate></Climate>
     </main>
   </div>
@@ -11,44 +16,43 @@
 
 <script>
 
-import Home from '@/components/globals/Home'
+import Header from '@/components/globals/Header'
 import Climate from '@/components/Climate/Climate'
 import LightBulbs from '@/components/lights/LightBulbs'
 import Scenes from '@/components/lights/Scenes'
 
 export default {
-  components: {Scenes, Climate, LightBulbs, Home}
+  components: {Scenes, Climate, LightBulbs, Header}
 }
 </script>
 
 <style scoped>
-.app-container {
-  background-color: var(--color-background);
-  background-image: var(--gradient-background);
+.app-container, .app-container main {
   box-sizing: border-box;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  display: grid;
-  grid-template-rows: auto 1fr;
 }
 
 main {
   overflow: scroll;
   padding: var(--size-medium);
-  display: grid;
-  grid-auto-rows: min-content;
+  margin-top: 1rem;
+  /*display: grid;*/
+  /*grid-auto-rows: min-content;*/
 }
 
-main > * {
-  margin-top: var(--size-big);
+main h1 {
+  color: var(--color-accent);
+  margin-top: var(--size-huge);
 }
 
 @media (orientation: landscape) {
   main {
-    grid-template-rows: minmax(min-content, 1fr);
+    margin: 0 auto;
+    width: fit-content;
   }
 }
 </style>

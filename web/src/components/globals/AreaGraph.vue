@@ -42,6 +42,12 @@ export default {
 </script>
 
 <style scoped>
+div {
+  min-width: 0;
+  min-height: 0;
+  margin-top: var(--size-big);
+}
+
 svg {
   height: 100%;
   width: 100%;
@@ -49,7 +55,7 @@ svg {
 
 svg polyline {
   fill: none;
-  stroke: var(--color-highlight);
+  stroke: var(--color-accent);
   stroke-width: 0.01;
 }
 </style>

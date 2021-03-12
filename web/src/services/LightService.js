@@ -14,11 +14,15 @@ export default class LightService {
         return this.availableScenes.map(s => s.name)
     }
 
-    static async getLightBulbs() {
-        if (!this.availableLightBulbs.length) {
+    static async updateLightbulbs() {
             const response = await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/bulbs`)
             this.availableLightBulbs = await response.json()
-            LightService.callLightChangeWatchers()
+            await LightService.callLightChangeWatchers()
+    }
+
+    static async getLightBulbs() {
+        if (!this.availableLightBulbs.length) {
+           await this.updateLightbulbs();
         }
         return this.availableLightBulbs
     }
@@ -34,7 +38,7 @@ export default class LightService {
             headers: {'Content-Type': 'text/plain;charset=UTF-8'},
             body: scene.id
         })
-        setTimeout(() => LightService.callLightChangeWatchers(), 1000)
+        setTimeout(async () => this.updateLightbulbs(), config.lights.changeUpdateDelayMs)
     }
 
     static async selectColorTemperature(bulbid, percent) {
@@ -43,7 +47,7 @@ export default class LightService {
             headers: {'Content-Type': 'text/plain;charset=UTF-8'},
             body: percent
         })
-        setTimeout(() => LightService.callLightChangeWatchers(), 1000)
+        setTimeout(async () => this.updateLightbulbs(), config.lights.changeUpdateDelayMs)
     }
 
     static async selectBrightness(bulbid, percent) {
@@ -52,7 +56,7 @@ export default class LightService {
             headers: {'Content-Type': 'text/plain;charset=UTF-8'},
             body: percent
         })
-        setTimeout(() => LightService.callLightChangeWatchers(), 1000)
+        setTimeout(async () => this.updateLightbulbs(), config.lights.changeUpdateDelayMs)
     }
 
     static async selectRgbColor(bulbid, color) {
@@ -61,10 +65,11 @@ export default class LightService {
             headers: {'Content-Type': 'text/plain;charset=UTF-8'},
             body: color
         })
-        setTimeout(() => LightService.callLightChangeWatchers(), 1000)
+        setTimeout(async () => this.updateLightbulbs(), config.lights.changeUpdateDelayMs)
     }
 
-    static callLightChangeWatchers() {
+    static async callLightChangeWatchers() {
+        await this.getLightBulbs();
         LightService.lightChangeWatchers.forEach(e => e())
     }
 

@@ -4,27 +4,24 @@
 }
 
 html {
+    --color-background: hsl(0, 0%, 12.5%);
+    --color-glass: hsla(0, 0%, 0%, 0.5);
 
-    --color-background: hsl(0, 0%, 5%);
-    --gradient-background: linear-gradient(12deg, transparent, var(--color-elevation));
-
-    --color-elevation: hsla(0, 0%, 100%, 0.05);
-
-    --color-highlight: hsl(0, 0%, 90%);
-    --color-accent: hsl(214, 75%, 75%);
-    --color-accent-secondary: hsl(20, 75%, 75%);
-
+    --color-semihighlight: hsl(0, 0%, 50%);
+    --color-highlight: hsl(0, 0%, 87.5%);
+    --color-accent: hsl(163, 50%, 50%);
 
     /* Default sizes */
     --size-medium: 0.8rem;
-    --size-huge: calc(var(--size-medium) * 5);
+    --size-huge: calc(var(--size-medium) * 3);
     --size-big: calc(var(--size-medium) * 1.5); /* header, key info                  */
     --size-small: calc(var(--size-medium) * 0.5); /* inner spacing                     */
-    --size-tiny: calc(var(--size-medium) * 0.125); /* blueprint room outlines          */
+    --landsacpe-count: 5;
 
-    --size-card-side: max(8rem, min(15vw, 15vh));
+    --size-card-side: max(8rem, min(10vw, 10vh));
     --size-double-card-side: calc((var(--size-card-side) * 2) + var(--size-medium));
 
     --transition-all-default: all 125ms;
     --border-radius-default: var(--size-big);
+    --glass-filter: blur(var(--size-medium));
 }

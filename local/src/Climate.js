@@ -29,7 +29,7 @@ export default class Climate {
                 humidity: (res.humidity + config.climate.humidityOffset) / 100
             })
             if (this.data.length > config.climate.historyLength) {
-                this.data.pop()
+                this.data.shift()
             }
         } catch (e) {
             this.logger.alert('Unable to read Climate sensor data')

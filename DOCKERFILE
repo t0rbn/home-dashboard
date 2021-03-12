@@ -1,0 +1,8 @@
+FROM ubuntu:18.04
+COPY /web /web
+RUN 'cd web && npm install && npm run build'
+COPY /web/dist/* /
+
+COPY /local /local
+RUN make /app
+CMD python /app/app.py

@@ -1,6 +1,5 @@
 <template>
   <div class="status-widgets">
-    <h1>Climate</h1>
     <div class="widgets">
       <Temperature></Temperature>
       <Humidity></Humidity>
@@ -22,7 +21,6 @@ export default {
 .widgets {
   display: grid;
   grid-template-columns: 1fr;
-  grid-auto-rows: var(--size-double-card-side);
   grid-gap: var(--size-medium);
 }
 

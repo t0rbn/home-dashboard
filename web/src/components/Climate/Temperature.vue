@@ -1,22 +1,23 @@
 <template>
-  <Card class="status-temperature">
-    <IconHeading icon="fa-thermometer-three-quarters" :text="`${current}°C`"></IconHeading>
-    <DataTable :data="stats"></DataTable>
+  <div class="status-temperature">
+    <div>
+      <IconHeading icon="fa-thermometer-three-quarters" :text="`${current}°C`"></IconHeading>
+      <DataTable :data="stats"></DataTable>
+    </div>
     <AreaGraph class="graph" :values="history"></AreaGraph>
-  </Card>
+  </div>
 </template>
 
 <script>
 import ClimateService from '@/services/ClimateService'
 import AreaGraph from '@/components/globals/AreaGraph'
 import IconHeading from '@/components/globals/IconHeading'
-import Card from '@/components/globals/Card'
 import config from '@/config.json'
 import DataTable from '@/components/globals/DataTable'
 
 export default {
   name: 'Temperature',
-  components: {DataTable, Card, IconHeading, AreaGraph},
+  components: {DataTable, IconHeading, AreaGraph},
   data() {
     return {
       current: '',
@@ -44,19 +45,16 @@ export default {
 
 <style scoped>
 .status-temperature {
-  color: var(--color-accent-secondary);
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: min-content min-content 1fr;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: var(--size-big);
+  box-sizing: border-box;
+  background-color: vaR(--color-glass);
+
+  border-radius: var(--border-radius-default);
+  padding: var(--size-medium);
+  height: var(--size-card-side);
 }
 
-.graph {
-  min-width: 0;
-  min-height: 0;
-  margin-top: var(--size-medium);
-}
-
-.graph::v-deep polyline {
-  stroke: var(--color-accent-secondary)
-}
 </style>

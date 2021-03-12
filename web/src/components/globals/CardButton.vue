@@ -1,16 +1,15 @@
 <template>
-  <Card @click.native="$emit('click')" class="card-button">
-    <i :class="['fas', icon]" v-if="icon"></i>{{ label }}
-  </Card>
+  <div @click="$emit('click')" class="card-button">
+    <i :class="['fas', icon]" v-if="icon"></i>
+    <label>{{ label }}</label>
+  </div>
 </template>
 
 <script>
-import Card from '@/components/globals/Card'
 
 export default {
   name: 'CardButton',
-  components: {Card},
-  props: ['icon', 'label', 'huge']
+  props: ['icon', 'label']
 }
 </script>
 
@@ -21,6 +20,17 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  background-color: vaR(--color-glass);
+  background-image: var(--gradient-shiny);
+  border-radius: vaR(--border-radius-default);
+  box-sizing: border-box;
+  padding: vaR(--size-medium);
+  transition: var(--transition-all-default);
+}
+
+.card-button label {
+  pointer-events: none;
 }
 
 .card-button i {

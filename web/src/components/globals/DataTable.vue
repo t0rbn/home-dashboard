@@ -16,6 +16,7 @@ export default {
 
 <style scoped>
 .data-table {
+  color: var(--color-semihighlight);
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: auto 1fr;

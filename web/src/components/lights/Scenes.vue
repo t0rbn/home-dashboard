@@ -1,17 +1,16 @@
 <template>
   <section>
-    <h1>Scenes</h1>
     <div class="scenes-wrapper">
       <div class="scenes">
         <CardButton
             class="scene"
-            v-for="(scene, index) in scenes"
+            v-for="(scene) in scenes"
             :key="scene"
             :label="scene !== 'ALLOFF' ? scene : 'Off'"
-            :icon="iconForScene(scene)"
             @click="triggerScene(scene)"
-            :style="{animationDelay: `${50 * index}ms`}"
-        ></CardButton>
+            :style="{backgroundImage: background(scene)}"
+        >
+        </CardButton>
       </div>
     </div>
   </section>
@@ -19,8 +18,8 @@
 
 <script>
 import LightService from '@/services/LightService'
-import CardButton from '@/components/globals/CardButton'
 import AssetService from '@/services/AssetService'
+import CardButton from '@/components/globals/CardButton'
 
 export default {
   name: 'Scenes',
@@ -37,8 +36,8 @@ export default {
     triggerScene(scene) {
       LightService.selectScene(scene)
     },
-    iconForScene(scene) {
-      return AssetService.getSceneIcon(scene)
+    background(scene) {
+      return AssetService.getBackgroundForScene(scene)
     }
   }
 }
@@ -61,17 +60,43 @@ section {
 }
 
 .scenes {
-  min-height: 100%;
   display: grid;
+  grid-template-rows: min-content;
+  grid-auto-columns: min-content;
   grid-gap: var(--size-medium);
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr;
-  grid-auto-columns: 1fr;
   grid-auto-flow: column;
 }
 
 .scene {
-  min-height: var(--size-double-card-side);
-  min-width: var(--size-double-card-side);
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0;
+  height: var(--size-double-card-side);
+  width: var(--size-double-card-side);
+  overflow: hidden;
+}
+
+.scene::v-deep {
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.scene::v-deep label {
+  text-align: center;
+  padding: var(--size-medium);
+  background-color: var(--color-glass);
+}
+
+.scene:hover label {
+  color: vaR(--color-accent)
+}
+
+@media (orientation: landscape) {
+  .scenes {
+    grid-template-columns: repeat(var(--landsacpe-count), min-content);
+    grid-auto-flow: row;
+  }
 }
 </style>
