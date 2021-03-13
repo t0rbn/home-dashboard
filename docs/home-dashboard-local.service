@@ -1,5 +1,7 @@
 [Unit]
 Description=home dashboard
+StartLimitBurst=5
+StartLimitIntervalSec=5
 
 [Service]
 WorkingDirectory=/home/pi/home-dashboard/local
