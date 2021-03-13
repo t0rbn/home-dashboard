@@ -44,8 +44,8 @@ export default class Lights {
         }
 
         const addOrUpdateScene = (scene) => {
-            deleteScene(scene)
             this.logger.log(`retrieved information for scene ${scene.name}`)
+            deleteScene(scene.instanceId)
             this.scenes.push({name: scene.name, id: scene.instanceId})
         }
 

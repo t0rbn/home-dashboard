@@ -5,7 +5,7 @@
 
 html {
     --color-background: hsl(0, 0%, 12.5%);
-    --color-glass: hsla(0, 0%, 0%, 0.5);
+    --color-glass: hsla(0, 0%, 5%, 0.5);
 
     --color-semihighlight: hsl(0, 0%, 50%);
     --color-highlight: hsl(0, 0%, 87.5%);
@@ -23,5 +23,5 @@ html {
 
     --transition-all-default: all 125ms;
     --border-radius-default: var(--size-big);
-    --glass-filter: blur(var(--size-medium));
+    --glass-filter: saturate(2) blur(var(--size-medium));
 }

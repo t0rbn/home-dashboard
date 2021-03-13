@@ -8,9 +8,12 @@ export default {
   "climate": {
     "updateReadingIntervalMins": 1,
     "historyLength":  120,
-    "apiEndpoint": "/Climate",
+    "apiEndpoint": "/climate",
     "dht11gpioPin": 18,
     "temperatureOffset": -3,
     "humidityOffset": 0
   },
+  "admin": {
+    "apiEndpoint": "/admin"
+  }
 }

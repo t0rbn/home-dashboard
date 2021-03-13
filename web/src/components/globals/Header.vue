@@ -6,7 +6,17 @@
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Home',
+  data() {
+    return {
+      openSettings: false
+    }
+  },
+  methods: {
+    triggerSettings() {
+      this.openSettings = !this.openSettings
+    }
+  }
 }
 </script>
 

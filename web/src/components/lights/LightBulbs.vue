@@ -21,7 +21,7 @@
       </header>
       <section>
         <h1>Brightness</h1>
-        <input type="range" min="0" max="100" @change="selectBrightness" :value="selectedLight.brightness">
+        <input type="range" min="0" max="100" @change="selectBrightness" :value="Math.round(selectedLight.brightness * 100)">
       </section>
       <section v-if="selectedLight.spectrum === 'white'">
         <h1>Color Temperature</h1>
@@ -69,6 +69,7 @@ export default {
     this.lights = await LightService.getLightBulbs()
     LightService.registerLightChangeWatcher(async () => {
       this.lights = await LightService.getLightBulbs()
+      this.selectedLight = this.lights.filter(l => l.id === this.selectedLight.id)[0]
     })
   },
   methods: {

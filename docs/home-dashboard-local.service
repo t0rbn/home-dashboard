@@ -5,6 +5,7 @@ Description=home dashboard
 WorkingDirectory=/home/pi/home-dashboard/local
 ExecStart=/usr/bin/node /home/pi/home-dashboard/local/src/Server.js
 RemainAfterExit=true
+Restart=always
 
 [Install]
 WantedBy=multi-user.target

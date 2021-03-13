@@ -12,7 +12,6 @@
 import ClimateService from '@/services/ClimateService'
 import AreaGraph from '@/components/globals/AreaGraph'
 import IconHeading from '@/components/globals/IconHeading'
-import config from '@/config.json'
 import DataTable from '@/components/globals/DataTable'
 
 export default {
@@ -38,7 +37,7 @@ export default {
   },
   async created() {
     await this.init()
-    setInterval(async () => this.init(), config.climate.refreshIntervalSeconds * 1000)
+    setInterval(async () => this.init(), 1000)
   }
 }
 </script>

@@ -10,19 +10,21 @@ export default class LightService {
         if (!this.availableScenes.length) {
             const response = await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/scenes`)
             this.availableScenes = await response.json()
+            this.availableScenes.sort((a, b) => a.name < b.name ? -1 : (a.name === b.name ? 0 : 1))
         }
         return this.availableScenes.map(s => s.name)
     }
 
     static async updateLightbulbs() {
-            const response = await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/bulbs`)
-            this.availableLightBulbs = await response.json()
-            await LightService.callLightChangeWatchers()
+        const response = await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/bulbs`)
+        this.availableLightBulbs = await response.json()
+        this.availableLightBulbs.sort((a, b) => a.name < b.name ? -1 : (a.name === b.name ? 0 : 1))
+        await LightService.callLightChangeWatchers()
     }
 
     static async getLightBulbs() {
         if (!this.availableLightBulbs.length) {
-           await this.updateLightbulbs();
+            await this.updateLightbulbs()
         }
         return this.availableLightBulbs
     }
@@ -69,7 +71,7 @@ export default class LightService {
     }
 
     static async callLightChangeWatchers() {
-        await this.getLightBulbs();
+        await this.getLightBulbs()
         LightService.lightChangeWatchers.forEach(e => e())
     }
 

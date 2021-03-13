@@ -87,6 +87,7 @@ section {
   text-align: center;
   padding: var(--size-medium);
   background-color: var(--color-glass);
+  backdrop-filter: vaR(--glass-filter);
 }
 
 .scene:hover label {

@@ -22,7 +22,6 @@ export default {
   justify-content: center;
 
   background-color: vaR(--color-glass);
-  background-image: var(--gradient-shiny);
   border-radius: vaR(--border-radius-default);
   box-sizing: border-box;
   padding: vaR(--size-medium);
