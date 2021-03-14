@@ -1,11 +1,11 @@
 {
-  "name": "home-dashboard-local",
+  "name": "home-dashboard-local-server",
   "version": "0.0.1",
   "description": "",
   "main": "src/Server.js",
   "scripts": {
     "start": "node src/Server.js",
-    "deploy": "ssh pi@192.168.0.103 \"cd home-dashboard && git pull origin master && npm install && sudo systemctl restart home-dashboard-local.service\""
+    "deploy": "ssh pi@192.168.0.103 \"cd home-dashboard/server && git pull origin master && npm install && sudo systemctl restart home-dashboard-local.service\""
   },
   "type": "module",
   "author": "t0rbn",
