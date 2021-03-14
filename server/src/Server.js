@@ -5,7 +5,6 @@ import config from './Config.js'
 
 import Lights from './Lights.js'
 import Climate from './Climate.js'
-import Network from './Network.js'
 import Logger from './Logger.js'
 import Admin from './Admin.js'
 
@@ -18,7 +17,6 @@ app.use(cors())
 
 new Lights().registerEndpoints(app)
 new Climate().registerEndpoints(app)
-new Network().registerEndpoints(app)
 new Admin().registerEndpoints(app)
 
 app._router.stack.forEach(layer => {

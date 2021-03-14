@@ -122,8 +122,6 @@ section {
   overflow: scroll;
   min-width: 0;
   min-height: 0;
-  margin: 0 calc(-1 * var(--size-medium));
-  padding: 0 var(--size-medium);
 }
 
 .lights {
