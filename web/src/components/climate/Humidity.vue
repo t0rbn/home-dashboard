@@ -55,8 +55,4 @@ export default {
   padding: var(--size-medium);
   height: var(--size-card-side);
 }
-
-.graph::v-deep polyline {
-  stroke: vaR(--color-accent)
-}
 </style>

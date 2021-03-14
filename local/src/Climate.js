@@ -32,7 +32,7 @@ export default class Climate {
                 this.data.shift()
             }
         } catch (e) {
-            this.logger.alert('Unable to read Climate sensor data')
+            this.logger.alert('Unable to read climate sensor data')
         }
     }
 }
