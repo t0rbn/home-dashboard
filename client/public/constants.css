@@ -18,7 +18,7 @@ html {
     --size-small: calc(var(--size-medium) * 0.5); /* inner spacing                     */
     --landsacpe-count: 5;
 
-    --size-card-side: max(calc(3 * var(--size-huge)), min(10vw, 10vh));
+    --size-card-side: max(calc(3.5 * var(--size-huge)), min(12vw, 12vh));
     --size-double-card-side: calc((var(--size-card-side) * 2) + var(--size-medium));
 
     --transition-all-default: all 125ms;
