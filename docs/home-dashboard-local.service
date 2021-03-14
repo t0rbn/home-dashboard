@@ -2,8 +2,8 @@
 Description=home dashboard
 
 [Service]
-WorkingDirectory=/home/pi/home-dashboard/local
-ExecStart=/usr/bin/node /home/pi/home-dashboard/local/src/Server.js
+WorkingDirectory=/home/pi/home-dashboard/server
+ExecStart=/usr/bin/node /home/pi/home-dashboard/server/src/Server.js
 Type=simple
 Restart=always
 RestartSec=3
