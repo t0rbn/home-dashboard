@@ -13,6 +13,15 @@ export default {
     "temperatureOffset": -3,
     "humidityOffset": 0
   },
+  "network": {
+    "apiEndpoint": "/network",
+    "ping": {
+      "destinations": ["google.com", "192.168.0.1"],
+      "timeoutSeconds": 5,
+      "intervalMins": 10,
+      "historyLength": 72
+    }
+  },
   "admin": {
     "apiEndpoint": "/admin"
   }
