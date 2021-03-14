@@ -5,7 +5,7 @@
 
 html {
     --color-background: hsl(0, 0%, 12.5%);
-    --color-glass: hsla(0, 0%, 5%, 0.5);
+    --color-glass: hsla(0, 0%, 5%, 0.75);
 
     --color-semihighlight: hsl(0, 0%, 50%);
     --color-highlight: hsl(0, 0%, 75%);
