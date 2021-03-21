@@ -38,13 +38,13 @@ export default {
 
 <style scoped>
 .app-container {
-  overflow: scroll;
-  box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
   bottom: 0;
+  box-sizing: border-box;
+  left: 0;
+  overflow: scroll;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 main {
@@ -53,7 +53,7 @@ main {
 }
 
 main h1 {
-  color: vaR(--color-accent);
+  color: var(--color-accent);
   margin-top: var(--size-huge);
 }
 

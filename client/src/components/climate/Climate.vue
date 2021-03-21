@@ -18,6 +18,17 @@ export default {
 </script>
 
 <style scoped>
+.widgets > * {
+  background-image: var(--gradient-glass);
+  border-radius: var(--border-radius-default);
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-gap: var(--size-big);
+  grid-template-rows: 1fr;
+  padding: var(--size-medium);
+}
+
 .widgets {
   display: grid;
   grid-template-columns: 1fr;

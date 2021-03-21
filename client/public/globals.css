@@ -19,7 +19,7 @@ h1 {
     font-size: var(--size-big);
     line-height: var(--size-big);
     font-weight: lighter;
-    margin: vaR(--size-medium) 0;
+    margin: var(--size-medium) 0;
 }
 
 strong {
@@ -51,7 +51,6 @@ a {
     text-decoration: none;
     color: var(--color-highlight)
 }
-
 
 ::-webkit-scrollbar {
     display: none;

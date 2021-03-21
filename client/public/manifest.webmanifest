@@ -3,8 +3,8 @@
   "short_name": "Home Dashboard",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color" : "#202020",
-  "theme_color": "#202020",
+  "background_color" : "#1d1d1d",
+  "theme_color": "#1d1d1d",
   "description": "Dashboardify my home.",
    "icons": [{
       "src": "icons/icon_64.png",

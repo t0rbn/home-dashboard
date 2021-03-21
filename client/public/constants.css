@@ -4,11 +4,12 @@
 }
 
 html {
-    --color-background: hsl(0, 0%, 12.5%);
-    --color-glass: hsla(0, 0%, 5%, 0.75);
+    --color-background: #1d1d1d;
+    --gradient-glass: linear-gradient(1deg, hsla(0, 0%, 5%, 0.9), hsla(0, 0%, 15%, 0.9));
 
-    --color-semihighlight: hsl(0, 0%, 50%);
-    --color-highlight: hsl(0, 0%, 75%);
+
+    --color-semihighlight: #757575;
+    --color-highlight: #bdbdbd;
     --color-accent: hsl(194, 75%, 75%);
 
     /* Default sizes */

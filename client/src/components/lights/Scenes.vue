@@ -45,60 +45,60 @@ export default {
 
 <style scoped>
 section {
-  min-width: 0;
-  min-height: 0;
   display: grid;
   grid-auto-rows: auto 1fr;
+  min-height: 0;
+  min-width: 0;
 }
 
 .scenes-wrapper {
-  overflow: scroll;
-  min-width: 0;
-  min-height: 0;
   margin: 0 calc(-1 * var(--size-medium));
+  min-height: 0;
+  min-width: 0;
+  overflow: scroll;
   padding: 0 var(--size-medium);
 }
 
 .scenes {
   display: grid;
-  grid-template-rows: min-content;
   grid-auto-columns: min-content;
-  grid-gap: var(--size-medium);
   grid-auto-flow: column;
+  grid-gap: var(--size-medium);
+  grid-template-rows: min-content;
 }
 
 .scene {
-  background-size: cover;
   background-position: center center;
+  background-size: cover;
   display: flex;
   flex-direction: column-reverse;
-  padding: 0;
   height: var(--size-double-card-side);
-  width: var(--size-double-card-side);
   overflow: hidden;
+  padding: 0;
+  width: var(--size-double-card-side);
 }
 
 .scene::v-deep {
-  justify-content: flex-start;
   align-items: stretch;
+  justify-content: flex-start;
 }
 
 .scene::v-deep label {
-  color: vaR(--color-highlight);
-  text-align: center;
+  backdrop-filter: var(--glass-filter);
+  background-image: var(--gradient-glass);
+  color: var(--color-highlight);
   padding: var(--size-medium);
-  background-color: var(--color-glass);
-  backdrop-filter: vaR(--glass-filter);
+  text-align: center;
 }
 
 .scene:hover label {
-  color: vaR(--color-accent)
+  color: var(--color-accent)
 }
 
 @media (orientation: landscape) {
   .scenes {
-    grid-template-columns: repeat(var(--landsacpe-count), min-content);
     grid-auto-flow: row;
+    grid-template-columns: repeat(var(--landsacpe-count), min-content);
   }
 }
 </style>

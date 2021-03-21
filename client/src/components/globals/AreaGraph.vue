@@ -43,9 +43,9 @@ export default {
 
 <style scoped>
 div {
+  margin-top: var(--size-big);
   min-width: 0;
   min-height: 0;
-  margin-top: var(--size-big);
 }
 
 svg {

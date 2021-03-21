@@ -43,15 +43,5 @@ export default {
 </script>
 
 <style scoped>
-.status-temperature {
-  display: grid;
-  grid-template-columns: min-content 1fr;
-  grid-template-rows: 1fr;
-  grid-gap: var(--size-big);
-  box-sizing: border-box;
-  background-color: vaR(--color-glass);
-  border-radius: var(--border-radius-default);
-  padding: var(--size-medium);
-}
 
 </style>

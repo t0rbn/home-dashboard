@@ -1,10 +1,10 @@
 <template>
-  <header>
+  <header class="glass">
     <div class="hero-wrapper">
       <div class="hero"></div>
       <h1>Welcome Home</h1>
     </div>
-      <a href="#" @click="refresh()" @contextmenu="killServer()"><i class="fas fa-sync"></i></a>
+    <a href="#" @click="refresh()" @contextmenu="killServer()"><i class="fas fa-sync"></i></a>
   </header>
 </template>
 
@@ -30,42 +30,39 @@ export default {
 
 <style scoped>
 header {
-  position: sticky;
   top: 0;
   left: 0;
   right: 0;
-  padding: var(--size-medium);
-  background-color: var(--color-glass);
-  backdrop-filter: vaR(--glass-filter);
-  z-index: 10;
+  align-items: center;
+  backdrop-filter: var(--glass-filter);
+  background-image: var(--gradient-glass);
   display: flex;
   flex-direction: row;
-  align-items: center;
+  padding: var(--size-medium);
+  position: sticky;
   justify-content: space-between;
+  z-index: 10;
 }
 
 header .hero-wrapper {
+  align-items: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
 }
-
 
 header .hero {
   background-image: url('/Home.jpg');
   background-position: center center;
   background-size: cover;
-  width: var(--size-huge);
-  height: var(--size-huge);
   border-radius: 50%;
+  height: var(--size-huge);
   margin-right: var(--size-medium);
+  width: var(--size-huge);
 }
-
 
 header a {
   font-size: var(--size-big);
-  line-height: var(--size-big);
   color: var(--color-accent);
+  line-height: var(--size-big);
 }
-
 </style>

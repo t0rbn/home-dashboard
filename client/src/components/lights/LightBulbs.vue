@@ -112,39 +112,40 @@ export default {
 
 <style scoped>
 section {
-  min-width: 0;
-  min-height: 0;
   display: grid;
   grid-auto-rows: auto 1fr;
+  min-height: 0;
+  min-width: 0;
 }
 
 .lights-wrapper {
-  overflow: scroll;
-  min-width: 0;
   min-height: 0;
+  min-width: 0;
+  overflow: scroll;
 }
 
 .lights {
   display: grid;
-  grid-template-rows: min-content;
   grid-auto-columns: min-content;
-  grid-gap: var(--size-medium);
   grid-auto-flow: column;
+  grid-gap: var(--size-medium);
+  grid-template-rows: min-content;
 }
 
 .light {
-  width: var(--size-card-side);
   height: var(--size-card-side);
+  width: var(--size-card-side);
 }
 
 .lights .light.on {
   color: var(--color-background);
+  background-image: linear-gradient(1deg, transparent, hsla(0, 0%, 100%, 0.75));
 }
 
 .control-sheet .sheet-header {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .control-sheet .sheet-header i {
@@ -157,10 +158,14 @@ section {
 }
 
 .color-selector {
-  display: grid;;
-  grid-template-columns: repeat(3, 1fr);
+  display: grid;
   grid-auto-rows: var(--size-huge);
   grid-gap: var(--size-medium);
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.color-selector::v-deep > * {
+  background-image: linear-gradient(1deg, transparent, hsla(0, 0%, 100%, 0.75));
 }
 
 .color-selector input[type=color] {
@@ -168,14 +173,13 @@ section {
 }
 
 .custom-color-select-button {
-  color: var(--color-background);
   background-image: linear-gradient(to right, red, pink, orange, cyan);
+  color: var(--color-background);
 }
 
 .custom-color-select-button:hover {
   color: var(--color-background);
 }
-
 
 @media (orientation: landscape) {
   .lights {
