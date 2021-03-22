@@ -4,19 +4,21 @@
 }
 
 html {
-    --color-background: #1d1d1d;
-    --gradient-glass: linear-gradient(1deg, hsla(0, 0%, 5%, 0.9), hsla(0, 0%, 15%, 0.9));
+    --color-background: hsl(0, 0%, 11%);
+    --color-elevation: hsla(0, 0%, 17%, 0.8);
+    --gradient-glass: linear-gradient(181deg, hsla(0, 0%, 100%, 0.05), transparent var(--size-big));
+    --shadow-default: 0 calc(var(--size-small) / 6) calc(var(--size-small) / 3) hsl(0, 0%, 2.5%);
 
 
-    --color-semihighlight: #757575;
-    --color-highlight: #bdbdbd;
-    --color-accent: hsl(194, 75%, 75%);
+    --color-semihighlight: hsl(  0,  0%, 50%);
+    --color-highlight:     hsl(  0,  0%, 85%);
+    --color-accent:        hsl(194, 100%, 75%);
 
     /* Default sizes */
     --size-medium: 0.8rem;
-    --size-huge: calc(var(--size-medium) * 3);
-    --size-big: calc(var(--size-medium) * 1.5); /* header, key info                  */
-    --size-small: calc(var(--size-medium) * 0.5); /* inner spacing                     */
+    --size-huge:   calc(var(--size-medium) *   3);
+    --size-big:    calc(var(--size-medium) * 1.5);
+    --size-small:  calc(var(--size-medium) * 0.5);
     --landsacpe-count: 5;
 
     --size-card-side: max(calc(3.5 * var(--size-huge)), min(12vw, 12vh));
@@ -24,5 +26,5 @@ html {
 
     --transition-all-default: all 125ms;
     --border-radius-default: var(--size-big);
-    --glass-filter: saturate(2) blur(var(--size-medium));
+    --glass-filter: saturate(2) blur(var(--size-big));
 }

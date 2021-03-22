@@ -29,7 +29,7 @@ export default {
 }
 
 .bottom-sheet {
-  /*color: var(--color-background);*/
+  background-color: var(--color-elevation);
   backdrop-filter: var(--glass-filter);
   background-image: var(--gradient-glass);
   border-top-left-radius: var(--size-huge);

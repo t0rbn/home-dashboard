@@ -35,13 +35,22 @@ header {
   right: 0;
   align-items: center;
   backdrop-filter: var(--glass-filter);
-  background-image: var(--gradient-glass);
+  background-color: var(--color-elevation);
+  box-shadow: var(--shadow-default);
   display: flex;
   flex-direction: row;
   padding: var(--size-medium);
   position: sticky;
   justify-content: space-between;
   z-index: 10;
+}
+
+header h1 {
+  margin: var(--size-medium) 0;
+}
+
+header, header * {
+  transition: all 1s ease;
 }
 
 header .hero-wrapper {

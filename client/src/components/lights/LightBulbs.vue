@@ -111,6 +111,10 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  margin-bottom: var(--size-medium);
+}
+
 section {
   display: grid;
   grid-auto-rows: auto 1fr;
@@ -130,16 +134,17 @@ section {
   grid-auto-flow: column;
   grid-gap: var(--size-medium);
   grid-template-rows: min-content;
+  padding: vaR(--size-medium) 0;
 }
 
 .light {
+  background-image: var(--gradient-glass) !important;
   height: var(--size-card-side);
   width: var(--size-card-side);
 }
 
 .lights .light.on {
   color: var(--color-background);
-  background-image: linear-gradient(1deg, transparent, hsla(0, 0%, 100%, 0.75));
 }
 
 .control-sheet .sheet-header {
@@ -165,7 +170,7 @@ section {
 }
 
 .color-selector::v-deep > * {
-  background-image: linear-gradient(1deg, transparent, hsla(0, 0%, 100%, 0.75));
+  background-image: var(--gradient-glass);
 }
 
 .color-selector input[type=color] {

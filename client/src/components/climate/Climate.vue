@@ -19,8 +19,10 @@ export default {
 
 <style scoped>
 .widgets > * {
+  background-color: vaR(--color-elevation);
   background-image: var(--gradient-glass);
   border-radius: var(--border-radius-default);
+  box-shadow: var(--shadow-default);
   box-sizing: border-box;
   display: grid;
   grid-template-columns: min-content 1fr;
@@ -34,6 +36,7 @@ export default {
   grid-template-columns: 1fr;
   grid-gap: var(--size-medium);
   grid-auto-rows: var(--size-card-side);
+  padding-top: var(--size-medium);
 }
 
 @media (orientation: landscape) {

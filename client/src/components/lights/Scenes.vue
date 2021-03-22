@@ -65,11 +65,13 @@ section {
   grid-auto-flow: column;
   grid-gap: var(--size-medium);
   grid-template-rows: min-content;
+  padding: var(--size-medium) 0;
 }
 
 .scene {
   background-position: center center;
   background-size: cover;
+  box-shadow: var(--shadow-default);
   display: flex;
   flex-direction: column-reverse;
   height: var(--size-double-card-side);
@@ -85,7 +87,7 @@ section {
 
 .scene::v-deep label {
   backdrop-filter: var(--glass-filter);
-  background-image: var(--gradient-glass);
+  background-color: hsla(0, 0%, 0%, 0.5);
   color: var(--color-highlight);
   padding: var(--size-medium);
   text-align: center;
