@@ -40,7 +40,7 @@ export default class Lights {
 
     async initDataAndListeners() {
         const deleteScene = (id) => {
-            this.scenes = this.scenes.filter(s => s.instanceId !== id)
+            this.scenes = this.scenes.filter(s => s.id !== id)
         }
 
         const addOrUpdateScene = (scene) => {

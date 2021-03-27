@@ -126,6 +126,8 @@ section {
   min-height: 0;
   min-width: 0;
   overflow: scroll;
+  padding: 0 var(--size-medium);
+  margin: 0 calc(-1 * var(--size-medium));
 }
 
 .lights {
@@ -134,7 +136,7 @@ section {
   grid-auto-flow: column;
   grid-gap: var(--size-medium);
   grid-template-rows: min-content;
-  padding: vaR(--size-medium) 0;
+  padding: var(--size-medium) 0;
 }
 
 .light {
