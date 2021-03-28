@@ -6,10 +6,11 @@
             class="scene"
             v-for="(scene) in scenes"
             :key="scene"
-            :label="scene !== 'ALLOFF' ? scene : 'Off'"
             @click="triggerScene(scene)"
             :style="{backgroundImage: background(scene)}"
         >
+          <label>{{scene !== 'ALLOFF' ? scene : 'Off'}}
+          </label>
         </CardButton>
       </div>
     </div>
@@ -76,20 +77,19 @@ section {
   flex-direction: column-reverse;
   height: var(--size-double-card-side);
   overflow: hidden;
-  padding: 0;
   width: var(--size-double-card-side);
 }
 
 .scene::v-deep {
   align-items: stretch;
-  justify-content: flex-start;
 }
 
 .scene::v-deep label {
   backdrop-filter: var(--glass-filter);
   background-color: hsla(0, 0%, 0%, 0.5);
+  border-radius: calc(var(--size-small) + (var(--size-medium) / 2));
   color: var(--color-highlight);
-  padding: var(--size-medium);
+  padding: var(--size-small);
   text-align: center;
 }
 
