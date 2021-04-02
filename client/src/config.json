@@ -1,7 +1,7 @@
 {
-  "localApiBaseUrl": "http://192.168.0.103:8001",
+  "localApiBaseUrl": "/",
   "lights": {
-    "apiEndpoint": "/lights",
+    "apiEndpoint": "lights",
     "changeUpdateDelayMs": 2000,
     "whiteColors": [
       "#f5faf6",
@@ -20,9 +20,9 @@
   },
   "climate": {
     "cachingTimeSeconds":  "120",
-    "apiEndpoint": "/climate"
+    "apiEndpoint": "climate"
   },
   "admin": {
-    "apiEndpoint": "/admin"
+    "apiEndpoint": "admin"
   }
 }

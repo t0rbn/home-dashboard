@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "npm run build && scp -r dist/* pi@192.168.0.103:~/home-dashboard-nginx"
+    "deploy": "npm run build && scp -r dist/* pi@192.168.0.118:~/home-dashboard-nginx"
   },
   "dependencies": {
     "core-js": "latest",
