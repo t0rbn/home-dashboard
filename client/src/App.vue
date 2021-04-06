@@ -53,7 +53,6 @@ main {
 }
 
 main h1 {
-  color: var(--color-accent);
   margin-top: var(--size-huge);
 }
 

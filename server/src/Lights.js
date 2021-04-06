@@ -184,6 +184,6 @@ export default class Lights {
     }
 
     async setScene(sceneId) {
-        await this.connection.operateGroup(this.superGroup, {sceneId})
+        await this.connection.operateGroup(this.superGroup, {sceneId}, true)
     }
 }

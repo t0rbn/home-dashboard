@@ -93,8 +93,13 @@ section {
   text-align: center;
 }
 
+.scene:hover {
+  box-shadow: var(--shadow-glow-accent);
+}
+
 .scene:hover label {
-  color: var(--color-accent)
+  background-color: var(--color-accent);
+  color: var(--color-background);
 }
 
 @media (orientation: landscape) {

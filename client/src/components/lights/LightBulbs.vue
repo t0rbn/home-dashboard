@@ -94,6 +94,7 @@ section {
 
 .lights .light.on {
   color: var(--color-background);
+  box-shadow: var(--shadow-glow-hightlight);
 }
 
 @media (orientation: landscape) {
