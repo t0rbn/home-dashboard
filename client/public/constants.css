@@ -14,7 +14,7 @@ html {
     --color-accent-secondary:  hsl(240, 100%, 75%);
 
     --shadow-default: 0 calc(var(--size-small) / 6) calc(var(--size-small) / 3) hsl(0, 0%, 2.5%);
-    --shadow-glow-accent: 0 0 var(--size-small) 0  var(--color-accent);
+    --shadow-glow-accent:     0 0 var(--size-small) 0  var(--color-accent);
     --shadow-glow-hightlight: 0 0 var(--size-small) 0  var(--color-highlight);
 
 

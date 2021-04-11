@@ -96,6 +96,7 @@ header main a {
   font-size: var(--size-huge);
   line-height: var(--size-huge);
   font-weight: bold;
+  text-shadow: 1px 1px var(--color-background);
 }
 
 .hero img {
@@ -107,9 +108,9 @@ header main a {
 header.maxi {
   background-color: var(--color-accent);
   background-image: linear-gradient(166deg, transparent, var(--color-accent-secondary));
-  border-bottom-left-radius: 420%;
-  border-bottom-right-radius: 42%;
-  padding-bottom: var(--size-card-side);
+  border-bottom-left-radius: 250%;
+  border-bottom-right-radius: 50%;
+  padding-bottom: calc(1.5 * var(--size-card-side));
   margin-bottom: var(--size-card-side);
   box-shadow: var(--shadow-glow-accent)
 }
@@ -123,7 +124,7 @@ header.maxi a {
 }
 
 header:not(.maxi) .hero {
-  transform: translateY(-100%) scale(0);
+  transform: translateX(-100%) translateY(-100%) scale(0);
   opacity: 0;
 }
 </style>

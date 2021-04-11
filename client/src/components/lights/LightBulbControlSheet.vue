@@ -14,7 +14,8 @@
       <div class="color-selector">
         <CardButton
             v-for="color in getWhiteColors()"
-            :key="color" :style="{backgroundColor: color}"
+            :key="color"
+            :style="{backgroundColor: color}"
             @click="selectColorTemperature(getWhiteColors().indexOf(color) / (getWhiteColors().length -1))"
         ></CardButton>
       </div>
@@ -24,7 +25,8 @@
       <div class="color-selector">
         <CardButton
             v-for="color in getRgbColors()"
-            :key="color" :style="{backgroundColor: color}"
+            :key="color"
+            :style="{backgroundColor: color}"
             @click="selectRgbColor(color)"
         ></CardButton>
         <CardButton class="custom-color-select-button" label="custom" @click="showColorSelector()"></CardButton>
@@ -113,6 +115,10 @@ h1 {
 
 .color-selector::v-deep > * {
   background-image: var(--gradient-glass);
+}
+
+.color-selector::v-deep > *:hover {
+  box-shadow: var(--shadow-glow-hightlight);
 }
 
 .color-selector input[type=color] {
