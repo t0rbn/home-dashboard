@@ -1,5 +1,5 @@
 export default {
-    'port': 8001,
+    'port': 8000,
     'tradfri': {
         'apiEndpoint': '/api/lights',
         'securityId': 'WqupW3ys67g1PUeh',

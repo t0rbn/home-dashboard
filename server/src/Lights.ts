@@ -55,7 +55,7 @@ export default class Lights implements Service {
             fs.writeFile(
                 config.tradfri.credentialsFileLocation,
                 JSON.stringify({identity, psk}),
-                () => this.logger.log('wrote new credentials')
+                () => this.logger.log(`wrote new credentials to ${config.tradfri.credentialsFileLocation}`)
             )
         }
         await this.connection.connect(identity, psk)
