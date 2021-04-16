@@ -1,0 +1,35 @@
+@font-face {
+    font-family: os;
+    src: url('webfonts/OpenSans-Regular.ttf');
+}
+
+html {
+    --color-background: hsl(0, 0%, 11%);
+    --color-elevation: hsla(0, 0%, 17%, 0.8);
+    --gradient-glass: linear-gradient(181deg, hsla(0, 0%, 100%, 0.05), transparent var(--size-big));
+
+    --color-semihighlight:     hsl(  0,  0%, 50%);
+    --color-highlight:         hsl(  0,  0%, 85%);
+    --color-accent:            hsl(194, 100%, 75%);
+    --color-accent-secondary:  hsl(240, 100%, 75%);
+
+    --shadow-default: 0 calc(var(--size-small) / 6) calc(var(--size-small) / 3) hsl(0, 0%, 2.5%);
+    --shadow-glow-accent:     0 0 var(--size-small) 0  var(--color-accent);
+    --shadow-glow-hightlight: 0 0 var(--size-small) 0  var(--color-highlight);
+
+
+
+    /* Default sizes */
+    --size-medium: 0.8rem;
+    --size-huge:   calc(var(--size-medium) *   3);
+    --size-big:    calc(var(--size-medium) * 1.5);
+    --size-small:  calc(var(--size-medium) * 0.5);
+    --landsacpe-count: 4;
+
+    --size-card-side: calc(3 * var(--size-huge));
+    --size-double-card-side: calc((var(--size-card-side) * 2) + var(--size-medium));
+
+    --transition-all-default: all 50ms ease;
+    --border-radius-default: var(--size-big);
+    --glass-filter: saturate(2) blur(var(--size-big));
+}

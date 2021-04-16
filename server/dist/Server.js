@@ -6,17 +6,18 @@ import Lights from './Lights.js';
 import Climate from './Climate.js';
 import Logger from './Logger.js';
 import Admin from './Admin.js';
-var logger = new Logger('server');
+const logger = new Logger('server');
 logger.log('starting up');
-var app = express();
+const app = express();
 app.use(bodyParser.text());
 app.use(cors());
 new Lights().registerEndpoints(app);
 new Climate().registerEndpoints(app);
 new Admin().registerEndpoints(app);
-app._router.stack.forEach(function (layer) {
+app._router.stack.forEach((layer) => {
     if (layer.route && layer.route.path) {
-        logger.log("registered path " + layer.route.path);
+        logger.log(`registered path ${layer.route.path}`);
     }
 });
-app.listen(config.port, function () { return logger.log("started on port " + config.port); });
+app.use(express.static('client'));
+app.listen(config.port, () => logger.log(`started on port ${config.port}`));
