@@ -31,7 +31,13 @@ export default class Lights implements Service {
 
     async initConnection(): Promise<void> {
         this.logger.log('discovering tradfri gateway')
-        const gateway = await discoverGateway()
+        let gateway
+        try {
+            gateway = await discoverGateway()
+        } catch (e) {
+            this.logger.alert('Cannot discover gateway')
+            console.log(e)
+        }
         if (!gateway) {
             return
         }
