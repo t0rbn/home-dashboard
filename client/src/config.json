@@ -1,11 +1,12 @@
 {
-  "localApiBaseUrl": "/api",
+  "localApiBaseUrl": "http://192.168.0.118:8000/api",
   "lights": {
     "apiEndpoint": "/lights",
     "changeUpdateDelayMs": 2000,
     "whiteColors": [
       "#f5faf6",
       "#f1e0b5",
+      "#00ff00",
       "#efd275"
     ],
     "rgbColors": [
