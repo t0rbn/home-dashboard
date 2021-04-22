@@ -78,7 +78,7 @@ header main img {
 }
 
 header main a {
-  color: var(--color-accent)
+  color: var(--color-highlight)
 }
 
 .hero {
@@ -93,10 +93,10 @@ header main a {
 }
 
 .hero h1 {
+  color: var(--color-background);
   font-size: var(--size-huge);
   line-height: var(--size-huge);
   font-weight: bold;
-  text-shadow: 1px 1px var(--color-background);
 }
 
 .hero img {
@@ -106,13 +106,11 @@ header main a {
 }
 
 header.maxi {
-  background-color: var(--color-accent);
-  background-image: linear-gradient(166deg, transparent, var(--color-accent-secondary));
+  background-color: var(--color-highlight);
   border-bottom-left-radius: 250%;
   border-bottom-right-radius: 50%;
-  padding-bottom: calc(1.5 * var(--size-card-side));
+  padding-bottom: var(--size-double-card-side);
   margin-bottom: var(--size-card-side);
-  box-shadow: var(--shadow-glow-accent)
 }
 
 header.maxi main :not(:last-child) {

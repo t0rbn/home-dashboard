@@ -55,7 +55,7 @@ svg {
 
 svg polyline {
   fill: none;
-  stroke: var(--color-accent);
+  stroke: var(--color-highlight);
   stroke-width: 0.01;
 }
 </style>

@@ -94,11 +94,11 @@ section {
 }
 
 .scene:hover {
-  box-shadow: var(--shadow-glow-accent);
+  box-shadow: var(--shadow-glow-hightlight);
 }
 
 .scene:hover label {
-  background-color: var(--color-accent);
+  background-color: var(--color-highlight);
   color: var(--color-background);
 }
 

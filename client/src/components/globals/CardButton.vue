@@ -24,8 +24,7 @@ export default {
 }
 
 .card-button:hover {
-  color: var(--color-accent);
   filter: brightness(1.1);
-  box-shadow: var(--shadow-glow-accent);
+  box-shadow: var(--shadow-glow-hightlight);
 }
 </style>

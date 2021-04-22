@@ -117,10 +117,6 @@ h1 {
   background-image: var(--gradient-glass);
 }
 
-.color-selector::v-deep > *:hover {
-  box-shadow: var(--shadow-glow-hightlight);
-}
-
 .color-selector input[type=color] {
   opacity: 0;
 }
