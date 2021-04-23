@@ -6,17 +6,18 @@
     "whiteColors": [
       "#f5faf6",
       "#f1e0b5",
-      "#0000ff",
       "#efd275"
     ],
     "rgbColors": [
+      "#eaf6fb",
       "#f5faf6",
       "#f1e0b5",
       "#efd275",
-      "#dcf0f8",
-      "#4a418a",
+      "#e8bedd",
       "#8f2686",
-      "#e57345"
+      "#4a418a",
+      "#a9d62b",
+      "#dc4b31"
     ]
   },
   "climate": {
