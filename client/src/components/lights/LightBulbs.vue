@@ -97,7 +97,7 @@ section {
   box-shadow: var(--shadow-glow-hightlight);
 }
 
-@media (orientation: landscape) {
+@media (orientation: landscape), (min-width: 64.8rem) {
   .lights {
     grid-template-columns: repeat(calc(var(--landsacpe-count) * 2), min-content);
     grid-auto-flow: row;

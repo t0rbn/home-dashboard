@@ -39,7 +39,7 @@ export default {
   padding-top: var(--size-medium);
 }
 
-@media (orientation: landscape) {
+@media (orientation: landscape), (min-width: 64.8rem) {
   .widgets {
     grid-template-columns: repeat(2, 1fr);
   }

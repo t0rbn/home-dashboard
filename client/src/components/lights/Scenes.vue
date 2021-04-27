@@ -102,7 +102,7 @@ section {
   color: var(--color-background);
 }
 
-@media (orientation: landscape) {
+@media (orientation: landscape), (min-width: 64.8rem) {
   .scenes {
     grid-auto-flow: row;
     grid-template-columns: repeat(var(--landsacpe-count), min-content);

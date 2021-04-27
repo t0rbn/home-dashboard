@@ -56,7 +56,7 @@ main h1 {
   margin-top: var(--size-huge);
 }
 
-@media (orientation: landscape) {
+@media (orientation: landscape), (min-width: 64.8rem) {
   main {
     margin: 0 auto;
     width: fit-content;

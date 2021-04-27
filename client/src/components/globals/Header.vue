@@ -1,16 +1,10 @@
 <template>
-  <header :class="{maxi}">
+  <header>
     <main>
       <img src="/Home.jpg">
       <h1>Welcome Home</h1>
       <a href="#" @click="refresh()" @contextmenu="killServer()"><i class="fas fa-sync"></i></a>
     </main>
-
-    <div class="hero">
-      <img src="/Home.jpg">
-      <h1>Welcome Home</h1>
-    </div>
-
   </header>
 </template>
 
@@ -79,50 +73,5 @@ header main img {
 
 header main a {
   color: var(--color-highlight)
-}
-
-.hero {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding-top: var(--size-huge);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.hero h1 {
-  color: var(--color-background);
-  font-size: var(--size-huge);
-  line-height: var(--size-huge);
-  font-weight: bold;
-}
-
-.hero img {
-  border-radius: 50%;
-  width: var(--size-card-side);
-  height: var(--size-card-side);
-}
-
-header.maxi {
-  background-color: var(--color-highlight);
-  border-bottom-left-radius: 250%;
-  border-bottom-right-radius: 50%;
-  padding-bottom: var(--size-double-card-side);
-  margin-bottom: var(--size-card-side);
-}
-
-header.maxi main :not(:last-child) {
-  opacity: 0;
-}
-
-header.maxi a {
-  color: var(--color-background)
-}
-
-header:not(.maxi) .hero {
-  transform: translateX(-100%) translateY(-100%) scale(0);
-  opacity: 0;
 }
 </style>
