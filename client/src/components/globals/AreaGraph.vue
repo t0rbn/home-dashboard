@@ -43,7 +43,7 @@ export default {
 
 <style scoped>
 div {
-  margin-top: var(--size-big);
+  margin: var(--size-medium) 0;
   min-width: 0;
   min-height: 0;
 }
