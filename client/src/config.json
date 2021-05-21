@@ -1,5 +1,5 @@
 {
-  "localApiBaseUrl": "http://localhost:8000/api",
+  "localApiBaseUrl": "http://192.168.0.118:8000/api",
   "lights": {
     "apiEndpoint": "/lights",
     "changeUpdateDelayMs": 2000,
