@@ -1,6 +1,5 @@
 <template>
   <section>
-    <div class="lights-wrapper">
       <div class="lights">
         <CardButton
             v-for="light in lights"
@@ -14,9 +13,8 @@
           <label>{{ light.name }}</label>
         </CardButton>
       </div>
-    </div>
 
-    <LightBulbControlSheet :light="selectedLight"></LightBulbControlSheet>
+    <LightBulbControlSheet :light="selectedLight" @closed="selectLight(null)"></LightBulbControlSheet>
   </section>
 </template>
 
@@ -55,35 +53,18 @@ export default {
 </script>
 
 <style scoped>
-section {
-  display: grid;
-  grid-auto-rows: auto 1fr;
-  min-height: 0;
-  min-width: 0;
-}
-
-.lights-wrapper {
-  min-height: 0;
-  min-width: 0;
-  overflow: scroll;
-  padding: 0 var(--size-medium);
-  margin: 0 calc(-1 * var(--size-medium));
-}
 
 .lights {
   display: grid;
-  grid-auto-columns: min-content;
-  grid-auto-flow: column;
+  grid-template-columns: repeat(var(--cards-column-count), 1fr);
   grid-gap: var(--size-medium);
-  grid-template-rows: min-content;
   padding: var(--size-medium) 0;
 }
 
 .light {
+  aspect-ratio: 1;
   background-image: var(--gradient-glass) !important;
-  height: var(--size-card-side);
   justify-content: flex-start;
-  width: var(--size-card-side);
 }
 
 .light i {
@@ -93,14 +74,8 @@ section {
 }
 
 .lights .light.on {
-  color: var(--color-background);
+  background-image: var(--gradient-glass) !important;
   box-shadow: var(--shadow-glow-hightlight);
-}
-
-@media (orientation: landscape), (min-width: 64.8rem) {
-  .lights {
-    grid-template-columns: repeat(calc(var(--landsacpe-count) * 2), min-content);
-    grid-auto-flow: row;
-  }
+  color: var(--color-background);
 }
 </style>

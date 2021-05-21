@@ -10,16 +10,16 @@
 <script>
 export default {
   name: 'DataTable',
-  props: ['data'],
+  props: ['data']
 }
 </script>
 
 <style scoped>
 .data-table {
-  color: var(--color-semihighlight);
+  /*color: var(--color-semihighlight);*/
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: auto 1fr;
-  grid-gap: var(--size-small);
+  grid-column-gap: vaR(--size-small);
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
 
-  <BottomSheet class="control-sheet" v-if="open" @closed="closeSheet">
+  <BottomSheet class="control-sheet" v-if="open" @closed="closeSheet()">
     <header class="sheet-header">
       <i class="fas fa-lightbulb"></i>
       <h1>{{ light.name }}</h1>
@@ -78,6 +78,7 @@ export default {
     },
     closeSheet() {
       this.open = false
+      this.$emit('closed')
     },
     showColorSelector() {
       this.$refs.customColor.click()

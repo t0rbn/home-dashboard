@@ -1,5 +1,5 @@
 <template>
-  <div class="status-temperature">
+  <div>
     <div>
       <IconHeading icon="fa-thermometer-three-quarters" :text="`${current}°C`"></IconHeading>
       <DataTable :data="stats"></DataTable>

@@ -4,29 +4,42 @@
 }
 
 html {
-    --color-background: hsl(0, 0%, 11%);
-    --color-elevation: hsla(0, 0%, 17%, 0.8);
-    --gradient-glass: linear-gradient(181deg, hsla(0, 0%, 100%, 0.05), transparent var(--size-big));
+    --color-background: hsl(0, 0%, 10%);
+    --color-elevation: hsla(0, 0%, 15%, 0.5);
+    --gradient-glass: linear-gradient(210deg, hsla(0, 0%, 50%, 0.2), transparent);
 
-    --color-semihighlight:     hsl(  0,  0%, 50%);
-    --color-highlight:         hsl(  0,  0%, 95%);
+    --color-semihighlight: hsl(0, 0%, 50%);
+    --color-highlight: hsl(0, 0%, 95%);
 
     --shadow-default: 0 calc(var(--size-small) / 6) calc(var(--size-small) / 3) hsl(0, 0%, 2.5%);
-    --shadow-glow-hightlight: 0 0 var(--size-small) 0  var(--color-highlight);
-
+    --shadow-glow-hightlight: 0 0 var(--size-small) 0 var(--color-highlight);
 
 
     /* Default sizes */
     --size-medium: 0.8rem;
-    --size-huge:   calc(var(--size-medium) *   3);
-    --size-big:    calc(var(--size-medium) * 1.5);
-    --size-small:  calc(var(--size-medium) * 0.5);
-    --landsacpe-count: 4;
+    --size-huge: calc(var(--size-medium) * 3);
+    --size-big: calc(var(--size-medium) * 1.5);
+    --size-small: calc(var(--size-medium) * 0.5);
 
-    --size-card-side: calc(3 * var(--size-huge));
-    --size-double-card-side: calc((var(--size-card-side) * 2) + var(--size-medium));
-
-    --transition-all-default: all 50ms ease;
+    --transition-all-default: all 125ms ease;
     --border-radius-default: var(--size-big);
     --glass-filter: saturate(2) blur(var(--size-big));
+
+    --cards-coloum-count-maxi: 2;
+    --cards-column-count: 4;
+}
+
+@media (min-width: 40rem) {
+    html {
+        --cards-coloum-count-maxi: 3;
+        --cards-column-count: 6;
+    }
+}
+
+
+@media (min-width: 60rem) {
+    html {
+        --cards-coloum-count-maxi: 4;
+        --cards-column-count: 8;
+    }
 }

@@ -1,7 +1,5 @@
 <template>
-  <section>
-    <div class="scenes-wrapper">
-      <div class="scenes">
+  <section class="scenes">
         <CardButton
             class="scene"
             v-for="(scene) in scenes"
@@ -12,8 +10,6 @@
           <label>{{scene !== 'ALLOFF' ? scene : 'Off'}}
           </label>
         </CardButton>
-      </div>
-    </div>
   </section>
 </template>
 
@@ -45,39 +41,22 @@ export default {
 </script>
 
 <style scoped>
-section {
-  display: grid;
-  grid-auto-rows: auto 1fr;
-  min-height: 0;
-  min-width: 0;
-}
-
-.scenes-wrapper {
-  margin: 0 calc(-1 * var(--size-medium));
-  min-height: 0;
-  min-width: 0;
-  overflow: scroll;
-  padding: 0 var(--size-medium);
-}
-
 .scenes {
   display: grid;
-  grid-auto-columns: min-content;
-  grid-auto-flow: column;
   grid-gap: var(--size-medium);
-  grid-template-rows: min-content;
+  grid-template-columns: repeat(var(--cards-coloum-count-maxi), 1fr);
+  grid-auto-rows: min-content;
   padding: var(--size-medium) 0;
 }
 
 .scene {
+  aspect-ratio: 1;
   background-position: center center;
   background-size: cover;
   box-shadow: var(--shadow-default);
   display: flex;
   flex-direction: column-reverse;
-  height: var(--size-double-card-side);
   overflow: hidden;
-  width: var(--size-double-card-side);
 }
 
 .scene::v-deep {
@@ -93,19 +72,9 @@ section {
   text-align: center;
 }
 
-.scene:hover {
-  box-shadow: var(--shadow-glow-hightlight);
-}
-
 .scene:hover label {
   background-color: var(--color-highlight);
   color: var(--color-background);
 }
 
-@media (orientation: landscape), (min-width: 64.8rem) {
-  .scenes {
-    grid-auto-flow: row;
-    grid-template-columns: repeat(var(--landsacpe-count), min-content);
-  }
-}
 </style>

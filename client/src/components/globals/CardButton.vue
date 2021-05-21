@@ -24,7 +24,6 @@ export default {
 }
 
 .card-button:hover {
-  filter: brightness(1.1);
-  box-shadow: var(--shadow-glow-hightlight);
+  filter: brightness(1.15);
 }
 </style>

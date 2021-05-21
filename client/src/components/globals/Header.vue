@@ -47,6 +47,7 @@ header {
   right: 0;
   backdrop-filter: var(--glass-filter);
   background-color: var(--color-elevation);
+  background-image: var(--gradient-glass);
   box-shadow: var(--shadow-default);
   padding: var(--size-medium);
   position: sticky;

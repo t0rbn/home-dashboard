@@ -1,9 +1,7 @@
 <template>
-  <div>
     <svg viewBox="0 0 1 1" preserveAspectRatio="none">
       <polyline :points="getSvgPath()"></polyline>
     </svg>
-  </div>
 </template>
 
 <script>
@@ -42,20 +40,17 @@ export default {
 </script>
 
 <style scoped>
-div {
-  margin: var(--size-medium) 0;
-  min-width: 0;
-  min-height: 0;
-}
 
 svg {
-  height: 100%;
+  height: var(--size-medium);
+  flex-grow: 1;
+  margin-top: var(--size-huge);
   width: 100%;
 }
 
 svg polyline {
   fill: none;
-  stroke: var(--color-highlight);
+  stroke: var(--color-semihighlight);
   stroke-width: 0.01;
 }
 </style>

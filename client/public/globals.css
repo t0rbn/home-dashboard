@@ -55,16 +55,3 @@ a {
 ::-webkit-scrollbar {
     display: none;
 }
-
-.flyin-up {
-    animation: 250ms both flyin-up;
-}
-
-@keyframes flyin-up {
-    from {
-        transform: translateY(100%);
-    }
-    to {
-        transform: none;
-    }
-}

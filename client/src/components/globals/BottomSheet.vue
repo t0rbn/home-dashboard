@@ -1,6 +1,6 @@
 <template>
-  <div class="bottom-sheet-container" @click="$emit('closed')">
-    <div class="bottom-sheet flyin-up glass" @click.stop="noop()">
+  <div class="bottom-sheet-container" :class="{hidden}" @click="close()">
+    <div class="bottom-sheet flyin-up" @click.stop="noop()">
       <slot></slot>
     </div>
   </div>
@@ -9,8 +9,20 @@
 <script>
 export default {
   name: 'BottomSheet',
+  data() {
+    return {
+      hidden: true
+    }
+  },
+  mounted() {
+    setTimeout(() => this.hidden = false, 1)
+  },
   methods: {
     noop() {
+    },
+    close() {
+      this.hidden = true
+      setTimeout(() => this.$emit('closed'), 125)
     }
   }
 }
@@ -18,6 +30,7 @@ export default {
 
 <style scoped>
 .bottom-sheet-container {
+  background-color: hsla(0, 0%, 0%, 0.75);
   bottom: 0;
   top: 0;
   left: 0;
@@ -25,6 +38,7 @@ export default {
   display: flex;
   flex-direction: column-reverse;
   position: fixed;
+  transition: var(--transition-all-default);
   z-index: 100;
 }
 
@@ -34,7 +48,24 @@ export default {
   background-image: var(--gradient-glass);
   border-top-left-radius: var(--size-huge);
   border-top-right-radius: var(--size-huge);
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 60rem;
   padding: var(--size-huge);
+  transition: var(--transition-all-default);
+  width: 100%;
   z-index: 101;
 }
+
+.bottom-sheet-container.hidden {
+  transition: var(--transition-all-default);
+  opacity: 0;
+}
+
+.bottom-sheet-container.hidden .bottom-sheet {
+  transition: var(--transition-all-default);
+  transform: translateY(100%);
+}
+
 </style>
+

@@ -1,5 +1,5 @@
 <template>
-  <div class="status-humidity">
+  <div>
     <div>
       <IconHeading icon="fa-tint" :text="`${current}%`"></IconHeading>
       <DataTable :data="stats"></DataTable>

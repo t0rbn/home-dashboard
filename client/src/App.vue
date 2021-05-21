@@ -50,16 +50,13 @@ export default {
 main {
   padding: var(--size-medium);
   padding-top: 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 60rem;
 }
 
 main h1 {
   margin-top: var(--size-huge);
 }
 
-@media (orientation: landscape), (min-width: 64.8rem) {
-  main {
-    margin: 0 auto;
-    width: fit-content;
-  }
-}
 </style>
