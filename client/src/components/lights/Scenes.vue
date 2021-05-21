@@ -44,7 +44,7 @@ export default {
 .scenes {
   display: grid;
   grid-gap: var(--size-medium);
-  grid-template-columns: repeat(var(--cards-coloum-count-maxi), 1fr);
+  grid-template-columns: repeat(var(--cards-column-count), 1fr);
   grid-auto-rows: min-content;
   padding: var(--size-medium) 0;
 }
@@ -56,11 +56,8 @@ export default {
   box-shadow: var(--shadow-default);
   display: flex;
   flex-direction: column-reverse;
-  overflow: hidden;
-}
-
-.scene::v-deep {
   align-items: stretch;
+  overflow: hidden;
 }
 
 .scene::v-deep label {

@@ -56,7 +56,7 @@ export default {
 
 .lights {
   display: grid;
-  grid-template-columns: repeat(var(--cards-column-count), 1fr);
+  grid-template-columns: repeat(calc( 2 * var(--cards-column-count)), 1fr);
   grid-gap: var(--size-medium);
   padding: var(--size-medium) 0;
 }
@@ -64,7 +64,6 @@ export default {
 .light {
   aspect-ratio: 1;
   background-image: var(--gradient-glass) !important;
-  justify-content: flex-start;
 }
 
 .light i {

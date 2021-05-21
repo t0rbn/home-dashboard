@@ -25,21 +25,18 @@ html {
     --border-radius-default: var(--size-big);
     --glass-filter: saturate(2) blur(var(--size-big));
 
-    --cards-coloum-count-maxi: 2;
-    --cards-column-count: 4;
+    --cards-column-count: 2;
 }
 
 @media (min-width: 40rem) {
     html {
-        --cards-coloum-count-maxi: 3;
-        --cards-column-count: 6;
+        --cards-column-count: 3;
     }
 }
 
 
 @media (min-width: 60rem) {
     html {
-        --cards-coloum-count-maxi: 4;
-        --cards-column-count: 8;
+        --cards-column-count: 4;
     }
 }

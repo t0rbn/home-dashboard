@@ -33,7 +33,7 @@ export default {
 
 .widgets {
   display: grid;
-  grid-template-columns: repeat(var(--cards-coloum-count-maxi), 1fr);
+  grid-template-columns: repeat(var(--cards-column-count), 1fr);
   grid-gap: var(--size-medium);
   padding-top: var(--size-medium);
 }

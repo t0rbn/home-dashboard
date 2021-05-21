@@ -109,12 +109,12 @@ h1 {
 
 .color-selector {
   display: grid;
-  grid-auto-rows: var(--size-huge);
   grid-gap: var(--size-medium);
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(calc(2 * var(--cards-column-count)), 1fr);
 }
 
 .color-selector::v-deep > * {
+  aspect-ratio: 1;
   background-image: var(--gradient-glass);
 }
 
