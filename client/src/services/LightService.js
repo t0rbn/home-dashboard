@@ -10,7 +10,6 @@ export default class LightService {
         if (!this.availableScenes.length) {
             const response = await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/scenes`)
             this.availableScenes = await response.json()
-            this.availableScenes.sort((a, b) => a.name < b.name ? -1 : (a.name === b.name ? 0 : 1))
         }
         return this.availableScenes.map(s => s.name)
     }
@@ -18,7 +17,6 @@ export default class LightService {
     static async updateLightbulbs() {
         const response = await fetch(`${config.localApiBaseUrl}${config.lights.apiEndpoint}/bulbs`)
         this.availableLightBulbs = await response.json()
-        this.availableLightBulbs.sort((a, b) => a.name < b.name ? -1 : (a.name === b.name ? 0 : 1))
         await LightService.callLightChangeWatchers()
     }
 

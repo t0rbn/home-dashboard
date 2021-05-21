@@ -2,6 +2,7 @@ import * as fs from 'fs'
 import config from './Config.js'
 import {Accessory, AccessoryTypes, discoverGateway, Group, Scene, Spectrum, TradfriClient} from 'node-tradfri-client'
 import Logger from './Logger.js'
+import IPSODeviceUsageSorter from './IPSODeviceUsageSorter.js';
 import {Service} from './Service'
 import {Application, Request, Response} from 'express'
 
@@ -24,6 +25,8 @@ export default class Lights implements Service {
     private bulbs: Array<Accessory> = []
     private superGroup?: Group
     private logger = new Logger('lights')
+    private bulbsUsageSorter = new IPSODeviceUsageSorter<Accessory>();
+    private scenesUsageSorter = new IPSODeviceUsageSorter<Scene>();
 
     constructor() {
         this.initConnection().then(() => this.initDataAndListeners()).catch()
@@ -121,7 +124,9 @@ export default class Lights implements Service {
         app.post(`${config.tradfri.apiEndpoint}/bulbs/:id/brightness`, async (req: Request, res: Response) => {
             try {
                 const {id} = req.params;
-                await this.setBulbBrightness(Number.parseInt(id as string, 10), Number.parseFloat(req.body))
+                const instanceId = Number.parseInt(id as string, 10)
+                await this.setBulbBrightness(instanceId, Number.parseFloat(req.body))
+                this.bulbsUsageSorter.registerUsage(instanceId)
                 res.sendStatus(200)
             } catch (e) {
                 res.sendStatus(500)
@@ -131,7 +136,9 @@ export default class Lights implements Service {
         app.post(`${config.tradfri.apiEndpoint}/bulbs/:id/temperature`, async (req: Request, res: Response) => {
             try {
                 const {id} = req.params;
-                await this.setBulbTemperature(Number.parseInt(id as string, 10), Number.parseFloat(req.body))
+                const instanceId = Number.parseInt(id as string, 10)
+                await this.setBulbTemperature(instanceId, Number.parseFloat(req.body))
+                this.bulbsUsageSorter.registerUsage(instanceId)
                 res.sendStatus(200)
             } catch (e) {
                 res.sendStatus(500)
@@ -141,7 +148,9 @@ export default class Lights implements Service {
         app.post(`${config.tradfri.apiEndpoint}/bulbs/:id/color`, async (req: Request, res: Response) => {
             try {
                 const {id} = req.params;
-                await this.setBulbColor(Number.parseInt(id as string, 10), req.body)
+                const instanceId = Number.parseInt(id as string, 10)
+                await this.setBulbColor(instanceId, req.body)
+                this.bulbsUsageSorter.registerUsage(instanceId)
                 res.sendStatus(200)
             } catch (e) {
                 res.sendStatus(500)
@@ -155,7 +164,9 @@ export default class Lights implements Service {
 
         app.post(`${config.tradfri.apiEndpoint}/scenes`, async (req: Request, res: Response) => {
             try {
-                await this.setScene(Number.parseInt(req.body, 10))
+                const instanceId = Number.parseInt(req.body, 10)
+                await this.setScene(instanceId)
+                this.scenesUsageSorter.registerUsage(instanceId);
                 res.sendStatus(200)
             } catch (e) {
                 res.sendStatus(500)
@@ -164,7 +175,7 @@ export default class Lights implements Service {
     }
 
     getBulbs(): Array<BulbResponse> {
-        return this.bulbs.map(bulb => ({
+        return this.bulbsUsageSorter.sort(this.bulbs).map((bulb: Accessory) => ({
             name: bulb.name,
             id: bulb.instanceId,
             spectrum: bulb.lightList[0]?.spectrum,
@@ -220,7 +231,7 @@ export default class Lights implements Service {
     }
 
     getScenes(): Array<SceneResponse> {
-        return this.scenes.map((scene: Scene) => ({name: scene.name, id: scene.instanceId}))
+        return this.scenesUsageSorter.sort(this.scenes).map((scene: Scene) => ({name: scene.name, id: scene.instanceId}))
     }
 
     async setScene(sceneId: number): Promise<void> {
