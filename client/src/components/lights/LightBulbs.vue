@@ -62,14 +62,7 @@ export default {
 }
 
 .light {
-  aspect-ratio: 1;
   background-image: var(--gradient-glass) !important;
-}
-
-.light i {
-  display: block;
-  font-size: var(--size-big);
-  margin-bottom: var(--size-small);
 }
 
 .lights .light.on {

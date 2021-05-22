@@ -45,14 +45,14 @@ export default {
   display: grid;
   grid-gap: var(--size-medium);
   grid-template-columns: repeat(var(--cards-column-count), 1fr);
-  grid-auto-rows: min-content;
+  grid-auto-rows: 1fr;
+  grid-auto-flow: dense;
   padding: var(--size-medium) 0;
 }
 
 .scene {
-  aspect-ratio: 1;
   background-position: center center;
-  background-size: cover;
+  background-size: 100%;
   box-shadow: var(--shadow-default);
   display: flex;
   flex-direction: column-reverse;
@@ -60,18 +60,31 @@ export default {
   overflow: hidden;
 }
 
+.scene:hover {
+  background-size: 110%;
+}
+
 .scene::v-deep label {
   backdrop-filter: var(--glass-filter);
   background-color: hsla(0, 0%, 0%, 0.5);
   border-radius: calc(var(--size-small) + (var(--size-medium) / 2));
   color: var(--color-highlight);
+  margin: 0;
   padding: var(--size-small);
   text-align: center;
 }
 
-.scene:hover label {
-  background-color: var(--color-highlight);
-  color: var(--color-background);
+@media (min-width: 60rem) {
+  .scene:first-child {
+    grid-column-end:  span 2;
+    grid-row-end: span 2;
+    aspect-ratio: unset;
+  }
+
+  .scene:nth-child(2), .scene:nth-child(3) {
+    grid-column-end:  span 2;
+    aspect-ratio: unset;
+  }
 }
 
 </style>

@@ -13,6 +13,7 @@ export default {
 
 <style scoped>
 .card-button {
+  aspect-ratio: 1;
   background-color: var(--color-elevation);
   border-radius: var(--border-radius-default);
   box-shadow: var(--shadow-default);
@@ -23,6 +24,15 @@ export default {
 }
 
 .card-button:hover {
-  filter: brightness(1.15);
+  filter: brightness(1.1);
+}
+
+.card-button i {
+  font-size: var(--size-big);
+}
+
+.card-button > * {
+  display: block;
+  margin-bottom: var(--size-small);
 }
 </style>

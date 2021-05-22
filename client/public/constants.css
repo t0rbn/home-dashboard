@@ -34,7 +34,6 @@ html {
     }
 }
 
-
 @media (min-width: 60rem) {
     html {
         --cards-column-count: 4;

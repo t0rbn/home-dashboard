@@ -114,7 +114,6 @@ h1 {
 }
 
 .color-selector::v-deep > * {
-  aspect-ratio: 1;
   background-image: var(--gradient-glass);
 }
 
