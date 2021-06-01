@@ -4,6 +4,10 @@
       <h1>Settings</h1>
     </header>
     <main>
+      <CardButton @click="resizeToScenes()">
+        <i class="fas fa-expand"></i>
+        <label>resize window</label>
+      </CardButton>
       <CardButton @click="reload()">
         <i class="fas fa-sync"></i>
         <label>reload</label>

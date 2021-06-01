@@ -60,6 +60,11 @@ export default {
   overflow: hidden;
 }
 
+.scene:first-child {
+  grid-column-end:  span 2;
+  aspect-ratio: unset;
+}
+
 .scene:hover {
   background-size: 110%;
 }
@@ -72,19 +77,6 @@ export default {
   margin: 0;
   padding: var(--size-small);
   text-align: center;
-}
-
-@media (min-width: 60rem) {
-  .scene:first-child {
-    grid-column-end:  span 2;
-    grid-row-end: span 2;
-    aspect-ratio: unset;
-  }
-
-  .scene:nth-child(2), .scene:nth-child(3) {
-    grid-column-end:  span 2;
-    aspect-ratio: unset;
-  }
 }
 
 </style>
