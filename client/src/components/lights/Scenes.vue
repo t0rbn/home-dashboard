@@ -60,11 +60,6 @@ export default {
   overflow: hidden;
 }
 
-.scene:first-child {
-  grid-column-end:  span 2;
-  aspect-ratio: unset;
-}
-
 .scene:hover {
   background-size: 110%;
 }
