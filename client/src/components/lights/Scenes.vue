@@ -1,26 +1,26 @@
 <template>
-  <section class="scenes">
-        <CardButton
-            class="scene"
-            v-for="(scene) in scenes"
-            :key="scene"
-            @click="triggerScene(scene)"
-            :style="{backgroundImage: background(scene)}"
-        >
-          <label>{{scene !== 'ALLOFF' ? scene : 'Off'}}
-          </label>
-        </CardButton>
-  </section>
+ <GridLayout>
+    <CardButton
+        class="scene"
+        v-for="(scene) in scenes"
+        :key="scene"
+        @click="triggerScene(scene)"
+        :style="{backgroundImage: background(scene)}"
+    >
+      <label>{{ scene !== 'ALLOFF' ? scene : 'Off' }}
+      </label>
+    </CardButton>
+ </GridLayout>
 </template>
 
 <script>
 import LightService from '@/services/LightService'
-import AssetService from '@/services/AssetService'
 import CardButton from '@/components/globals/CardButton'
+import GridLayout from '@/components/globals/GridLayout'
 
 export default {
   name: 'Scenes',
-  components: {CardButton},
+  components: {GridLayout, CardButton},
   data() {
     return {
       scenes: []
@@ -34,22 +34,13 @@ export default {
       LightService.selectScene(scene)
     },
     background(scene) {
-      return `url('/scenes/${scene}.jpg')`;
+      return `url('/scenes/${scene}.jpg')`
     }
   }
 }
 </script>
 
 <style scoped>
-.scenes {
-  display: grid;
-  grid-gap: var(--size-medium);
-  grid-template-columns: repeat(var(--cards-column-count), 1fr);
-  grid-auto-rows: 1fr;
-  grid-auto-flow: dense;
-  padding: var(--size-medium) 0;
-}
-
 .scene {
   background-position: center center;
   background-size: 100%;

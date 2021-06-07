@@ -21,8 +21,8 @@ html {
     --size-big: calc(var(--size-medium) * 1.5);
     --size-small: calc(var(--size-medium) * 0.5);
 
-    --transition-all-default: all 125ms ease;
-    --border-radius-default: var(--size-big);
+    --transition-all-default: all 250ms ease;
+    --border-radius-default: var(--size-medium);
     --glass-filter: saturate(2) blur(var(--size-big));
 
     --cards-column-count: 2;

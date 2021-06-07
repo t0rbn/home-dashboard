@@ -1,19 +1,18 @@
 <template>
-  <div class="status-widgets">
-    <div class="widgets">
+  <GridLayout class="widgets">
       <Temperature></Temperature>
       <Humidity></Humidity>
-    </div>
-  </div>
+  </GridLayout>
 </template>
 
 <script>
 import Temperature from '@/components/climate/Temperature'
 import Humidity from '@/components/climate/Humidity'
+import GridLayout from '@/components/globals/GridLayout'
 
 export default {
   name: 'Climate',
-  components: {Humidity, Temperature}
+  components: {GridLayout, Humidity, Temperature}
 }
 </script>
 
@@ -29,12 +28,5 @@ export default {
   box-sizing: border-box;
   padding: var(--size-medium);
   aspect-ratio: 1;
-}
-
-.widgets {
-  display: grid;
-  grid-template-columns: repeat(var(--cards-column-count), 1fr);
-  grid-gap: var(--size-medium);
-  padding-top: var(--size-medium);
 }
 </style>

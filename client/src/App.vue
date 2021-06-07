@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <Header @openSettings="openSettings()"></Header>
+    <Header></Header>
     <main>
       <h1>Scenes</h1>
       <Scenes></Scenes>
@@ -10,9 +10,11 @@
 
       <h1>Climate</h1>
       <Climate></Climate>
+
+      <h1>Settings</h1>
+      <Settings></Settings>
     </main>
 
-    <SettingsSheet ref="settingsSheet"></SettingsSheet>
   </div>
 </template>
 
@@ -22,15 +24,10 @@ import Header from '@/components/globals/Header'
 import Climate from '@/components/climate/Climate'
 import LightBulbs from '@/components/lights/LightBulbs'
 import Scenes from '@/components/lights/Scenes'
-import SettingsSheet from '@/components/settings/SettingsSheet'
+import Settings from '@/components/settings/Settings'
 
 export default {
-  components: {SettingsSheet, Scenes, Climate, LightBulbs, Header},
-  methods: {
-    openSettings() {
-      this.$refs.settingsSheet.open();
-    }
-  }
+  components: {Settings, Scenes, Climate, LightBulbs, Header}
 }
 </script>
 
@@ -55,6 +52,7 @@ main {
 
 main h1 {
   margin-top: var(--size-huge);
+  margin-bottom: var(--size-big);
 }
 
 </style>

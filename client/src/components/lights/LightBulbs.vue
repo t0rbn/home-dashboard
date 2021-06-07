@@ -1,19 +1,18 @@
 <template>
   <section>
-      <div class="lights">
-        <CardButton
-            v-for="light in lights"
-            class="light"
-            :key="light.id"
-            :style="{backgroundColor: getBgColorForLight(light)}"
-            :class="{on: light.brightness > 0}"
-            @click="selectLight(light)"
-        >
-          <i class="fas fa-lightbulb"></i>
-          <label>{{ light.name }}</label>
-        </CardButton>
-      </div>
-
+    <GridLayout mini="true">
+      <CardButton
+          v-for="light in lights"
+          class="light"
+          :key="light.id"
+          :style="{backgroundColor: getBgColorForLight(light)}"
+          :class="{on: light.brightness > 0}"
+          @click="selectLight(light)"
+      >
+        <i class="fas fa-lightbulb"></i>
+        <label>{{ light.name }}</label>
+      </CardButton>
+    </GridLayout>
     <LightBulbControlSheet :light="selectedLight" @closed="selectLight(null)"></LightBulbControlSheet>
   </section>
 </template>
@@ -22,10 +21,11 @@
 import LightService from '@/services/LightService'
 import CardButton from '@/components/globals/CardButton'
 import LightBulbControlSheet from '@/components/lights/LightBulbControlSheet'
+import GridLayout from '@/components/globals/GridLayout'
 
 export default {
   name: 'LightBulbs',
-  components: {LightBulbControlSheet, CardButton},
+  components: {GridLayout, LightBulbControlSheet, CardButton},
   data() {
     return {
       lights: [],
@@ -54,18 +54,11 @@ export default {
 
 <style scoped>
 
-.lights {
-  display: grid;
-  grid-template-columns: repeat(calc( 2 * var(--cards-column-count)), 1fr);
-  grid-gap: var(--size-medium);
-  padding: var(--size-medium) 0;
-}
-
 .light {
   background-image: var(--gradient-glass) !important;
 }
 
-.lights .light.on {
+.light.on {
   background-image: var(--gradient-glass) !important;
   box-shadow: var(--shadow-glow-hightlight);
   color: var(--color-background);

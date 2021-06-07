@@ -3,7 +3,6 @@
     <main>
       <img src="/Home.jpg">
       <h1>Welcome Home</h1>
-      <a href="#" @click="openSettings()"><i class="fas fa-cog"></i></a>
     </main>
   </header>
 </template>
@@ -13,11 +12,6 @@
 export default {
   name: 'Home',
   components: {},
-  methods: {
-    openSettings() {
-      this.$emit('openSettings')
-    }
-  }
 }
 </script>
 
