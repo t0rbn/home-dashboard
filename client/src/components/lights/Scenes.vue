@@ -34,7 +34,7 @@ export default {
       LightService.selectScene(scene)
     },
     background(scene) {
-      return AssetService.getBackgroundForScene(scene)
+      return `url('/scenes/${scene}.jpg')`;
     }
   }
 }
