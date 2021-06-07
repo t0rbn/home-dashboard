@@ -10,11 +10,7 @@
 
       <h1>Climate</h1>
       <Climate></Climate>
-
-      <h1>Settings</h1>
-      <Settings></Settings>
     </main>
-
   </div>
 </template>
 
@@ -24,10 +20,9 @@ import Header from '@/components/globals/Header'
 import Climate from '@/components/climate/Climate'
 import LightBulbs from '@/components/lights/LightBulbs'
 import Scenes from '@/components/lights/Scenes'
-import Settings from '@/components/settings/Settings'
 
 export default {
-  components: {Settings, Scenes, Climate, LightBulbs, Header}
+  components: {Scenes, Climate, LightBulbs, Header}
 }
 </script>
 
@@ -52,7 +47,7 @@ main {
 
 main h1 {
   margin-top: var(--size-huge);
-  margin-bottom: var(--size-big);
+  margin-bottom: var(--size-medium);
 }
 
 </style>

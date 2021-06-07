@@ -44,25 +44,26 @@ export default {
 .scene {
   background-position: center center;
   background-size: 100%;
-  box-shadow: var(--shadow-default);
   display: flex;
   flex-direction: column-reverse;
-  align-items: stretch;
-  overflow: hidden;
 }
 
 .scene:hover {
   background-size: 110%;
 }
 
-.scene::v-deep label {
+.scene label {
   backdrop-filter: var(--glass-filter);
   background-color: hsla(0, 0%, 0%, 0.5);
-  border-radius: calc(var(--size-small) + (var(--size-medium) / 2));
   color: var(--color-highlight);
   margin: 0;
-  padding: var(--size-small);
+  padding: var(--size-medium);
   text-align: center;
+}
+
+.scene::v-deep {
+  padding: 0;
+  overflow: hidden;
 }
 
 </style>

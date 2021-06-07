@@ -13,7 +13,6 @@ export default {
 
 <style scoped>
 .card-button {
-  aspect-ratio: 1;
   background-color: var(--color-elevation);
   border-radius: var(--border-radius-default);
   box-shadow: var(--shadow-default);

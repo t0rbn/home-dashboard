@@ -5,15 +5,17 @@ import {Service} from './Service'
 import {Application, Request, Response} from 'express'
 
 export type ClimateEntry = {
-    timeStamp: number,
     temp: number,
     humidity: number
 }
 
 export default class Climate implements Service {
 
-    private data: Array<ClimateEntry> = []
     private logger = new Logger('climate')
+    private data: ClimateEntry = {
+        temp: -1,
+        humidity: -1
+    }
 
     constructor() {
         this.read().catch()
@@ -31,13 +33,9 @@ export default class Climate implements Service {
             this.logger.log('reading sensor data')
             const res = await sensor.read(11, config.climate.dht11gpioPin)
             this.logger.log('got new sensor data: ' + res.temperature + 'C' + ' | ' + res.humidity + '%')
-            this.data.push({
-                timeStamp: Date.now(),
+            this.data = {
                 temp: res.temperature + config.climate.temperatureOffset,
                 humidity: (res.humidity + config.climate.humidityOffset) / 100
-            })
-            if (this.data.length > config.climate.historyLength) {
-                this.data.shift()
             }
         } catch (e) {
             this.logger.alert('Unable to read climate sensor data')

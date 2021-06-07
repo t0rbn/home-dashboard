@@ -11,18 +11,18 @@
     </section>
     <section v-if="light.spectrum === 'white'">
       <h1>Color Temperature</h1>
-      <div class="color-selector">
+      <GridLayout mini="true" class="color-selector">
         <CardButton
             v-for="color in getWhiteColors()"
             :key="color"
             :style="{backgroundColor: color}"
             @click="selectColorTemperature(getWhiteColors().indexOf(color) / (getWhiteColors().length -1))"
         ></CardButton>
-      </div>
+      </GridLayout>
     </section>
     <section v-if="light.spectrum === 'rgb'">
       <h1>Color</h1>
-      <div class="color-selector">
+      <GridLayout mini="true" class="color-selector">
         <CardButton
             v-for="color in getRgbColors()"
             :key="color"
@@ -31,7 +31,7 @@
         ></CardButton>
         <CardButton class="custom-color-select-button" label="custom" @click="showColorSelector()"></CardButton>
         <input ref="customColor" type="color" :value="light.color" @change="selectCustomColor">
-      </div>
+      </GridLayout>
     </section>
   </BottomSheet>
 
@@ -42,10 +42,11 @@ import BottomSheet from '@/components/globals/BottomSheet'
 import CardButton from '@/components/globals/CardButton'
 import config from '@/config.json'
 import LightService from '@/services/LightService'
+import GridLayout from '@/components/globals/GridLayout'
 
 export default {
   name: 'LightBulbControlSheet',
-  components: {CardButton, BottomSheet},
+  components: {GridLayout, CardButton, BottomSheet},
   props: ['light'],
   data() {
     return {

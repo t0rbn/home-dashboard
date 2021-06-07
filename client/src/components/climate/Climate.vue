@@ -1,32 +1,43 @@
 <template>
-  <GridLayout class="widgets">
-      <Temperature></Temperature>
-      <Humidity></Humidity>
+  <GridLayout mini="true">
+    <CardButton>
+      <i class="fas fa-thermometer-three-quarters"></i>
+      <label>{{ data.temp }}°C</label>
+    </CardButton>
+
+    <CardButton>
+      <i class="fas fa-tint"></i>
+      <label>{{ data.humidity * 100 }}%</label>
+    </CardButton>
   </GridLayout>
 </template>
 
 <script>
-import Temperature from '@/components/climate/Temperature'
-import Humidity from '@/components/climate/Humidity'
 import GridLayout from '@/components/globals/GridLayout'
+import ClimateService from '@/services/ClimateService'
+import CardButton from '@/components/globals/CardButton'
 
 export default {
   name: 'Climate',
-  components: {GridLayout, Humidity, Temperature}
+  components: {CardButton, GridLayout},
+
+
+  data() {
+    return {
+      data: {temp: -1, humidity: -1}
+    }
+  },
+  methods: {
+    async init() {
+      this.data = (await ClimateService.getData())
+    }
+  },
+  async created() {
+    await this.init()
+    setInterval(async () => this.init(), 60000)
+  }
 }
 </script>
 
 <style scoped>
-.widgets > * {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: vaR(--color-elevation);
-  background-image: var(--gradient-glass);
-  border-radius: var(--border-radius-default);
-  box-shadow: var(--shadow-default);
-  box-sizing: border-box;
-  padding: var(--size-medium);
-  aspect-ratio: 1;
-}
 </style>

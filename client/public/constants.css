@@ -28,13 +28,7 @@ html {
     --cards-column-count: 2;
 }
 
-@media (min-width: 40rem) {
-    html {
-        --cards-column-count: 3;
-    }
-}
-
-@media (min-width: 60rem) {
+@media (min-width: 50rem) {
     html {
         --cards-column-count: 4;
     }
