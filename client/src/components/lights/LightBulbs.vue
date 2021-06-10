@@ -5,7 +5,7 @@
           v-for="light in lights"
           class="light"
           :key="light.id"
-          :style="{backgroundColor: getBgColorForLight(light)}"
+          :style="{backgroundColor: getBgColorForLight(light), boxShadow: `0 0 var(--size-small) 0 ${getBgColorForLight(light)}`}"
           :class="{on: light.brightness > 0}"
           @click="selectLight(light)"
       >
@@ -60,7 +60,6 @@ export default {
 
 .light.on {
   background-image: var(--gradient-glass) !important;
-  box-shadow: var(--shadow-glow-hightlight);
   color: var(--color-background);
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="elevation glass">
     <main>
       <img src="/Home.jpg">
       <h1>Welcome Home</h1>
@@ -17,13 +17,11 @@ export default {
 
 <style scoped>
 header {
+  border: none;
+  border-bottom: 1px solid var(--color-elevation);
   top: 0;
   left: 0;
   right: 0;
-  backdrop-filter: var(--glass-filter);
-  background-color: var(--color-elevation);
-  background-image: var(--gradient-glass);
-  box-shadow: var(--shadow-default);
   padding: var(--size-medium);
   position: sticky;
   z-index: 10;

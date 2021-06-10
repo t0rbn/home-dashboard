@@ -1,5 +1,5 @@
 <template>
-  <div @click="$emit('click')" class="card-button">
+  <div @click="$emit('click')" class="card-button elevation">
     <slot></slot>
   </div>
 </template>
@@ -13,9 +13,7 @@ export default {
 
 <style scoped>
 .card-button {
-  background-color: var(--color-elevation);
   border-radius: var(--border-radius-default);
-  box-shadow: var(--shadow-default);
   box-sizing: border-box;
   cursor: pointer;
   padding: var(--size-medium);

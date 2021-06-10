@@ -44,6 +44,7 @@ export default {
 .scene {
   background-position: center center;
   background-size: 100%;
+  border: none;
   display: flex;
   flex-direction: column-reverse;
 }

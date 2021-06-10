@@ -11,7 +11,7 @@
     </section>
     <section v-if="light.spectrum === 'white'">
       <h1>Color Temperature</h1>
-      <GridLayout mini="true" class="color-selector">
+      <GridLayout mini="true">
         <CardButton
             v-for="color in getWhiteColors()"
             :key="color"
@@ -22,7 +22,7 @@
     </section>
     <section v-if="light.spectrum === 'rgb'">
       <h1>Color</h1>
-      <GridLayout mini="true" class="color-selector">
+      <GridLayout mini="true">
         <CardButton
             v-for="color in getRgbColors()"
             :key="color"
@@ -108,18 +108,9 @@ h1 {
   margin-top: var(--size-huge);
 }
 
-.color-selector {
-  display: grid;
-  grid-gap: var(--size-medium);
-  grid-template-columns: repeat(calc(2 * var(--cards-column-count)), 1fr);
-}
 
-.color-selector::v-deep > * {
-  background-image: var(--gradient-glass);
-}
-
-.color-selector input[type=color] {
-  opacity: 0;
+ input[type=color] {
+  display: none;
 }
 
 .custom-color-select-button {

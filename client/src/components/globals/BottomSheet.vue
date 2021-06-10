@@ -1,6 +1,6 @@
 <template>
   <div class="bottom-sheet-container" :class="{hidden}" @click="close()">
-    <div class="bottom-sheet flyin-up" @click.stop="noop()">
+    <div class="bottom-sheet flyin-up elevation glass" @click.stop="noop()">
       <slot></slot>
     </div>
   </div>
@@ -43,9 +43,8 @@ export default {
 }
 
 .bottom-sheet {
-  background-color: var(--color-elevation);
-  backdrop-filter: var(--glass-filter);
-  background-image: var(--gradient-glass);
+  border: none;
+  border-top: 1px solid var(--color-elevation);;
   border-top-left-radius: var(--size-huge);
   border-top-right-radius: var(--size-huge);
   box-sizing: border-box;
