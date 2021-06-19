@@ -1,6 +1,6 @@
 <template>
   <section>
-    <GridLayout mini="true">
+    <GridLayout>
       <CardButton
           v-for="light in lights"
           class="light"
@@ -13,6 +13,7 @@
         <label>{{ light.name }}</label>
       </CardButton>
     </GridLayout>
+
     <LightBulbControlSheet :light="selectedLight" @closed="selectLight(null)"></LightBulbControlSheet>
   </section>
 </template>
@@ -56,6 +57,14 @@ export default {
 
 .light {
   background-image: var(--gradient-glass) !important;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  aspect-ratio: unset;
+}
+
+.light i {
+  margin-right: var(--size-small);
 }
 
 .light.on {

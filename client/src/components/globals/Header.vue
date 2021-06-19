@@ -4,7 +4,6 @@
       <img src="/Home.jpg">
       <h1>Welcome Home</h1>
     </main>
-    <i class="fas fa-cog" @click="$emit('openSettings')"></i>
   </header>
 </template>
 

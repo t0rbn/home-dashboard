@@ -10,7 +10,7 @@ html {
 
     --color-semihighlight: hsl(0, 0%, 50%);
     --color-highlight: hsl(0, 0%, 95%);
-    --shadow-default: 0 calc(var(--size-small) / 6) calc(var(--size-small) / 3) hsl(0, 0%, 2.5%);
+    --shadow-default: 0 calc(0.5 * var(--size-small)) calc(0.5 * var(--size-small)) hsl(0, 0%, 2.5%);
 
 
     /* Default sizes */
@@ -23,20 +23,12 @@ html {
     --border-radius-default: var(--size-medium);
     --glass-filter: saturate(2) blur(var(--size-big));
 
-    --cards-column-count: 3;
-    --cards-column-count-mini: 4;
-
+    --cards-column-count: 2;
 }
 
-@media (min-width: 50rem) {
-    html {
-        --cards-column-count: 4;
-        --cards-column-count-mini: 6;
-    }
-}
 
 @media (min-width: 60rem) {
     html {
-        --cards-column-count-mini: 8;
+        --cards-column-count: 4;
     }
 }

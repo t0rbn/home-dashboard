@@ -1,13 +1,13 @@
 <template>
-  <GridLayout mini="true">
+  <GridLayout>
     <CardButton>
-      <i class="fas fa-thermometer-three-quarters"></i>
-      <label>{{ data.temp }}°C</label>
+      <h1>{{ data.temp }}°C</h1>
+      <label>Temperature</label>
     </CardButton>
 
     <CardButton>
-      <i class="fas fa-tint"></i>
-      <label>{{ data.humidity * 100 }}%</label>
+      <h1>{{ Math.round(data.humidity * 100) }}%</h1>
+      <label>Humidity</label>
     </CardButton>
   </GridLayout>
 </template>
@@ -40,4 +40,8 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  font-size: var(--size-huge);
+  line-height: var(--size-huge);
+}
 </style>

@@ -25,7 +25,7 @@ export default {
 }
 
 .grid.mini {
-  grid-template-columns: repeat(var(--cards-column-count-mini), 1fr);
+  grid-template-columns: repeat(calc(2 * var(--cards-column-count)), 1fr);
 }
 
 </style>
