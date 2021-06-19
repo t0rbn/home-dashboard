@@ -3,6 +3,7 @@ import sensor from 'node-dht-sensor'
 import Logger from './Logger.js'
 import {Service} from './Service'
 import {Application, Request, Response} from 'express'
+import {generateEndpointUrl} from './Server.js';
 
 export type ClimateEntry = {
     temp: number,
@@ -23,16 +24,14 @@ export default class Climate implements Service {
     }
 
     registerEndpoints(app: Application): void {
-        app.get(config.climate.apiEndpoint, async (_req: Request, res: Response) => {
+        app.get(generateEndpointUrl('climate'), async (_req: Request, res: Response) => {
             res.send(this.data)
         })
     }
 
     async read(): Promise<void> {
         try {
-            this.logger.log('reading sensor data')
             const res = await sensor.read(11, config.climate.dht11gpioPin)
-            this.logger.log('got new sensor data: ' + res.temperature + 'C' + ' | ' + res.humidity + '%')
             this.data = {
                 temp: res.temperature + config.climate.temperatureOffset,
                 humidity: (res.humidity + config.climate.humidityOffset) / 100

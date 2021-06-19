@@ -4,6 +4,7 @@
       <img src="/Home.jpg">
       <h1>Welcome Home</h1>
     </main>
+    <i class="fas fa-cog" @click="$emit('openSettings')"></i>
   </header>
 </template>
 
@@ -11,7 +12,6 @@
 
 export default {
   name: 'Home',
-  components: {},
 }
 </script>
 
@@ -25,6 +25,10 @@ header {
   padding: var(--size-medium);
   position: sticky;
   z-index: 10;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header main {

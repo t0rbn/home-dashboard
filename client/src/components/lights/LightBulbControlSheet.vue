@@ -1,5 +1,4 @@
 <template>
-
   <BottomSheet class="control-sheet" v-if="open" @closed="closeSheet()">
     <header class="sheet-header">
       <i class="fas fa-lightbulb"></i>
