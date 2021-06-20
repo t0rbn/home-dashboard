@@ -1,25 +1,18 @@
 <template>
-  <GridLayout>
-    <CardButton>
-      <h1>{{ data.temp }}°C</h1>
-      <label>Temperature</label>
-    </CardButton>
-
-    <CardButton>
-      <h1>{{ Math.round(data.humidity * 100) }}%</h1>
-      <label>Humidity</label>
-    </CardButton>
-  </GridLayout>
+  <CardButton class="card">
+    <StatusDataEntry icon="fa-thermometer-three-quarters" label="Temperature" :text="`${data.temp}°C`"></StatusDataEntry>
+    <StatusDataEntry icon="fa-tint" label="Humidity" :text="`${Math.round(100 * data.humidity)}%`"></StatusDataEntry>
+  </CardButton>
 </template>
 
 <script>
-import GridLayout from '@/components/globals/GridLayout'
 import ClimateService from '@/services/ClimateService'
 import CardButton from '@/components/globals/CardButton'
+import StatusDataEntry from '@/components/status/StatusDataEntry'
 
 export default {
   name: 'Climate',
-  components: {CardButton, GridLayout},
+  components: {StatusDataEntry, CardButton},
 
 
   data() {
@@ -40,8 +33,7 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  font-size: var(--size-huge);
-  line-height: var(--size-huge);
+.card > * {
+  margin-bottom: var(--size-big);
 }
 </style>

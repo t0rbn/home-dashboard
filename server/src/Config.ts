@@ -10,7 +10,7 @@ export default {
     },
     'climate': {
         'updateReadingIntervalMins': 5,
-        'apiEndpoint': '/climate',
+        'apiEndpoint': '/status',
         'dht11gpioPin': 18,
         'temperatureOffset': -3,
         'humidityOffset': 0

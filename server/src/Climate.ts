@@ -37,7 +37,7 @@ export default class Climate implements Service {
                 humidity: (res.humidity + config.climate.humidityOffset) / 100
             }
         } catch (e) {
-            this.logger.alert('Unable to read climate sensor data')
+            this.logger.alert('Unable to read status sensor data')
         }
     }
 }

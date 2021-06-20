@@ -18,7 +18,6 @@ export default {
   cursor: pointer;
   padding: var(--size-medium);
   transition: var(--transition-all-default);
-  box-shadow: var(--shadow-default);
 }
 
 .card-button:hover {
@@ -27,5 +26,6 @@ export default {
 
 .card-button i {
   font-size: var(--size-big);
+  display: block;
 }
 </style>

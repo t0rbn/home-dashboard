@@ -8,8 +8,8 @@
       <h1>Lights</h1>
       <LightBulbs></LightBulbs>
 
-      <h1>Climate</h1>
-      <Climate></Climate>
+      <h1>Status</h1>
+      <Status></Status>
 
     </main>
   </div>
@@ -18,12 +18,12 @@
 <script>
 
 import Header from '@/components/globals/Header'
-import Climate from '@/components/climate/Climate'
 import LightBulbs from '@/components/lights/LightBulbs'
 import Scenes from '@/components/lights/Scenes'
+import Status from '@/components/status/Status'
 
 export default {
-  components: {Scenes, Climate, LightBulbs, Header}
+  components: {Status, Scenes, LightBulbs, Header}
 }
 </script>
 
@@ -49,6 +49,7 @@ main {
 main h1 {
   margin-top: var(--size-huge);
   margin-bottom: var(--size-medium);
+  color: var(--color-semihighlight)
 }
 
 </style>

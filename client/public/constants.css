@@ -8,10 +8,8 @@ html {
     --color-elevation: hsla(0, 0%, 25%, 0.5);
     --gradient-glass: linear-gradient(170deg, hsla(0, 0%, 0%, 0.25), transparent);
 
-    --color-semihighlight: hsl(0, 0%, 50%);
+    --color-semihighlight: hsl(0, 0%, 75%);
     --color-highlight: hsl(0, 0%, 95%);
-    --shadow-default: 0 calc(0.5 * var(--size-small)) calc(0.5 * var(--size-small)) hsl(0, 0%, 2.5%);
-
 
     /* Default sizes */
     --size-medium: 0.8rem;
