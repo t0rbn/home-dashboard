@@ -23,9 +23,9 @@ export default {
 }
 
 .data-entry i {
-  font-size: var(--size-huge);
-  line-height: var(--size-huge);
-  width: var(--size-huge);
+  font-size: var(--size-big);
+  line-height: var(--size-big);
+  width: var(--size-big);
   text-align: center;
 }
 
