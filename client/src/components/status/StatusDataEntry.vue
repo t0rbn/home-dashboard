@@ -1,6 +1,8 @@
 <template>
 <div class="data-entry">
-  <i :class="['fas', icon]"></i>
+  <div class="icon-container">
+    <i :class="['fas', icon]"></i>
+  </div>
   <div>
     <h1>{{text}}</h1>
     <label>{{label}}</label>
@@ -22,11 +24,22 @@ export default {
   align-items: center;
 }
 
-.data-entry i {
+.data-entry .icon-container {
+  display: flex;
+  flex-direction: column;
+  height: var(--size-huge);
+  aspect-ratio: 1;
+  margin-right: var(--size-small);
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-highlight);
+  border-radius: var(--border-radius-default);
+}
+
+.data-entry .icon-container i {
+  color: var(--color-background);
   font-size: var(--size-big);
   line-height: var(--size-big);
-  width: var(--size-big);
-  text-align: center;
 }
 
 .data-entry label {
@@ -34,10 +47,6 @@ export default {
 }
 
 .data-entry h1 {
-  margin: var(--size-small) 0 0 0;
-}
-
-.data-entry div {
-  display: block;
+  margin: 0 0 0 0;
 }
 </style>

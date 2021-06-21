@@ -8,7 +8,7 @@ html {
     --color-elevation: hsla(0, 0%, 25%, 0.5);
     --gradient-glass: linear-gradient(170deg, hsla(0, 0%, 0%, 0.25), transparent);
 
-    --color-semihighlight: hsl(0, 0%, 75%);
+    --color-semihighlight: hsl(0, 0%, 66%);
     --color-highlight: hsl(0, 0%, 95%);
 
     /* Default sizes */
