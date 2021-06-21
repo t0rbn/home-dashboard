@@ -1,9 +1,9 @@
 <template>
   <CardButton class="card">
     <h1>Network</h1>
-    <StatusDataEntry icon="fa-cloud-download-alt" label="Temperature"
+    <StatusDataEntry icon="fa-cloud-download-alt" label="Download"
                      :text="`${Math.round(100 * data.downloadMbps) / 100} mbps`"></StatusDataEntry>
-    <StatusDataEntry icon="fa-stopwatch" label="Humidity" :text="`${Math.round(data.ping)} ms`"></StatusDataEntry>
+    <StatusDataEntry icon="fa-stopwatch" label="Ping" :text="`${Math.round(data.ping)} ms`"></StatusDataEntry>
   </CardButton>
 </template>
 
