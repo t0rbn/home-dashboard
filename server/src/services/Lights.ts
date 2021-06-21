@@ -1,11 +1,11 @@
 import * as fs from 'fs'
 import config from './Config.js'
 import {Accessory, AccessoryTypes, discoverGateway, Group, Scene, Spectrum, TradfriClient} from 'node-tradfri-client'
-import Logger from './Logger.js'
-import IPSODeviceUsageSorter from './IPSODeviceUsageSorter.js';
+import Logger from '../util/Logger.js'
+import IPSODeviceUsageSorter from '../util/IPSODeviceUsageSorter.js';
 import {Service} from './Service'
 import {Application, Request, Response} from 'express'
-import {generateEndpointUrl} from './Server.js';
+import {generateEndpointUrl} from '../Server.js';
 
 export type BulbResponse = {
     name: string
@@ -249,4 +249,5 @@ export default class Lights implements Service {
         this.logger.alert('rebooting tradfri gateway')
         await this.connection?.rebootGateway()
     }
+
 }

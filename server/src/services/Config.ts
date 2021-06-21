@@ -17,5 +17,9 @@ export default {
     },
     'admin': {
         'apiEndpoint': '/admin',
-    }
+    },
+    'network': {
+        'updateIntervalMins': 30,
+        'apiEndpoint': '/network',
+    },
 }

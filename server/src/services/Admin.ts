@@ -1,7 +1,8 @@
 import {Service} from './Service'
 import {Application, Request, Response} from 'express';
-import {generateEndpointUrl} from './Server.js';
+import {generateEndpointUrl} from '../Server.js';
 import Lights from './Lights.js';
+import ServiceSingletonContainer from '../util/ServiceSingletonContainer.js';
 
 export default class Admin implements Service {
     registerEndpoints(app: Application): void {
@@ -21,6 +22,6 @@ export default class Admin implements Service {
     }
 
     async rebootTradfriGateway() {
-        await (new Lights()).restartGateway();
+        await ServiceSingletonContainer.getService(Lights)?.restartGateway();
     }
 }

@@ -20,6 +20,7 @@
     "express": "latest",
     "node-dht-sensor": "latest",
     "node-tradfri-client": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "speedtest-net": "latest"
   }
 }

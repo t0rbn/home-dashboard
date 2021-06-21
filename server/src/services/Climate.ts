@@ -1,9 +1,9 @@
 import config from './Config.js'
 import sensor from 'node-dht-sensor'
-import Logger from './Logger.js'
+import Logger from '../util/Logger.js'
 import {Service} from './Service'
 import {Application, Request, Response} from 'express'
-import {generateEndpointUrl} from './Server.js';
+import {generateEndpointUrl} from '../Server.js';
 
 export type ClimateEntry = {
     temp: number,
