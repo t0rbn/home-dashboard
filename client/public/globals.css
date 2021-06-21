@@ -30,20 +30,23 @@ strong {
 
 input[type=range] {
     appearance: none;
-    background: var(--color-semihighlight);
-    height: var(--size-small);
-    margin: calc((var(--size-medium) - var(--size-small)) / 2) 0;
+    background-color: transparent;
+    border: 1px solid vaR(--color-semihighlight);
+    height: var(--size-big);
+    border-radius: var(--border-radius-default);
+    margin: calc((var(--size-huge) - var(--size-big)) / 2) 0;
     outline: none;
     width: 100%;
     -webkit-appearance: none;
 }
+
 input[type=range]::-webkit-slider-thumb {
     appearance: none;
     background: var(--color-highlight);
-    border-radius: calc(var(--size-big) / 2);
+    border-radius: var(--border-radius-default);
     cursor: pointer;
-    height: var(--size-big);
-    width: var(--size-big);
+    height: var(--size-huge);
+    width: var(--size-huge);
     -webkit-appearance: none;
 }
 
@@ -56,7 +59,6 @@ a {
     background-color: vaR(--color-elevation);
     background-image: var(--gradient-glass);
     border: 1px solid var(--color-elevation);
-    box-shadow: var(--shadow-default);
 }
 
 .glass {

@@ -89,7 +89,7 @@ export default {
 
 <style scoped>
 h1 {
-  margin-bottom: var(--size-medium);
+  margin-bottom: var(--size-big);
 }
 
 .control-sheet .sheet-header {

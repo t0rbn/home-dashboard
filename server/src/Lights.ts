@@ -181,7 +181,7 @@ export default class Lights implements Service {
             id: bulb.instanceId,
             spectrum: bulb.lightList[0]?.spectrum,
             color: '#' + bulb.lightList[0]?.color,
-            brightness: bulb.lightList[0]?.onOff ? (bulb.lightList[0]?.dimmer / 100) : 0,
+            brightness: bulb.lightList[0]?.onOff ? (bulb.lightList[0]?.dimmer / 100) : 0
         }))
     }
 
