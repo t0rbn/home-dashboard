@@ -1,6 +1,6 @@
 <template>
   <CardButton class="card">
-    <h1>Indoor<br />Climate</h1>
+    <h1>DHT 11</h1>
     <StatusDataEntry icon="fa-thermometer-three-quarters" label="Temperature" :text="`${data.temp}°C`"></StatusDataEntry>
     <StatusDataEntry icon="fa-tint" label="Humidity" :text="`${Math.round(100 * data.humidity)}%`"></StatusDataEntry>
   </CardButton>

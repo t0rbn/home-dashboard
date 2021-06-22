@@ -7,7 +7,6 @@ import Lights from './services/Lights.js'
 import Climate from './services/Climate.js'
 import Logger from './util/Logger.js'
 import Admin from './services/Admin.js';
-import Network from './services/Network.js';
 
 import ServiceSingletonContainer from './util/ServiceSingletonContainer.js';
 import {Service} from './services/Service';
@@ -30,12 +29,9 @@ function start() {
     ServiceSingletonContainer.registerService(new Lights());
     ServiceSingletonContainer.registerService(new Admin());
     ServiceSingletonContainer.registerService(new Climate());
-    ServiceSingletonContainer.registerService(new Network());
-
 
     logger.log('registering service endpoints')
     ServiceSingletonContainer.getAllServices().forEach((service: Service) => service.registerEndpoints(app));
-
 
     app._router.stack.forEach((layer: any) => {
         if (layer.route?.path) {

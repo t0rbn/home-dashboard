@@ -1,7 +1,6 @@
 <template>
   <GridLayout>
     <Climate></Climate>
-    <Network></Network>
   </GridLayout>
 </template>
 
