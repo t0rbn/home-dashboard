@@ -35,6 +35,7 @@ echo "########################################"
 cd $TMP_DIR
 echo ""
 echo "Copying files to destination..."
+ssh pi@192.168.0.118 "rm -r home-dashboard-deployment/*"
 scp -r * pi@192.168.0.118:~/home-dashboard-deployment
 
 echo ""
